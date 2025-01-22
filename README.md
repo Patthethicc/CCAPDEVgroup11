@@ -1,4 +1,4 @@
-# CCAPDEV_GROUP11_MCO1
+# [CCAPDEV] Group 11 | Pro-Ject Frontend
 
 This repository contains the frontend for Group 11's project, which is a
 forum website (Pro-Ject).
