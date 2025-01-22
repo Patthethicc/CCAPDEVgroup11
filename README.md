@@ -1,18 +1,35 @@
 # CCAPDEV_GROUP11_MCO1
 
+This repository contains the frontend for Group 11's project, which is a
+forum website (Pro-Ject).
+
+## TODO
 - [ ] Main Page
-      - changes needed:
-- [ ] Front Page
-      - changes needed:
+  - [x] Posts (hardcoded)
+  - [x] Sidebars
+  - [x] Navigation bar
+  - [ ] Account drop-down
+- [ ] Front Page (Landing page)
 - [ ] Log In Page
-      - changes needed:
+  - [ ] Fields
+  - [ ] Submit button
+  - [ ] Etc.
 - [ ] Sign Up Page
-      - changes needed:
+  - [ ] Fields
+  - [ ] Submit button
+  - [ ] Etc.
 - [ ] View Post Page
-      - changes needed:
-- [ ] Create Project Page
-      - changes needed:
+  - [ ] Full content in text
+  - [ ] Comments
+  - [ ] Upvote/Downvote
+- [ ] Create/Edit Project Page
+  - [ ] Fields
+  - [ ] Post button
+  - [ ] Upload attachments button
 - [ ] Profile Page
-      - changes needed:
-- [ ] Admin Page
-      - changes needed:
+  - [ ] Header Info
+  - [ ] Profile navigation bar
+    - [ ] Projects
+    - [ ] Comments
+    - [ ] Upvotes
+    - [ ] Downvotes
