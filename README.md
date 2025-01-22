@@ -7,3 +7,4 @@ Sign Up Page
 Post Page
 Create Project Page
 Profile Page
+Admin Page
