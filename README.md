@@ -1,8 +1,10 @@
-![image](https://github.com/user-attachments/assets/339a934f-272f-4777-81d9-edc4a94b4522)
 # **[CCAPDEV] Pro-Ject Frontend**
 
 This repository contains the frontend for Group 11's project, which is a
 forum website (Pro-Ject).
+
+Sample image:
+![image](https://github.com/user-attachments/assets/d691221d-cc11-4eca-9406-e124953b27b2)
 
 **Relevant links:**  
 🔗[Project UI](https://www.canva.com/design/DAGcEE4oUvk/ejur2PAXneqDyrMRT5bAHQ/edit?utm_content=DAGcEE4oUvk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)  
