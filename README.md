@@ -9,7 +9,7 @@ forum website (Pro-Ject).
 
 ## Setup
 
-# NOT IMPORTANT
+### NOT IMPORTANT
 **`Project (Vite + ReactJS) Setup`**
 ```bash
 npm create vite@latest
@@ -22,7 +22,7 @@ npm install postcss autoprefixer
 npx tailwindcss init -p
 ```
 
-# IMPORTANT
+### IMPORTANT
 **What to do after `git pull`**
 ```bash
 npm install
