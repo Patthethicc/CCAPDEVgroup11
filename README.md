@@ -17,7 +17,8 @@ forum website (Pro-Ject).
 > npm install
 > ```
 
-1. Run the program
+
+1. `Run the program`
 ```bash
 npm run dev
 ```
@@ -30,7 +31,7 @@ npm run dev
   ➜  press h + enter to show help
 ```
 
-2. Visit the localhost website:
+2.`Visit the localhost website:`
 ![image](https://github.com/user-attachments/assets/9cf3fc7b-b7e9-4392-976d-fa679d74c057)
 
 
