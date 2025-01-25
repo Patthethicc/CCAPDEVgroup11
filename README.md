@@ -1,4 +1,4 @@
-
+![image](https://github.com/user-attachments/assets/339a934f-272f-4777-81d9-edc4a94b4522)
 # **[CCAPDEV] Pro-Ject Frontend**
 
 This repository contains the frontend for Group 11's project, which is a
@@ -9,29 +9,23 @@ forum website (Pro-Ject).
 🔗[Project Proposal](https://docs.google.com/document/d/1PL1ZH4hzbeEBXcMdTVPAzfnHorN40NQg/edit?](url)fbclid=IwZXh0bgNhZW0CMTAAAR0ejRBZqVoqxnEFNZzFsD6DtOUQK-uBrMwa4_m0jaAR_OptCiDFNuGfqXM_aem_0Fr80NR0YtmHPPZR9lpk7Q)  
 
 ## **Usage**
-How to run the website:
 
 1. Run the program
 ```bash
 npm run dev
 ```
-
-2. Visit the localhost website
-
-## **Setup**
-
-### NOT IMPORTANT
-**`Project (Vite + ReactJS) Setup`**
+`response`:
 ```bash
-npm create vite@latest
+  VITE v6.0.11  ready in 139 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
 ```
 
-`**TailwindCSS Setup**`
-```bash
-npm install -d tailwindcss@3.4.17
-npm install postcss autoprefixer
-npx tailwindcss init -p
-```
+2. Visit the localhost website:
+![image](https://github.com/user-attachments/assets/9cf3fc7b-b7e9-4392-976d-fa679d74c057)
+
 
 ### IMPORTANT
 **What to do after `git pull`**
@@ -101,3 +95,19 @@ src/
     - [ ] Comments
     - [ ] Upvotes
     - [ ] Downvotes
+
+
+## **Setup**
+
+### NOT IMPORTANT
+**`Project (Vite + ReactJS) Setup`**
+```bash
+npm create vite@latest
+```
+
+`**TailwindCSS Setup**`
+```bash
+npm install -d tailwindcss@3.4.17
+npm install postcss autoprefixer
+npx tailwindcss init -p
+```
