@@ -9,12 +9,8 @@ forum website (Pro-Ject).
 
 ## Setup
 
-Since I always forget the setup:
-* Vite JS Bundler
-* React
-* JavaScript
-
-**Project (Vite + ReactJS) Setup**
+# NOT IMPORTANT
+**`Project (Vite + ReactJS) Setup`**
 ```bash
 npm create vite@latest
 ```
@@ -26,6 +22,7 @@ npm install postcss autoprefixer
 npx tailwindcss init -p
 ```
 
+# IMPORTANT
 **What to do after `git pull`**
 ```bash
 npm install
