@@ -14,6 +14,22 @@ Since I always forget the setup:
 * React
 * JavaScript
 
+**Project (Vite + ReactJS) Setup**
+```bash
+npm create vite@latest
+```
+
+**TailwindCSS Setup**
+```bash
+npm install -d tailwindcss@3.4.17
+npm install postcss autoprefixer
+npx tailwindcss init -p
+```
+
+**What to do after `git pull`**
+```bash
+npm install
+```
 
 ## TODO
 - [ ] `Main Page` **(Tyrelle)**
