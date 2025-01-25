@@ -1,9 +1,10 @@
 import "./App.css";
+import Header from "./components/Header.jsx";
 
 function App() {
   return (
     <div>
-      <h1 className="bg-red-500">test</h1>
+      <Header />
     </div>
   );
 }

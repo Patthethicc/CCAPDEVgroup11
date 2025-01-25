@@ -1,0 +1,16 @@
+nav {
+  display: flex;
+  gap: 15px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 6px 9px;
+  border-radius: 2.5px;
+}
+
+nav a:hover {
+  transition: background-color 250ms;
+  background-color: var(--background-color);
+}
