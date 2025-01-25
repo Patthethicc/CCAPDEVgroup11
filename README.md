@@ -8,6 +8,16 @@ forum website (Pro-Ject).
 🔗[Project UI](https://www.canva.com/design/DAGcEE4oUvk/ejur2PAXneqDyrMRT5bAHQ/edit?utm_content=DAGcEE4oUvk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)  
 🔗[Project Proposal](https://docs.google.com/document/d/1PL1ZH4hzbeEBXcMdTVPAzfnHorN40NQg/edit?](url)fbclid=IwZXh0bgNhZW0CMTAAAR0ejRBZqVoqxnEFNZzFsD6DtOUQK-uBrMwa4_m0jaAR_OptCiDFNuGfqXM_aem_0Fr80NR0YtmHPPZR9lpk7Q)  
 
+## **Usage**
+How to run the website:
+
+1. Run the program
+```bash
+npm run dev
+```
+
+2. Visit the localhost website
+
 ## **Setup**
 
 ### NOT IMPORTANT
