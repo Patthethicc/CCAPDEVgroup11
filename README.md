@@ -32,7 +32,7 @@ npm run dev
   ➜  press h + enter to show help
 ```
 
-2.`Visit the localhost website:`
+2.`Visit the localhost website:`  
 ![image](https://github.com/user-attachments/assets/359e642c-6c64-4f3a-b1af-095c841e512a)
 
 
