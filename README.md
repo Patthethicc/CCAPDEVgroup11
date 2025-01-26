@@ -53,12 +53,18 @@ src/
 |   ├── Home.jsx
 |   ├── Home.css
 ├── components/
-│   ├── Header.css
-│   ├── Header.jsx
-│   ├── Nav.css
-│   ├── Nav.jsx
-│   ├── SearchBar.css
-│   ├── SearchBar.jsx
+|   ├── Header/
+|   │   ├── Header.css
+|   │   ├── Header.jsx
+|   │   ├── Nav.css
+|   │   ├── Nav.jsx
+|   │   ├── SearchBar.css
+|   │   ├── SearchBar.jsx
+|   ├── Home/
+|   |   ├── Content.jsx
+|   |   ├── Content.css
+|   |   ├── Post.jsx
+|   |   ├── Post.css
 ├── App.css
 ├── App.jsx
 ├── index.css
