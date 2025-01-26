@@ -3,30 +3,39 @@
 This repository contains the frontend for Group 11's project, which is a
 forum website (Pro-Ject).
 
+**Sample image:**
+![image](https://github.com/user-attachments/assets/d691221d-cc11-4eca-9406-e124953b27b2)
+
 **Relevant links:**  
 🔗[Project UI](https://www.canva.com/design/DAGcEE4oUvk/ejur2PAXneqDyrMRT5bAHQ/edit?utm_content=DAGcEE4oUvk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)  
 🔗[Project Proposal](https://docs.google.com/document/d/1PL1ZH4hzbeEBXcMdTVPAzfnHorN40NQg/edit?](url)fbclid=IwZXh0bgNhZW0CMTAAAR0ejRBZqVoqxnEFNZzFsD6DtOUQK-uBrMwa4_m0jaAR_OptCiDFNuGfqXM_aem_0Fr80NR0YtmHPPZR9lpk7Q)  
 
-## **Setup**
+## **Usage**
+> [!IMPORTANT]
+> **NOTE: What to do after `git pull`**
+> ```bash
+> npm install
+> ```
 
-### NOT IMPORTANT
-**`Project (Vite + ReactJS) Setup`**
+
+1. `Run the program`
 ```bash
-npm create vite@latest
+npm run dev
+```
+`response`:
+```bash
+  VITE v6.0.11  ready in 139 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
 ```
 
-`**TailwindCSS Setup**`
-```bash
-npm install -d tailwindcss@3.4.17
-npm install postcss autoprefixer
-npx tailwindcss init -p
-```
+2.`Visit the localhost website:`
+![image](https://github.com/user-attachments/assets/9cf3fc7b-b7e9-4392-976d-fa679d74c057)
 
-### IMPORTANT
-**What to do after `git pull`**
-```bash
-npm install
-```
+
+
 
 ## **Sample File Structure**
 This is the current file structure organization of the project.
@@ -85,6 +94,27 @@ src/
   - [ ] Upload attachments button
 - [ ] `Profile Page` **(Jeff)**
   - [ ] Header Info
+  - [ ] Profile navigation bar
+    - [ ] Projects
+    - [ ] Comments
+    - [ ] Upvotes
+    - [ ] Downvotes
+
+
+## **Setup**
+
+### NOT IMPORTANT
+**`Project (Vite + ReactJS) Setup`**
+```bash
+npm create vite@latest
+```
+
+`**TailwindCSS Setup**`
+```bash
+npm install -d tailwindcss@3.4.17
+npm install postcss autoprefixer
+npx tailwindcss init -p
+```
   - [ ] Profile navigation bar
     - [ ] Projects
     - [ ] Comments
