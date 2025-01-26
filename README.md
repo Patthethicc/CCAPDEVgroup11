@@ -117,8 +117,3 @@ npm install -d tailwindcss@3.4.17
 npm install postcss autoprefixer
 npx tailwindcss init -p
 ```
-  - [ ] Profile navigation bar
-    - [ ] Projects
-    - [ ] Comments
-    - [ ] Upvotes
-    - [ ] Downvotes
