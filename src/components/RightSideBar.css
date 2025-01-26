@@ -1,0 +1,30 @@
+.right-sidebar {
+  position: fixed;
+  right: 8.7rem;
+  background: var(--primary-color);
+  border-radius: 10px;
+  font-size: 20px;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 1.5rem 2rem;
+  width: 18%;
+}
+
+.right-sidebar button {
+  color: var(--sub-text-color);
+  text-align: left;
+  font-size: 20px;
+  background: var(--tertiary-color);
+  padding: 0.5rem;
+  border: none;
+  padding-bottom: 3rem;
+  align-items: flex-start;
+  border-radius: 20px;
+}
+
+.right-sidebar button:hover {
+  transition: background-color 250ms;
+  background: var(--background-color);
+}

@@ -1,0 +1,139 @@
+.post {
+  background: var(--primary-color);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 0.8rem;
+  padding: 20px;
+  max-width: 650px;
+  width: 100%;
+  margin: 10 auto;
+  box-sizing: border-box;
+}
+
+.post-body {
+  white-space: pre-wrap;
+  margin: 1rem 0;
+  word-wrap: break-word; /* Break long words */
+  overflow-wrap: break-word; /* Ensures long text wraps */
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: row;
+  color: var(--sub-text-color);
+  align-items: flex-start;
+}
+
+.post-meta img {
+  border-radius: 100%;
+  width: 1.5em;
+  height: 1.5em;
+  object-fit: cover;
+  margin-right: 0.5rem;
+}
+
+.post-meta a {
+  color: var(--sub-text-color);
+  text-decoration: none;
+  justify-content: flex-end;
+  margin-right: 0.4rem;
+}
+
+.post-header {
+  display: flex;
+  margin-top: 0.2rem;
+}
+
+.post-title {
+  font-size: 1.2rem;
+  margin-bottom: 1vh;
+  flex: 2;
+  min-width: 0;
+}
+
+.deadline-bar {
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  background: var(--background-color);
+  margin-bottom: 10px;
+  flex: 1;
+  min-width: 50px;
+}
+
+/* this is currently hardcoded */
+.deadline-bar .progress {
+  height: 100%;
+  width: 50%; /* Dynamically update this value */
+  background: var(--sub-text-color);
+  border-radius: 5px;
+}
+
+.post-tags {
+  padding-right: 0.5rem;
+  border-radius: 10px;
+}
+
+.post-tags span {
+  box-shadow: 0 2px 5px var(--primary-color);
+  text-align: center;
+  font-size: 14px;
+  border-radius: 10px;
+  padding: 0 0.8rem;
+  margin-right: 0.2rem;
+}
+
+.in-progress-tag {
+  background: var(--in-progress-color);
+}
+
+.started-tag {
+  background: var(--started-color);
+}
+
+.finished-tag {
+  background: var(--finished-color);
+}
+
+.deployed-tag {
+  background: var(--deployed-color);
+  color: black;
+}
+.post-actions {
+  flex: 2;
+  display: flex;
+  flex-wrap: wrap;
+  padding-right: 8em;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.4rem;
+}
+
+.post-actions button {
+  background: var(--secondary-color);
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--sub-text-color);
+  padding: 3px;
+  display: flex;
+  align-items: center;
+}
+
+.post-actions button:hover {
+  color: var(--primary-color);
+}
+
+.post-actions .votes {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.post-actions .votes {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
