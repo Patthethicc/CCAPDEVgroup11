@@ -6,6 +6,9 @@
   --text-color: #ffffff;
   --sub-text-color: #f1dfb6;
   --in-progress-color: #ef601e;
+  --started-color: #24a3bd;
+  --finished-color: #17a021;
+  --deployed-color: #ded01f;
   --warning-color: #ffc107;
 }
 
@@ -30,4 +33,37 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .left-sidebar,
+  .right-sidebar {
+    display: none;
+  }
+
+  main {
+    flex-direction: column;
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  opacity: 0;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--background-color);
 }
