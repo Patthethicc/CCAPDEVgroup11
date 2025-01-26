@@ -4,7 +4,8 @@ This repository contains the frontend for Group 11's project, which is a
 forum website (Pro-Ject).
 
 **Sample image:**
-![image](https://github.com/user-attachments/assets/d691221d-cc11-4eca-9406-e124953b27b2)
+![image](https://github.com/user-attachments/assets/b8ff0105-c63f-4b3e-ad85-3ffe21790e62)
+
 
 **Relevant links:**  
 🔗[Project UI](https://www.canva.com/design/DAGcEE4oUvk/ejur2PAXneqDyrMRT5bAHQ/edit?utm_content=DAGcEE4oUvk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)  
@@ -32,7 +33,7 @@ npm run dev
 ```
 
 2.`Visit the localhost website:`
-![image](https://github.com/user-attachments/assets/9cf3fc7b-b7e9-4392-976d-fa679d74c057)
+![image](https://github.com/user-attachments/assets/359e642c-6c64-4f3a-b1af-095c841e512a)
 
 
 
@@ -46,19 +47,20 @@ This is the current file structure organization of the project.
 `directory:`
 ```
 src/
-├── assets/
-|   ├── fonts/
-|   |   Garet.ttf
-├── pages/
-|   ├── Home.jsx
-|   ├── Home.css
+├── assets/ 
+│   ├── fonts/     
 ├── components/
-│   ├── Header.css
-│   ├── Header.jsx
-│   ├── Nav.css
-│   ├── Nav.jsx
-│   ├── SearchBar.css
-│   ├── SearchBar.jsx
+│   ├── Houses all reusable React components, grouped logically by feature or section.
+│   ├── Header/
+│   |   ├── Contains components related to the header section
+│   ├── Home/
+│   |   ├── Contains components specific to the home section
+├── hooks/
+|   ├── Contains the React hooks used
+├── pages/
+|   ├── Contains the different pages of the website
+├── services/
+|   ├── Contains microservices such as APIs and formatting modules
 ├── App.css
 ├── App.jsx
 ├── index.css
