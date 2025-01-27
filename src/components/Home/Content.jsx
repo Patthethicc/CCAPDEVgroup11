@@ -1,18 +1,14 @@
 import Post from "./Post.jsx";
-import usePostData from "../../hooks/usePostData.js";
 import useFormatPost from "../../hooks/useFormatPost.js";
 import "./Content.css";
 
 export default function Content() {
-  const { postData, isLoading } = usePostData();
-
-  const formattedPosts = useFormatPost(postData);
+  const { formattedPosts, isLoading } = useFormatPost();
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <p className="content-center">Loading...</p>;
   }
 
-  console.log(formattedPosts);
   if (!formattedPosts) {
     return <p className="color-red">No post data fetched.</p>;
   }
