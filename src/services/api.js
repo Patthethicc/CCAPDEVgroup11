@@ -14,9 +14,11 @@ const generatePost = async function () {
     - body: a brief description of the project
     - actions: an array of four action strings (follow this format: "⬆️ 123", "⬇️", "💬 21", "🔗")
     
-    always ensure that your responses ARE RANDOM SO THEY MUST GREATLY VARY
+    always ensure that your responses ARE RANDOM AND THAT THEY ARE DIFFERENT FROM YOUR PREVIOUS RESPONSE ALWAYS
     
-    ENSURE THAT THE OUTPUT IS A VALID JSON
+    ENSURE THAT THE OUTPUT IS A VALID JSON 
+
+    WHY DO YOU KEEP RESPONDING WITH AI-POWERED RECIPE GENERATOR? ALWAYS MAKE NEW PROJECTS DONT REPEAT ANYTHING
 
     Sample data format:
     [   
