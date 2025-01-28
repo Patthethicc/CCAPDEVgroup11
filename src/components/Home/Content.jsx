@@ -6,7 +6,7 @@ export default function Content() {
   const { formattedPosts, isLoading } = useFormatPost();
 
   if (isLoading) {
-    return <p className="content-center">Loading...</p>;
+    return <p className="mx-50 content-center">Loading...</p>;
   }
 
   if (!formattedPosts) {
@@ -16,7 +16,6 @@ export default function Content() {
   return (
     <div className="content">
       {formattedPosts.map(function (formattedPost, index) {
-        console.log(formattedPost);
         return (
           <Post
             key={index}

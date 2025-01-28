@@ -2,10 +2,6 @@ import PropTypes from "prop-types";
 import "./Post.css";
 
 export default function Post({ meta, header, tags, body, actions }) {
-  if (!meta || !header || !tags || !body || !actions) {
-    return <p>Invalid post data</p>;
-  }
-
   return (
     <div className="post">
       <div className="post-meta">

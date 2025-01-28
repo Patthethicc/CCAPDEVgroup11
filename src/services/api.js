@@ -54,7 +54,6 @@ const generatePost = async function () {
     .replace(/^```json/, "")
     .replace(/```$/, "");
 
-  console.log("Cleaned response:", responseText);
   return JSON.parse(responseText); // Ensure it's returned as JSON
 };
 

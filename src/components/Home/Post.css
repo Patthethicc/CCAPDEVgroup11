@@ -13,8 +13,8 @@
 .post-body {
   white-space: pre-wrap;
   margin: 1rem 0;
-  word-wrap: break-word; /* Break long words */
-  overflow-wrap: break-word; /* Ensures long text wraps */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .post-meta {
@@ -65,7 +65,7 @@
 /* this is currently hardcoded */
 .deadline-bar .progress {
   height: 100%;
-  width: 50%; /* Dynamically update this value */
+  width: 50%;
   background: var(--sub-text-color);
   border-radius: 5px;
 }
