@@ -13,7 +13,7 @@ export default function StsDropdownMenu() {
             hover:bg-[var(--brighter-bg-color)] transition-colors"
         >
           Status
-          <FontAwesomeIcon icon={faSortDown} aria-hidden="true" />
+          <FontAwesomeIcon icon={faSortDown} aria-hidden="false" />
         </MenuButton>
       </div>
       <MenuItems
