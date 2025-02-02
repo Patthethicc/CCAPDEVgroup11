@@ -1,0 +1,94 @@
+body {
+  background-color: #373d3b;
+}
+
+.view-content {
+  padding: 10px;
+  font-family: Arial, sans-serif;
+  color: #f1dfb6;
+}
+
+.view-content .post-profile-container {
+  background-color: #697973;
+}
+
+.post-profile-container {
+  border: 0px solid goldenrod;
+  width: 570px;
+  height: 50px;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 10px;
+
+  display: flex;
+  justify-content: space-between; /* This will space out the children */
+  align-items: center; /* This will vertically align the children */
+}
+
+.post-profile-container #post-container-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  float: left;
+}
+
+.post-profile-container #post-follow-message button {
+  background-color: #373d3b;
+  border-radius: 10px;
+  color: #f1dfb6;
+}
+
+.post-details-container {
+  background-color: #697973;
+  width: 570px;
+  height: 1000px;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.post-title-deadline {
+  /*background-color: #373d3b;*/
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#deadline {
+  font-size: 14px;
+  margin-left: 180px;
+  background-color: #373d3b;
+  border-radius: 7px;
+}
+
+#triple-dot {
+  margin-right: 10px;
+  font-size: x-large;
+}
+
+.project-status {
+  background-color: #ef601e;
+  border-radius: 10px;
+  width: 100px;
+}
+
+.post-caption-paragraph {
+  padding-left: 10px;
+  padding-right: 10px;
+  height: fit-content;
+  color: #ffffff;
+}
+
+.post-add-comment {
+  background-color: #373d3b;
+  height: 30px;
+  border-radius: 15px;
+  padding-top: 5px;
+  padding-left: 12px;
+  color: #697973;
+  font-family: "Dekko", Arial;
+}
