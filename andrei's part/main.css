@@ -290,7 +290,7 @@ main {
 }
 
 .left-sidebar {
-  width: 15%;
+  width: 45%; /* 15 -> 45*/
 }
 
 .right-sidebar {
@@ -651,12 +651,12 @@ main {
   margin: 1rem 0;
 }
 
-.post-actions {
+.post-actions-buttons {
   display: flex;
   gap: 15px;
 }
 
-.post-actions button {
+.post-actions-buttons button {
   background: var(--primary-color);
   border: none;
   cursor: pointer;
@@ -667,13 +667,15 @@ main {
   display: flex;
   align-items: center;
   gap: 5px;
+  margin-top: 10px;
+  margin-bottom: 7px;
 }
 
-.post-actions button i {
+.post-actions-buttons button i {
   font-size: 14px;
 }
 
-.post-actions button:hover {
+.post-actions-buttons button:hover {
   color: var(--secondary-color);
 }
 

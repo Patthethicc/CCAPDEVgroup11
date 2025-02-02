@@ -92,3 +92,22 @@ body {
   color: #697973;
   font-family: "Dekko", Arial;
 }
+
+/*
+.post-image-container {
+  height: 200px;
+  width: 200px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+  */
+
+#carouselExample {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.downvote-button {
+  margin-left: 0px;
+}
