@@ -1,0 +1,58 @@
+.profileHeader{
+    gap: 5px;
+}
+
+.coverPhoto{
+	height: 125px;
+	width: 500px;
+	background-color: var(--secondary-color);
+	margin-bottom: -40px;
+	border-radius: 25px;
+}
+
+.profilePic{
+    border-radius: 50%;
+    width: 125px;
+    height: 125px;
+	margin-left: 10px;
+}
+
+.info-container {
+	display: flex;
+}
+
+
+.user-info .userHandle{
+	font-size: 30px;
+	font: bold;
+}
+
+.user-info .userName {
+	color: var(--primary-color);
+	margin-bottom: 5px;
+}
+
+.user-info .bio{
+	color: var(--sub-text-color);
+	font-size: 15px;
+}
+
+.picture-border{
+	flex: 1;
+	border: var(--secondary-color);
+	border-radius: 5px;
+}
+.user-info{
+	flex-direction: column;
+	margin-top: 40px;
+	margin-right: 125px;
+	margin-bottom: 20px;
+}
+
+
+.profileContentButtons button{
+	padding: 5px;
+	background-color: var(--secondary-color);
+	border-radius: 10px;
+	border-spacing: 10px;
+}
