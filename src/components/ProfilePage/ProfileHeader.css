@@ -39,16 +39,29 @@
 
 .picture-border{
 	flex: 1;
-	border: var(--secondary-color);
+	border-color: var(--primary-color);
 	border-radius: 5px;
+	border-top: 10px;
 }
 .user-info{
 	flex-direction: column;
 	margin-top: 40px;
-	margin-right: 125px;
+	margin-right: 40px;
 	margin-bottom: 20px;
 }
 
+.headerOptions{
+	margin-top: 50px;
+	size: 3px;
+}
+
+.headerOptions button{
+	padding: 1px;
+	background-color: var(--primary-color);
+	border-radius: 10px;
+	border-spacing: .5px;	
+	
+}
 
 .profileContentButtons button{
 	padding: 5px;

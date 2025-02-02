@@ -1,4 +1,10 @@
 import "./ProfileHeader.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+	faEllipsisH,
+	faCommenting,
+	faPlus
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function ProfileHeader() {
 	return (
@@ -10,6 +16,11 @@ export default function ProfileHeader() {
 					<div className="userHandle">HansPerez</div>
 					<div className="userName">@hans_perez</div>
 					<div className="bio">2nd Year BSCS-ST at DLSU <br/>dm for Math Tutoring</div>
+				</div>
+			<div className="headerOptions">
+				<button><FontAwesomeIcon icon={faEllipsisH} id="elipsisIcon"></FontAwesomeIcon></button>
+				<button><FontAwesomeIcon icon={faCommenting} id="message"></FontAwesomeIcon></button>
+				<button><FontAwesomeIcon icon={faPlus} id="plusIcon"></FontAwesomeIcon> Follow</button>
 				</div>
 			</div>
 		<div className="profileContentButtons">
