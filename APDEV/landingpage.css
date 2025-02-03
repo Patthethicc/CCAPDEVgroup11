@@ -1,0 +1,61 @@
+@import url(https://db.onlinewebfonts.com/c/be842a48e70a93b8dbb48f966ce29100?family=Room+Handmade);
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+US+Modern:wght@100..400&display=swap');
+@font-face {
+    font-family: "Room Handmade";
+    src: url("https://db.onlinewebfonts.com/t/be842a48e70a93b8dbb48f966ce29100.eot");
+    src: url("https://db.onlinewebfonts.com/t/be842a48e70a93b8dbb48f966ce29100.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/be842a48e70a93b8dbb48f966ce29100.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/be842a48e70a93b8dbb48f966ce29100.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/be842a48e70a93b8dbb48f966ce29100.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/be842a48e70a93b8dbb48f966ce29100.svg#Room Handmade")format("svg");
+}
+
+.logo {
+    align-items: center;
+    font-family: "Room Handmade";
+}
+
+.maintitle {
+    margin: 0;
+    font-size: 125px;
+    font-family: "Room Handmade";
+}   
+
+.tagline {
+    margin: 0;
+    font-family: "Playwrite US Modern Variable", serif;
+    text-align: center;
+    font-size: 21.5px;
+    color: #f1dfb6;
+}
+
+.group {
+    margin-top: 150px;
+}
+
+.table1 {
+    margin-top: 75px;
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    border: 2.5px solid #515d59;
+    border-radius: 25px;
+    background-color: #373d3b;
+    cursor: pointer;
+    color: #fdf3dd;
+    padding-top: 8.5px;
+    padding-bottom: 8.5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: #515d59;
+}
+
+.spaceBetweenCells td {
+    padding: 0 15px;
+}
