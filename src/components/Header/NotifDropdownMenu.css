@@ -1,0 +1,59 @@
+.notif-dropdown-menu {
+  position: relative;
+}
+
+.notif-dropdown-menu .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--sub-text-color);
+  font-size: 17px;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  position: relative;
+  border-radius: 50%;
+  border: none;
+  transition: background-color;
+}
+
+.notif-dropdown-menu .button:hover {
+  background: var(--background-color);
+}
+
+.notif-dropdown-menu .dot {
+  position: absolute;
+  top: 0.35em;
+  right: 0.4em;
+  background-color: var(--sub-text-color);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.menu-items {
+  position: absolute;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  padding: 1em;
+  border-radius: 5px;
+  top: 40px;
+  right: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  width: 300px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.notif-dropdown-menu .menu-item {
+  width: 100%;
+  padding: 0.5em;
+  gap: 10px;
+  text-align: left;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}

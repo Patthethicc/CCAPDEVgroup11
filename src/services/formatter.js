@@ -13,7 +13,13 @@ const getRandImg = function () {
   return imgSrc[index];
 };
 
-const formatPostData = async function (rawData) {
+const actionIcons = [
+  "fa fa-arrow-up mx-1",
+  "fa fa-arrow-down mx-1",
+  "fa fa-comments mx-1",
+];
+
+const formatPostData = function (rawData) {
   return {
     meta: {
       imgSrc: getRandImg(),
@@ -29,7 +35,10 @@ const formatPostData = async function (rawData) {
       className: rawData.tags.className,
     },
     body: rawData.body,
-    actions: rawData.actions,
+    actions: rawData.actions.map((count, index) => ({
+      label: count,
+      icon: actionIcons[index],
+    })),
   };
 };
 

@@ -1,26 +1,26 @@
 import "./LeftSideBar.css";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHouse,
-  faGlobe,
-  faArrowUpRightDots,
-} from "@fortawesome/free-solid-svg-icons";
-import { faClock } from "@fortawesome/free-regular-svg-icons";
+import { faScroll } from "@fortawesome/free-solid-svg-icons";
 
 export default function LeftSideBar() {
   return (
     <div className="left-sidebar">
+      <Link to="/">
+        <button>
+          <i className="fa fa-home mx-[0.6em]" />
+          Home
+        </button>
+      </Link>
       <button>
-        <FontAwesomeIcon icon={faHouse} id="icon" /> Home
+        <i className="fa fa-fire mx-[0.6em]" /> Popular
       </button>
       <button>
-        <FontAwesomeIcon icon={faArrowUpRightDots} id="icon" /> Popular
+        <i className="fa fa-exclamation-triangle mx-[0.6em]" /> Urgent
       </button>
       <button>
-        <FontAwesomeIcon icon={faClock} id="icon" /> Urgent
-      </button>
-      <button>
-        <FontAwesomeIcon icon={faGlobe} id="icon" /> All
+        <FontAwesomeIcon icon={faScroll} className="mx-[0.7em]" />
+        All
       </button>
     </div>
   );

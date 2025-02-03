@@ -12,7 +12,7 @@ const generatePost = async function () {
     - header.deadline: a percentage (0 to 100)
     - tags: strings "className" and "text" that tell the progress of a project
     - body: a brief description of the project
-    - actions: an array of four action strings (follow this format: "⬆️ 123", "⬇️", "💬 21", "🔗")
+    - actions: an array of three action strings (follow this format: " 123", " 0", " 21") Do not add any emojis or anything, just the numbers
     
     always ensure that your responses ARE RANDOM AND THAT THEY ARE DIFFERENT FROM YOUR PREVIOUS RESPONSE ALWAYS
     
@@ -41,7 +41,7 @@ const generatePost = async function () {
         when you use bullet points, don't do markdown but do something like:
         - Information1
         - Information2),
-        actions: ["⬆️ 150", "⬇️", "💬 30", "🔗"],
+        actions: ["150", "0", "30"],
       }
     ],
     [... then add more of the same kind of content]
