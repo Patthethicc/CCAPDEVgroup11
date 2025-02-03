@@ -1,5 +1,8 @@
 import TitleField from "../components/CreateProject/TitleField.jsx";
 import StsDropdownMenu from "../components/CreateProject/StsDropdownMenu.jsx";
+import BodyField from "../components/CreateProject/BodyField.jsx";
+import UploadFilesBtn from "../components/CreateProject/UploadFilesBtn.jsx";
+import PostBtn from "../components/CreateProject/PostBtn.jsx";
 import "../App.css";
 
 export default function CreateProject() {
@@ -12,6 +15,9 @@ export default function CreateProject() {
       <h1 className="font-bold text-xl">Create Project</h1>
       <TitleField />
       <StsDropdownMenu />
+      <BodyField />
+      <UploadFilesBtn />
+      <PostBtn />
     </div>
   );
 }

@@ -6,27 +6,18 @@ export default function Content() {
   const { formattedPosts, isLoading } = useFormatPost();
 
   if (isLoading) {
-    return <p className="mx-50 content-center">Loading...</p>;
+    return <p className="loading-message">Loading...</p>;
   }
 
-  if (!formattedPosts) {
-    return <p className="color-red">No post data fetched.</p>;
+  if (!formattedPosts || formattedPosts.length === 0) {
+    return <p className="error-message">No post data available.</p>;
   }
 
   return (
     <div className="content">
-      {formattedPosts.map(function (formattedPost, index) {
-        return (
-          <Post
-            key={index}
-            meta={formattedPost.meta}
-            header={formattedPost.header}
-            tags={formattedPost.tags}
-            body={formattedPost.body}
-            actions={formattedPost.actions}
-          />
-        );
-      })}
+      {formattedPosts.map((post) => (
+        <Post key={post.id} post={post} />
+      ))}
     </div>
   );
 }

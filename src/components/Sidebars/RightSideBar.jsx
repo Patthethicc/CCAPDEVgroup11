@@ -8,13 +8,16 @@ export default function RightSideBar() {
         <NewProjetBtn />
         <div className="right-sidebar">
           <button>
-            <span>📂</span> My Projects
+            <i className="fa fa-folder-open mx-[0.6em]" />
+            My Projects
           </button>
           <button>
-            <span>📚</span> Study Rooms
+            <i className="fa fa-book mx-[0.6em]" />
+            Study Rooms
           </button>
           <button>
-            <span>🏆</span> Challenges
+            <i className="fa fa-trophy mx-[0.6em]" />
+            Challenges
           </button>
         </div>
       </div>
