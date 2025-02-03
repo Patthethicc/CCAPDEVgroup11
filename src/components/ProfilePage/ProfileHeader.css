@@ -1,5 +1,5 @@
 .profileHeader{
-    gap: 5px;
+	gap: 5px;
 }
 
 .coverPhoto{
@@ -8,6 +8,7 @@
 	background-color: var(--secondary-color);
 	margin-bottom: -40px;
 	border-radius: 25px;
+	width: 100%;
 }
 
 .profilePic{
@@ -18,11 +19,9 @@
 }
 .picture-border{
 	flex: 1;
-	border-color: var(--background-color);
-	border-radius: 30px;
-	border-top: 10px;
-	width: 125px;
-    height: 125px;
+	border-radius: 50%;
+	width: 100px;
+    height: 100px;
 }
 
 .info-container {
@@ -49,7 +48,7 @@
 .user-info{
 	flex-direction: column;
 	margin-top: 40px;
-	margin-right: 40px;
+	margin-right: 120px;
 	margin-bottom: 20px;
 }
 
@@ -62,7 +61,7 @@
 
 .headerOptions button{
 	margin: 0px 1px;
-	padding: 1px;
+	padding: 0px 7.5px;
 	height: 20%;
 	background-color: var(--primary-color);
 	border-radius: 15px;
