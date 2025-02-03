@@ -11,3 +11,13 @@
   font-family: "garet-heavy";
   src: url("./assets/fonts/Garet-Heavy.ttf");
 }
+
+@font-face {
+  font-family: "room-handmade";
+  src: url("./assets/fonts/Room Handmade.ttf");
+}
+
+@font-face {
+  font-family: "playwriteUS";
+  src: url("./assets/fonts/PlaywriteUSModern-VariableFont_wght.ttf");
+}

@@ -6,7 +6,7 @@ import Actions from "./Actions.jsx";
 export default function Header() {
   return (
     <header>
-      <div className="logo">Pro-Ject</div>
+      <div className="logo">P r o - J e c t</div>
       <Nav />
       <SearchBar />
       <Actions />
