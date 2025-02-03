@@ -1,9 +1,16 @@
+.profileContent{
+	background-color: var(--brighter-bg-color);
+	border-radius: 20px;
+	border-width: 100%;
+}
+
 .postFilter{
 	background-color: var(--secondary-color);
 	border-radius: 20px;
 	padding: 5px;
 	margin-top: 10px;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
+	height: 2rem;
 }
 
 .project-list{

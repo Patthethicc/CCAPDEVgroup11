@@ -5,8 +5,16 @@ import {
 	faCommenting,
 	faPlus
 } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 
 export default function ProfileHeader() {
+	const [activeBtn, setActiveBtn] = useState(null);
+
+	const handleClick = (index) => {
+		setActiveBtn(index);
+	};
+
+
 	return (
 	  <div className="profileHeader">
 		<div className="coverPhoto"></div>
@@ -24,10 +32,22 @@ export default function ProfileHeader() {
 				</div>
 			</div>
 		<div className="profileContentButtons">
-			<button>Projects</button>
-			<button>Comments</button>
-			<button>Upvotes</button>
-			<button>Downvotes</button>
+			<button 
+			className={activeBtn === 0 ? 'active' : ''} 
+			onClick={() => handleClick(0)}
+			>Projects</button> 
+			<button 
+			className={activeBtn === 1 ? 'active' : ''} 
+			onClick={() => handleClick(1)}
+			>Comments</button>
+			<button
+			className={activeBtn === 2 ? 'active' : ''} 
+			onClick={() => handleClick(2)}
+			>Upvotes</button>
+			<button
+			className={activeBtn === 3 ? 'active' : ''} 
+			onClick={() => handleClick(3)}
+			>Downvotes</button>
 			</div>
 		</div>
 	);
