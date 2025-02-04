@@ -28,6 +28,7 @@
 .user-info .userHandle{
 	font-size: 30px;
 	font: bold;
+	font-family: "Garet-Book";
 }
 
 .user-info .userName {
@@ -38,6 +39,7 @@
 .user-info .bio{
 	color: var(--sub-text-color);
 	font-size: 15px;
+	font-family: "Garet-Book";
 }
 
 

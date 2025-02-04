@@ -4,9 +4,9 @@ import "../components/Landing/page.css"
 
 export default function LandingPage() {
     return (
-        <body>
+        <div className="body-landing">
             <LandingHeader />
             <LandingContent />
-        </body>
+        </div>
     );
 }
