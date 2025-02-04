@@ -8,7 +8,7 @@ export default function StsDropdownMenu({ value, onChange }) {
     <Menu as="div" className="text-left relative">
       <div>
         <MenuButton
-          className="menu-button inline-flex bg-[var(--background-color)] w-[26%] 
+          className="menu-button inline-flex bg-[var(--background-color)] min-w-[22%] w-auto
             text-sm shadow-md rounded-md font-semibold px-3 py-1 gap-x-2
             hover:bg-[var(--brighter-bg-color)] transition-colors"
         >

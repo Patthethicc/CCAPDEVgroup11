@@ -1,6 +1,5 @@
-import LandingContent from "../components/Landing/LandingContent"
-import LandingHeader from "../components/Landing/LandingHeader"
-import "../components/Landing/page.css"
+import LandingContent from "../components/Landing/LandingContent";
+import LandingHeader from "../components/Landing/LandingHeader";
 
 export default function LandingPage() {
     return (
