@@ -1,7 +1,33 @@
-.profileContent{
+
+.profileContentProper{
 	background-color: var(--brighter-bg-color);
 	border-radius: 20px;
 	border-width: 100%;
+}
+
+.profileContentButtons{
+	display: flex;
+	gap: 5px;
+}
+
+.profileContentButtons button{
+	padding: 5px;
+	background-color: var(--background-color);
+	border-color: var(--background-color);
+	color: var(--text-color);
+	border-radius: 50px;
+	border-spacing: 10px;
+	border-width: 3px;
+}
+
+.profileContentButtons button:hover{
+	transition: background-color 250ms;
+	background: var(--primary-color);
+}
+
+.profileContentButtons button.active {
+	transition: background-color 250ms;
+	background-color: var(--primary-color);
 }
 
 .postFilter{
@@ -11,6 +37,12 @@
 	margin-top: 10px;
 	margin-bottom: 10px;
 	height: 2rem;
+}
+
+.postFilter button:hover{
+	transition: background-color 250ms;
+	background: var(--primary-color);
+	border-radius: 20px;
 }
 
 .project-list{
