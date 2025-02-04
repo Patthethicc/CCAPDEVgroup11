@@ -3,23 +3,26 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faEllipsisH,
 	faCommenting,
-	faPlus
+	faPlus,
+	faCheck
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
-export default function ProfileHeader() {
-	const [activeBtn, setActiveBtn] = useState(null);
 
-	const handleClick = (index) => {
-		setActiveBtn(index);
+export default function ProfileHeader() {
+	
+	const [followBtn, setFollowBtn]=useState(false);
+	function handleClick(){
+		setFollowBtn(followBtn => !followBtn);
 	};
 
-
+	let followBtnCheck = followBtn ? '-follow' : '-following';
+	
 	return (
 	  <div className="profileHeader">
 		<div className="coverPhoto"></div>
 		<div className="info-container">
-			<div className="picture-border"><img src="https://i.pinimg.com/736x/fb/d6/d2/fbd6d2545b2dbd0328d7c50581519da1.jpg" className="profilePic"></img></div>
+			<img src="https://i.pinimg.com/736x/fb/d6/d2/fbd6d2545b2dbd0328d7c50581519da1.jpg" className="profilePic"></img>
 				<div className="user-info">
 					<div className="userHandle">HansPerez</div>
 					<div className="userName">@hans_perez</div>
@@ -28,27 +31,12 @@ export default function ProfileHeader() {
 			<div className="headerOptions">
 				<button><FontAwesomeIcon icon={faEllipsisH} id="elipsisIcon"></FontAwesomeIcon></button>
 				<button><FontAwesomeIcon icon={faCommenting} id="message"></FontAwesomeIcon></button>
-				<button><FontAwesomeIcon icon={faPlus} id="plusIcon"></FontAwesomeIcon> Follow</button>
+				<button onClick={handleClick} className={`btn${followBtnCheck}`}>
+					<span className="followState"> {followBtn ? (<span><FontAwesomeIcon icon={faPlus} id="plusIcon"></FontAwesomeIcon> Follow</span>) : (<span><FontAwesomeIcon icon={faCheck} id="checkIcon"></FontAwesomeIcon> Following</span>)}</span>
+					</button>
 				</div>
 			</div>
-		<div className="profileContentButtons">
-			<button 
-			className={activeBtn === 0 ? 'active' : ''} 
-			onClick={() => handleClick(0)}
-			>Projects</button> 
-			<button 
-			className={activeBtn === 1 ? 'active' : ''} 
-			onClick={() => handleClick(1)}
-			>Comments</button>
-			<button
-			className={activeBtn === 2 ? 'active' : ''} 
-			onClick={() => handleClick(2)}
-			>Upvotes</button>
-			<button
-			className={activeBtn === 3 ? 'active' : ''} 
-			onClick={() => handleClick(3)}
-			>Downvotes</button>
-			</div>
+		
 		</div>
 	);
   }
