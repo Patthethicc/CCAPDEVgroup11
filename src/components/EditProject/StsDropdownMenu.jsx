@@ -3,16 +3,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 import "../../App.css";
 
-export default function StsDropdownMenu() {
+export default function StsDropdownMenu({ value, onChange }) {
   return (
     <Menu as="div" className="text-left relative">
       <div>
         <MenuButton
-          className="menu-button inline-flex bg-[var(--background-color)] w-[18%] 
+          className="menu-button inline-flex bg-[var(--background-color)] w-[26%] 
             text-sm shadow-md rounded-md font-semibold px-3 py-1 gap-x-2
             hover:bg-[var(--brighter-bg-color)] transition-colors"
         >
-          Status
+          {value || "Status"}
           <FontAwesomeIcon icon={faSortDown} aria-hidden="false" />
         </MenuButton>
       </div>
@@ -25,6 +25,7 @@ export default function StsDropdownMenu() {
       >
         <MenuItem>
           <button
+            onClick={() => onChange("Started")}
             className="px-2 py-1 w-[100%] hover:bg-[var(--brighter-bg-color)] transition-colors
                font-semibold text-sm text-left mt-1 "
           >
@@ -33,6 +34,7 @@ export default function StsDropdownMenu() {
         </MenuItem>
         <MenuItem>
           <button
+            onClick={() => onChange("In Progress")}
             className="px-2 py-1 w-[100%] hover:bg-[var(--brighter-bg-color)] transition-colors
                font-semibold text-left text-sm"
           >
@@ -41,6 +43,7 @@ export default function StsDropdownMenu() {
         </MenuItem>
         <MenuItem>
           <button
+            onClick={() => onChange("Finished")}
             className="px-2 py-1 w-[100%] hover:bg-[var(--brighter-bg-color)] transition-colors
                font-semibold text-left text-sm"
           >
@@ -50,6 +53,7 @@ export default function StsDropdownMenu() {
 
         <MenuItem>
           <button
+            onClick={() => onChange("Deployed")}
             className="px-2 py-1 w-[100%] hover:bg-[var(--brighter-bg-color)] transition-colors
                font-semibold text-left text-sm mb-1"
           >

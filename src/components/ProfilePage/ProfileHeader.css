@@ -20,7 +20,6 @@
 	border-color: var(--background-color);
 }
 
-
 .info-container {
 	display: flex;
 }
@@ -75,4 +74,3 @@
 	background: var(--secondary-color);
 	
 }
-
