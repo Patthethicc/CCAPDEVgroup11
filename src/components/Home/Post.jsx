@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import ActionDropdownMenu from "./ActionDropdownMenu.jsx";
 import "./Post.css";
 
 export default function Post({ post }) {
@@ -10,6 +11,9 @@ export default function Post({ post }) {
       <div className="post-meta">
         <img src={post.profilePicture} alt="Profile Picture" />
         <a href="#">{post.author}</a> • {post.timestamp}
+        <div className="ml-auto">
+          <ActionDropdownMenu />
+        </div>
       </div>
       <div className="post-header">
         <div className="post-title">{post.title}</div>
