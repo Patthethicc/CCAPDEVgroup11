@@ -13,18 +13,19 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route path="landing" element={<LandingPage />} />
+        <Route path="login-page" element={<LogInPage />} />
+        <Route path="signup-page" element={<SignUpPage />} />
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="create-project" element={<CreateProject />} />
           <Route path="profile-page" element={<ProfilePage />} />
-          <Route path="edit-project" element={<EditProject />} />
-          <Route path="login-page" element={<LogInPage />}/>
-          <Route path="signup-page" element={<SignUpPage />}/>
           <Route path="edit-project" element={<EditProject />} />
         </Route>
       </Routes>
     </Router>
   );
 }
+
 
 export default App;
