@@ -123,21 +123,30 @@ function formatDeadline(deadline) {
 }
 
 function loadPosts() {
-    const contentDiv = document.querySelector('.content');
-    postData.forEach(post => {
+    const contentDiv = document.querySelector(".content");
+    postData.forEach((post) => {
         const progress = calculateDeadlineProgress(post.deadline);
         const formattedDeadline = formatDeadline(post.deadline);
 
-        const postElement = document.createElement('div');
-        postElement.className = 'post';
+        const postElement = document.createElement("div");
+        postElement.className = "post";
 
-        let imageSection = post.images.length ? `
-            <div class="post-images" onclick="alert('Feature not yet implemented!')">
-                <img class="main-image" src="${post.images[0]}" alt="Post Image">
-                ${post.images.slice(1, 3).map((img, index) => `<img class="stacked-image-${index}" src="${img}" alt="Stacked Image">`).join('')}
-                ${post.images.length > 3 ? '<div class="ellipsis">...</div>' : ''}
-            </div>
-        ` : '';
+        let imageSection = '';
+        if (post.images.length > 0) {
+            const mainImage = post.images[0];
+            const stackImages = post.images.slice(1, 3);
+            const extraImages = post.images.length > 3 ? '<div class="ellipsis">...</div>' : '';
+
+            imageSection = `
+                <div class="post-images">
+                    <img class="main-image" src="${mainImage}" alt="Post Image">
+                    ${stackImages.map((img, index) => `
+                        <img class="stacked-image-${index}" src="${img}" alt="Stacked Image">
+                    `).join('')}
+                    ${extraImages}
+                </div>
+            `;
+        }
 
         postElement.innerHTML = `
             <div class="post-meta">
@@ -151,7 +160,9 @@ function loadPosts() {
                     <div class="deadline-bar"><div class="progress" style="width: ${progress}%;"></div></div>
                 </div>
             </div>
-            <div class="post-tags">${post.tags.map(tag => `<span class="in-progress-tag">${tag}</span>`).join('')}</div>
+            <div class="post-tags">${post.tags
+                .map((tag) => `<span class="in-progress-tag">${tag}</span>`)
+                .join("")}</div>
             <div class="post-content">
                 <div class="post-body">${post.body}</div>
                 ${imageSection}
@@ -165,8 +176,142 @@ function loadPosts() {
         `;
         contentDiv.appendChild(postElement);
     });
+
+    // listener for opening gallery
+    document.querySelectorAll(".post-images img").forEach((img) => {
+        img.addEventListener("click", (e) => {
+            const post = e.target.closest(".post");
+            const images = Array.from(post.querySelectorAll(".post-images img")).map(
+                (img) => img.src
+            );
+            const clickedIndex = parseInt(e.target.dataset.index);
+            openGallery(images, clickedIndex);
+        });
+    });
 }
 
+function setupGallery() {
+    document.body.insertAdjacentHTML(
+        "beforeend",
+        `
+        <div class="gallery-overlay">
+            <div class="gallery-container">
+                <button class="close-gallery"><i class="fa fa-times"></i></button>
+                <button class="prev-image">&#10094;</button>
+                <div class="gallery-image-wrapper">
+                    <img class="gallery-image" src="" alt="Gallery Image">
+                </div>
+                <button class="next-image">&#10095;</button>
+                <div class="gallery-thumbnails"></div>
+            </div>
+        </div>
+    `
+    );
+
+    const galleryOverlay = document.querySelector(".gallery-overlay");
+    const prevImageBtn = document.querySelector(".prev-image");
+    const nextImageBtn = document.querySelector(".next-image");
+    const closeGalleryBtn = document.querySelector(".close-gallery");
+    const galleryImage = document.querySelector(".gallery-image");
+    const thumbnailsContainer = document.querySelector(".gallery-thumbnails");
+
+    let currentImages = [];
+    let currentIndex = 0;
+
+    function openGallery(images, index) {
+        currentImages = images;
+        currentIndex = index;
+        galleryOverlay.classList.add("show");
+        updateGalleryView();
+
+        // show navigation & thumbnails only if there are multiple images
+        const hasMultipleImages = currentImages.length > 1;
+        prevImageBtn.style.display = hasMultipleImages ? "block" : "none";
+        nextImageBtn.style.display = hasMultipleImages ? "block" : "none";
+        thumbnailsContainer.style.display = hasMultipleImages ? "flex" : "none";
+    }
+
+    function closeGallery() {
+        galleryOverlay.classList.remove("show");
+    }
+
+    function updateGalleryView(direction = 0) {
+        if (!currentImages.length) return;
+
+        galleryImage.style.transition = "none"; // reset transition
+        galleryImage.style.opacity = "0";
+        galleryImage.style.transform = `translateX(${direction > 0 ? "100%" : "-100%"})`;
+
+        setTimeout(() => {
+            galleryImage.src = currentImages[currentIndex];
+            galleryImage.style.transition = "opacity 0.3s ease, transform 0.3s ease";
+            galleryImage.style.opacity = "1";
+            galleryImage.style.transform = "translateX(0)";
+        }, 50);
+
+        updateThumbnails();
+    }
+
+    function updateThumbnails() {
+        if (currentImages.length <= 1) {
+            thumbnailsContainer.innerHTML = "";
+            return;
+        }
+    
+        thumbnailsContainer.innerHTML = currentImages
+            .map((img, index) => `
+                <img class="thumbnail ${index === currentIndex ? "active" : ""}" 
+                     src="${img}" 
+                     data-index="${index}" 
+                     alt="Thumbnail">
+            `).join("");
+    
+        document.querySelectorAll(".thumbnail").forEach((thumbnail) => {
+            thumbnail.addEventListener("click", (e) => {
+                let newIndex = parseInt(e.target.dataset.index);
+                if (newIndex !== currentIndex) { 
+                    updateGalleryView(newIndex > currentIndex ? 1 : -1);
+                    currentIndex = newIndex;
+                    highlightActiveThumbnail();
+                }
+            });
+        });
+    }
+    
+    function highlightActiveThumbnail() {
+        document.querySelectorAll(".thumbnail").forEach((thumbnail, index) => {
+            thumbnail.classList.toggle("active", index === currentIndex);
+        });
+    }
+
+    prevImageBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+        updateGalleryView(-1);
+    });
+
+    nextImageBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % currentImages.length;
+        updateGalleryView(1);
+    });
+
+    closeGalleryBtn.addEventListener("click", closeGallery);
+    galleryOverlay.addEventListener("click", (e) => {
+        if (e.target === galleryOverlay) closeGallery();
+    });
+
+    document.addEventListener("click", (e) => {
+        const clickedImage = e.target.closest(".post-images img");
+        if (clickedImage) {
+            const postImagesContainer = clickedImage.closest(".post-images");
+            const post = postImagesContainer.closest(".post");
+            const images = Array.from(post.querySelectorAll(".post-images img")).map(img => img.src);
+            const index = images.indexOf(clickedImage.src);
+            openGallery(images, index);
+        }
+    });
+
+    window.openGallery = openGallery;
+}
 
 function loadNotifications() {
     const notificationPanel = document.querySelector('.notification-panel');
@@ -193,6 +338,7 @@ function toggleNotificationPanel() {
 document.addEventListener('DOMContentLoaded', () => {
     loadPosts();
     loadNotifications();
+    setupGallery();
 
     const leftSidebarToggle = document.querySelector(".left-sidebar-toggle");
     const leftSidebar = document.querySelector(".left-sidebar-panel");
