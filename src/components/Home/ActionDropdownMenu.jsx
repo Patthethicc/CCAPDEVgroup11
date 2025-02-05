@@ -13,7 +13,7 @@ export default function ActionDropdownMenu() {
   return (
     <Menu as="div" className="relative">
       <div>
-        <MenuButton className="relative active:text-[var(--sub2-text-color)] outline-none">
+        <MenuButton className="relative outline-none">
           <FontAwesomeIcon icon={faEllipsis} aria-hidden="false" />
         </MenuButton>
       </div>

@@ -46,18 +46,17 @@
     background-color: #697973;
     cursor: pointer;
     color: #fdf3dd;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 100px;
-    padding-right: 100px;
+    padding: 10px 100px; 
     font-size: 16px;
+    transition: background-color 0.5s, color 0.5s, transform 0.5s;
 }
 
 .button-logsign:hover {
     background-color: #f1dfb6;
     color: #697973;
-    border: 2.5px solid #697973;
+    transform: scale(1.05); 
 }
+
 
 form {
     display: flex;

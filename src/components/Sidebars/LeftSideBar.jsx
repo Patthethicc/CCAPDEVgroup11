@@ -6,7 +6,7 @@ import { faScroll } from "@fortawesome/free-solid-svg-icons";
 export default function LeftSideBar() {
   return (
     <div className="left-sidebar">
-      <Link to="/">
+      <Link to="/home">
         <button>
           <i className="fa fa-home mx-[0.6em]" />
           Home

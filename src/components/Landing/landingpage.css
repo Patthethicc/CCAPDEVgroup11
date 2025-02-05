@@ -27,8 +27,15 @@
   font-family: "Room Handmade";
   text-align: center;
   font-weight: bold;
+  transition:
+    background-color 0.5s,
+    color 0.5s,
+    transform 0.5s;
 }
 
+.maintitle-landing:hover {
+  transform: scale(1.05);
+}
 .tagline-landing {
   margin: 0;
   font-family: "Playwrite US Modern Variable", serif;
