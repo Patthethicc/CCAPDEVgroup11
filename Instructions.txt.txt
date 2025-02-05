@@ -1,0 +1,5 @@
+Pre-requisite: Git clone using cmd or GitHub desktop
+
+1. Git pull
+2. npm install
+3. npm run dev
