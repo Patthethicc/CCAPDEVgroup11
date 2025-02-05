@@ -25,7 +25,7 @@ export default function ActionDropdownMenu() {
           data-[leave]:ease-in shadow-md absolute top-[22px] left-[-6.5rem] z-[30] min-w-[120px]" // Positioned under the button
       >
         <MenuItem>
-          <Link to="edit-project">
+          <Link to="/edit-project">
             <button
               className="px-2 py-1 w-[100%] hover:bg-[var(--primary-color)] transition-colors
                font-semibold text-sm text-left mt-1"
@@ -44,7 +44,7 @@ export default function ActionDropdownMenu() {
         </MenuItem>
         <div className="mx-2 my-1 bg-[var(--secondary-color)] h-px" />
         <MenuItem>
-          <Link to="/edit-project">
+          <Link to="#">
             <button
               className="px-2 py-1 w-[100%] hover:bg-[var(--primary-color)] transition-colors
                font-semibold text-sm text-left mt-1"

@@ -1,9 +1,3 @@
-#carouselExample {
-  background-color: transparent !important;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
 .view-content {
   padding: 10px;
   color: #f1dfb6;
@@ -20,9 +14,7 @@
   font-size: 13px;
   display: flex;
   align-items: center;
-  box-shadow:
-    0 4px 6px -1px rgb(0 0 0 / 0.1),
-    0 2px 4px -2px rgb(0 0 0 / 0.1);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
 #message-button {
@@ -47,12 +39,10 @@
 .post-details-container {
   background-color: var(--primary-color);
   width: 570px;
-  height: 1000px;
   padding: 12px;
   border-radius: 10px;
-  box-shadow:
-    0 4px 6px -1px rgb(0 0 0 / 0.1),
-    0 2px 4px -2px rgb(0 0 0 / 0.1);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  margin-bottom: 10px;
 }
 
 .post-title-deadline {
@@ -76,7 +66,7 @@
 
 #deadline {
   font-size: 14px;
-  margin-left: 160px;
+  margin-left: 100px;
   background-color: #373d3b;
   border-radius: 7px;
   float: right;

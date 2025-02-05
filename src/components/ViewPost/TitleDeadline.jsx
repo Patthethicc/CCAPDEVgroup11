@@ -10,7 +10,7 @@ export default function ImageTitle() {
       </div>
 
       <div className="project-status">
-        <p id="status">&nbsp;&nbsp;In Progress</p>
+        <p id="status">&nbsp;In Progress</p>
       </div>
     </>
   );
