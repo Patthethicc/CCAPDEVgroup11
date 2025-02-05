@@ -14,9 +14,9 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route index element={<LandingPage />} />
+        <Route path="landing-page" element={<LandingPage />} />
         <Route path="login-page" element={<LogInPage />} />
-        <Route path="signup-page" element={<SignUpPage />} />
+        <Route index element={<SignUpPage />} />
         <Route path="/" element={<Layout />}>
           <Route path="home-page" element={<Home />} />
           <Route path="create-project" element={<CreateProject />} />
