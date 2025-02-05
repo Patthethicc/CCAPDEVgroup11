@@ -11,7 +11,7 @@ export default function LogInForm() {
                 <button type="submit" className="button-logsign transition">Log In</button>
             </Link>
             <Link to="/signup" className="links">
-                Don&apost have an account yet? Click to create one!
+                Don&apos;t have an account yet? Click to create one!
             </Link>
         </form>
     );

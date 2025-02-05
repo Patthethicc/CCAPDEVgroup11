@@ -1,4 +1,5 @@
 import NotifDropdownMenu from "./NotifDropdownMenu.jsx";
+import ProfileDropdownMenu from "./ProfileDropdownMenu.jsx";
 import "./Actions.css";
 import { Link } from "react-router-dom";
 
@@ -11,16 +12,9 @@ export default function Actions() {
       </button>
       <div className="account">
         <Link to="/profile">
-          <span className="greeting transition-colors">
-            Hello, Marshal
-          </span>
+          <span className="greeting transition-colors">Hello, Marshal</span>
         </Link>
-        <Link to="/profile">
-          <img
-            src="https://i.pinimg.com/736x/63/d4/2b/63d42bcfc3ce97414d78f14ae76f61c8.jpg"
-            alt="Profile Picture"
-          />
-        </Link>
+        <ProfileDropdownMenu />
         <div className="account-panel">
           <div className="account-info">
             <img
