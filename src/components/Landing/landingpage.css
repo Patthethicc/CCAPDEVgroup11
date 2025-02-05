@@ -21,22 +21,24 @@
   font-family: "Room Handmade";
 }
 
-.maintitle {
+.maintitle-landing {
   margin: 0;
   font-size: 125px;
   font-family: "Room Handmade";
+  text-align: center;
 }
 
-.tagline {
+.tagline-landing {
   margin: 0;
   font-family: "Playwrite US Modern Variable", serif;
   text-align: center;
   font-size: 21.5px;
   color: #f1dfb6;
+  text-align: center;
 }
 
-.group {
-  margin-top: 150px;
+.group-landing {
+  margin-top: 5px;
 }
 
 .table1 {
@@ -45,7 +47,7 @@
   justify-content: center;
 }
 
-.group .button {
+.group-landing .button {
   border: 2.5px solid #515d59;
   border-radius: 25px;
   background-color: #373d3b;
@@ -64,4 +66,23 @@
 
 .spaceBetweenCells td {
   padding: 0 15px;
+}
+
+.body-landing {
+  font-family: Arial, sans-serif;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-landing {
+  display: flex;
+  gap: 20px;
+  flex: 1;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
 }

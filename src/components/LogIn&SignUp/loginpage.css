@@ -15,13 +15,14 @@
     font-family: "Room Handmade";
 }
 
-.maintitle {
+.maintitle-logsign {
     margin: 0;
     font-size: 60px;
     font-family: "Room Handmade";
+    text-align: center;
 }   
 
-.tagline {
+.tagline-logsign {
     margin: 0;
     font-family: "Playwrite US Modern Variable", serif;
     text-align: center;
@@ -29,7 +30,7 @@
     color: #f1dfb6;
 }
 
-.group {
+.group-logsign {
     margin-top: 75px;
 }
 

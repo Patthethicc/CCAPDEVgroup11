@@ -5,7 +5,7 @@ import "./Post.css";
 export default function Post({ post }) {
   const progress = post.deadline.progress;
   const formattedDeadline = post.deadline.formatted;
-
+  console.log("post");
   return (
     <div className="post">
       <div className="post-meta">
