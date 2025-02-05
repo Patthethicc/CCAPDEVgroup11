@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 export default function LandingContent() {
     return (
-        <div className="group">
+        <div className="group-landing">
             <TypeAnimation
-                className="maintitle"
+                className="maintitle-landing"
                 sequence={["P r o - J e c t"]}
                 wrapper="span"
                 speed={30}
@@ -19,7 +19,7 @@ export default function LandingContent() {
                 repeat={0}
             />
 
-            <h3 className="tagline">bridging the gap</h3>
+            <h3 className="tagline-landing">bridging the gap</h3>
             <table className="table1 spaceBetweenCells">
                 <tr>
                     <th>
