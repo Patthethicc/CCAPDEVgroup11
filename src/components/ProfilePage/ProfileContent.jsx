@@ -1,8 +1,8 @@
-import Content from "../Home/Content";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
 import "./ProfileContent.css";
 import { useState } from "react";
+import ProfilePostContent from "./ProfilePostContent";
 
 export default function ProfileContent() {
 	const [activeBtn, setActiveBtn] = useState(0);
@@ -39,16 +39,15 @@ export default function ProfileContent() {
 					Downvotes
 				</button>
 			</div>
-			<div className="profileContentProper">
-				<div className="postFilter">
-					<button className="filerOption">
-						<FontAwesomeIcon icon={faFilter} id="filterIcon"></FontAwesomeIcon>
-						All
-					</button>
-				</div>
-				<div className="project-list">
-					<Content></Content>
-				</div>
+
+		<div className="profileContentProper">
+		<div className="postFilter">
+			<button className="filerOption">
+				<FontAwesomeIcon icon={faFilter} id="filterIcon"></FontAwesomeIcon> All</button>
+		</div>
+		<div className="project-list">
+		  <ProfilePostContent/>
+
 			</div>
 		</div>
 	);
