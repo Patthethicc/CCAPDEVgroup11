@@ -29,8 +29,12 @@ header {
 
 body {
   margin: 0;
+  background-image: url("./assets/images/bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
   font-family: "garet-book", sans-serif;
-  background-color: var(--background-color);
   color: var(--text-color);
   display: flex;
   flex-direction: column;
