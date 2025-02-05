@@ -52,16 +52,14 @@
 
 .headerOptions{
 	margin-top: 50px;
-	margin-right: auto;
-	margin-left: auto;
 	size: 5px;
-	display: flex;
-	align-items: right;
 	gap: 3px;
 	padding-left: 5px;
+	display: block;
 }
 
 .headerOptions button{
+	display: inline-block;
 	margin: 0px 3px;
 	padding: 0px 7.5px;
 	height: 25px;
@@ -75,4 +73,3 @@
 	background: var(--secondary-color);
 	
 }
-
