@@ -39,7 +39,7 @@ export default function ProfileContent() {
 				<FontAwesomeIcon icon={faFilter} id="filterIcon"></FontAwesomeIcon> All</button>
 		</div>
 		<div className="project-list">
-		  <ProfilePostContent></ProfilePostContent>
+		  <ProfilePostContent/>
 			</div>
 		</div>
 		</div>
