@@ -26,6 +26,7 @@
   font-size: 125px;
   font-family: "Room Handmade";
   text-align: center;
+  font-weight: bold;
 }
 
 .tagline-landing {
@@ -35,6 +36,7 @@
   font-size: 21.5px;
   color: #f1dfb6;
   text-align: center;
+  font-weight: bold;
 }
 
 .group-landing {
