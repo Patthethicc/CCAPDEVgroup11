@@ -15,14 +15,14 @@ function App() {
     <Router>
       <Routes>
         <Route index element={<LandingPage />} />
-        <Route path="login-page" element={<LogInPage />} />
-        <Route path="signup-page" element={<SignUpPage />} />
+        <Route path="login" element={<LogInPage />} />
+        <Route path="signup" element={<SignUpPage />} />
         <Route path="/" element={<Layout />}>
-          <Route path="home-page" element={<Home />} />
+          <Route path="home" element={<Home />} />
           <Route path="create-project" element={<CreateProject />} />
-          <Route path="profile-page" element={<ProfilePage />} />
+          <Route path="profile" element={<ProfilePage />} />
           <Route path="edit-project" element={<EditProject />} />
-          <Route path="view-post" element={<ViewPost />} />
+          <Route path="view-project" element={<ViewPost />} />
         </Route>
       </Routes>
     </Router>
