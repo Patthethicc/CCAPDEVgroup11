@@ -39,7 +39,7 @@
     justify-content: center;
 }
 
-.button {
+.button-logsign {
     border: 2.5px solid #697973;
     border-radius: 25px;
     background-color: #697973;
@@ -52,7 +52,7 @@
     font-size: 16px;
 }
 
-.button:hover {
+.button-logsign:hover {
     background-color: #f1dfb6;
     color: #697973;
     border: 2.5px solid #697973;

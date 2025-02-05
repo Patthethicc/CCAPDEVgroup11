@@ -1,3 +1,4 @@
+
 .profileContentProper{
 	background-color: var(--brighter-bg-color);
 	border-radius: 20px;
@@ -43,7 +44,6 @@
 	background: var(--primary-color);
 	border-radius: 20px;
 }
-
 
 .project-list{
     max-height: 300px;

@@ -17,8 +17,7 @@ export default function ProfileHeader() {
 	};
 
 	let followBtnCheck = followBtn ? '-follow' : '-following';
-	
-	return (
+		return (
 	  <div className="profileHeader">
 		<div className="coverPhoto"></div>
 		<div className="info-container">
