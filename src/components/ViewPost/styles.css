@@ -14,9 +14,7 @@
   font-size: 13px;
   display: flex;
   align-items: center;
-  box-shadow:
-    0 4px 6px -1px rgb(0 0 0 / 0.1),
-    0 2px 4px -2px rgb(0 0 0 / 0.1);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
 #message-button {
@@ -43,9 +41,7 @@
   width: 570px;
   padding: 12px;
   border-radius: 10px;
-  box-shadow:
-    0 4px 6px -1px rgb(0 0 0 / 0.1),
-    0 2px 4px -2px rgb(0 0 0 / 0.1);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   margin-bottom: 10px;
 }
 
@@ -60,7 +56,7 @@
 
 #title {
   font-weight: bold;
-  font-size: 23px;
+  font-size: 20px;
   width: 300px;
   color: #f1dfb6;
 }
@@ -70,16 +66,18 @@
 }
 
 #deadline {
-  font-size: 14px;
-  margin-left: 100px;
+  font-size: 11px;
+  margin-left: 15px;
+  margin-right: 5px;
   background-color: #373d3b;
   border-radius: 7px;
   float: right;
   color: #f1dfb6;
+  padding: 3px;
 }
 
 #triple-dot {
-  margin-right: 10px;
+  margin-right: 5px;
   font-size: x-large;
 }
 
