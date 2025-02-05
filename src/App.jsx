@@ -8,6 +8,7 @@ import ProfilePage from "./pages/ProfilePage.jsx";
 import LandingPage from "./pages/LandingPage.jsx";
 import LogInPage from "./pages/LogInPage.jsx";
 import SignUpPage from "./pages/SignUpPage.jsx";
+import ViewPost from "./pages/ViewPost.jsx";
 
 function App() {
   return (
@@ -21,11 +22,11 @@ function App() {
           <Route path="create-project" element={<CreateProject />} />
           <Route path="profile-page" element={<ProfilePage />} />
           <Route path="edit-project" element={<EditProject />} />
+          <Route path="view-post" element={<ViewPost />} />
         </Route>
       </Routes>
     </Router>
   );
 }
-
 
 export default App;
