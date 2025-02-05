@@ -62,12 +62,12 @@
 .headerOptions button{
 	display: inline-block;
 	margin: 0px 3px;
-	padding: 0px 7.5px;
+	padding: 0px .5rem;
 	height: 25px;
 	background-color: var(--primary-color);
 	border-radius: 15px;
 	border-spacing: .5px;	
-	
+	text-align: right;
 }
 .headerOptions button:hover{
 	transition: background-color 250ms;

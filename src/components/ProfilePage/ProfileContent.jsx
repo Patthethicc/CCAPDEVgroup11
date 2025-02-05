@@ -36,7 +36,7 @@ export default function ProfileContent() {
 		<div className="profileContentProper">
 		<div className="postFilter">
 			<button className="filerOption">
-				<FontAwesomeIcon icon={faFilter} id="filterIcon"></FontAwesomeIcon>All</button>
+				<FontAwesomeIcon icon={faFilter} id="filterIcon"></FontAwesomeIcon> All</button>
 		</div>
 		<div className="project-list">
 		  <Content></Content>
