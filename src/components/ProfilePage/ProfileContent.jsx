@@ -3,8 +3,10 @@ import { faFilter } from "@fortawesome/free-solid-svg-icons";
 import "./ProfileContent.css";
 import { useState } from "react";
 import ProfilePostContent from "./ProfilePostContent";
+import ProfileComments from "./ProfileComments";
 
 export default function ProfileContent() {
+
 	const [activeBtn, setActiveBtn] = useState(0);
 
 	const handleClick = (index) => {
@@ -46,9 +48,9 @@ export default function ProfileContent() {
 				<FontAwesomeIcon icon={faFilter} id="filterIcon"></FontAwesomeIcon> All</button>
 		</div>
 		<div className="project-list">
-		  <ProfilePostContent/>
-
+		  {activeBtn === 1 ? <ProfileComments/> : <ProfilePostContent/>}
 			</div>
+		
 		</div>
 		</div>
 	);
