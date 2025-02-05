@@ -3,7 +3,7 @@ import HeaderOptions from "./HeaderOptions";
 
 
 export default function ProfileHeader() {
-	const headerOptions = HeaderOptions(false);	
+	const headerOptions = HeaderOptions(true);	
 
 	return (
 	  <div className="profileHeader">
