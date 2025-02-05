@@ -25,7 +25,7 @@ export default function LandingContent() {
                     <th>
                         <td>
                             <Link to="login-page">
-                                <button type="button" className="button">
+                                <button type="button" className="button transition-colors">
                                     Log In
                                 </button>
                             </Link>
@@ -34,7 +34,7 @@ export default function LandingContent() {
                     <th>
                         <td>
                             <Link to="signup-page">
-                                <button type="button" className="button">
+                                <button type="button" className="button transition-colors">
                                     Sign Up
                                 </button>
                             </Link>

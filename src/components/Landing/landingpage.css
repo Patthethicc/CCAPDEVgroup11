@@ -50,6 +50,7 @@
 .group-landing .button {
   border: 2.5px solid #515d59;
   border-radius: 25px;
+  font-family: "garet-book";
   background-color: #373d3b;
   cursor: pointer;
   color: #fdf3dd;

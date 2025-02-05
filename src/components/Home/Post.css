@@ -48,7 +48,7 @@
 .post-body {
   flex: 3;
   font-size: 1rem;
-  font-family: "Garet-Book";
+  font-family: "garet-book", sans-serif;
   color: var(--text-color);
 }
 
