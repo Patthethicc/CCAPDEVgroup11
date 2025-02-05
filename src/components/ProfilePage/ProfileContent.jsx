@@ -1,9 +1,8 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFilter } from "@fortawesome/free-solid-svg-icons";
 import "./ProfileContent.css";
 import { useState } from "react";
 import ProfilePostContent from "./ProfilePostContent";
 import ProfileComments from "./ProfileComments";
+import FilterButton from "./FilterButton";
 
 export default function ProfileContent() {
 
@@ -44,9 +43,8 @@ export default function ProfileContent() {
 
 		<div className="profileContentProper">
 		<div className="postFilter">
-			<button className="filerOption">
-				<FontAwesomeIcon icon={faFilter} id="filterIcon"></FontAwesomeIcon> All</button>
-		</div>
+		</div> 
+		<FilterButton></FilterButton>
 		<div className="project-list">
 		  {activeBtn === 1 ? <ProfileComments/> : <ProfilePostContent/>}
 			</div>
