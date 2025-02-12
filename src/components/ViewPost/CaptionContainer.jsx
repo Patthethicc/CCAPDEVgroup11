@@ -1,5 +1,3 @@
-import "./styles.css";
-
 import "./CaptionContainer.css";
 
 export default function CaptionContainer(props) {

@@ -1,5 +1,3 @@
-import "./styles.css";
-
 import "./ProfileHeader.css";
 export default function ProfileHeader() {
   return (
