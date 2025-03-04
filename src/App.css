@@ -6,7 +6,9 @@
   --tertiary-color: #697973;
   --field-border-color: #d2dee2;
   --text-color: #ffffff;
+  --darker-text-color: #d4d4d4;
   --sub-text-color: #f1dfb6;
+  --darker-sub-text-color: #c3b594;
   --in-progress-color: #ef601e;
   --started-color: #24a3bd;
   --finished-color: #17a021;
@@ -29,24 +31,52 @@ header {
 
 body {
   margin: 0;
+  background-image: url("./assets/images/bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
   font-family: "garet-book", sans-serif;
-  background-color: var(--background-color);
   color: var(--text-color);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-@media (max-width: 768px) {
-  .left-sidebar,
+
+@media (max-width: 1100px) {
+  .left-sidebar {
+    display: none;
+  }
+
+  .left-sidebar-toggle {
+    display: block;
+  }
+}
+
+@media (max-width: 950px) {
+  .about {
+    display: none;
+  }
+}
+
+@media (max-width: 850px) {
   .right-sidebar {
     display: none;
   }
 
-  main {
-    flex-direction: column;
+  .account-panel .account-options,
+  .right-sidebar-buttons {
+    gap: 15px;
   }
 }
+
+@media (max-width: 700px) {
+  .search-bar button {
+    display: none;
+  }
+}
+
 
 /* width */
 ::-webkit-scrollbar {

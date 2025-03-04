@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import ActionDropdownMenu from "./ActionDropdownMenu.jsx";
+import { Link } from "react-router-dom";
 import "./Post.css";
 
 export default function Post({ post }) {
@@ -34,23 +35,31 @@ export default function Post({ post }) {
           </span>
         ))}
       </div>
-      <div className="post-content">
-        <div className="post-body">{post.body}</div>
-        {post.images.length > 0 && (
-          <div className="post-images">
-            <img className="main-image" src={post.images[0]} alt="Post Image" />
-            {post.images.slice(1, 3).map((img, index) => (
-              <img
-                key={index}
-                className={`stacked-image-${index}`}
-                src={img}
-                alt="Stacked Image"
-              />
-            ))}
-            {post.images.length > 3 && <div className="ellipsis">...</div>}
+      <Link to="/view-project">
+        <div className="post-content ">
+          <div className="post-body hover:text-[var(--darker-text-color)] transition-colors">
+            {post.body}
           </div>
-        )}
-      </div>
+          {post.images.length > 0 && (
+            <div className="post-images">
+              <img
+                className="main-image"
+                src={post.images[0]}
+                alt="Post Image"
+              />
+              {post.images.slice(1, 3).map((img, index) => (
+                <img
+                  key={index}
+                  className={`stacked-image-${index}`}
+                  src={img}
+                  alt="Stacked Image"
+                />
+              ))}
+              {post.images.length > 3 && <div className="ellipsis">...</div>}
+            </div>
+          )}
+        </div>
+      </Link>
       <div className="post-actions">
         <button>
           <i className="fa fa-arrow-up"></i> {post.actions.upvotes}

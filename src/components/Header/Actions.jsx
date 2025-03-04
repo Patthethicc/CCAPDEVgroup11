@@ -1,5 +1,7 @@
 import NotifDropdownMenu from "./NotifDropdownMenu.jsx";
+import ProfileDropdownMenu from "./ProfileDropdownMenu.jsx";
 import "./Actions.css";
+import { Link } from "react-router-dom";
 
 export default function Actions() {
   return (
@@ -9,11 +11,10 @@ export default function Actions() {
         <i className="fa fa-question-circle" aria-hidden="true"></i>
       </button>
       <div className="account">
-        <span className="greeting">Hello, Marshal</span>
-        <img
-          src="https://i.pinimg.com/736x/63/d4/2b/63d42bcfc3ce97414d78f14ae76f61c8.jpg"
-          alt="Profile Picture"
-        />
+        <Link to="/profile">
+          <span className="greeting transition-colors">Hello, Marshal</span>
+        </Link>
+        <ProfileDropdownMenu />
         <div className="account-panel">
           <div className="account-info">
             <img

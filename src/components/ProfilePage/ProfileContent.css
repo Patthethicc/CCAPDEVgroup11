@@ -1,16 +1,54 @@
-.profileContent{
-	background-color: var(--brighter-bg-color);
+
+.profileContentProper{
+	background-color: #515d59;
 	border-radius: 20px;
-	border-width: 100%;
+	margin-top: 10px;
 }
 
-.postFilter{
+.profileContentButtons{
+	display: flex;
+	gap: 5px;
+}
+
+.profileContentButtons button{
+	padding: 5px;
+	background-color: var(--background-color);
+	border-color: var(--background-color);
+	color: var(--text-color);
+	border-radius: 50px;
+	border-spacing: 10px;
+	border-width: 3px;
+}
+
+.profileContentButtons button:hover{
+	transition: background-color 250ms;
+	background: var(--primary-color);
+}
+
+.profileContentButtons button.active {
+	transition: background-color 250ms;
+	background-color: var(--primary-color);
+}
+
+.postFilter button{
 	background-color: var(--secondary-color);
 	border-radius: 20px;
+	border-color: #515d59;
+	border-width: 3px;
 	padding: 5px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	height: 2rem;
+	margin: 10px;
+	margin-right: 1rem;
+	height: 2.5rem;
+	width: 97.5%;
+	text-align: left;
+}
+
+.postFilter button:hover{
+	transition: background-color 250ms;
+	background: var(--primary-color);
+	border-radius: 20px;
+	border-color: var(--secondary-color);
+	border-width: 3px;
 }
 
 .project-list{

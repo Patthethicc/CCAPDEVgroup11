@@ -27,7 +27,8 @@ export default function NotifDropdownMenu() {
       <div>
         <MenuButton className="button">
           <i className="fa fa-bell" />
-          <span className="dot" />
+          <span className="dot animate-ping" />
+          <span className="dot " />
         </MenuButton>
       </div>
       <MenuItems

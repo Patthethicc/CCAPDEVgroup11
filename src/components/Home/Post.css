@@ -36,6 +36,7 @@
   font-size: 1.2rem;
   margin-bottom: 1vh;
   flex: 2;
+  font-family: "Garet-Book";
 }
 
 .post-content {
@@ -47,6 +48,7 @@
 .post-body {
   flex: 3;
   font-size: 1rem;
+  font-family: "garet-book", sans-serif;
   color: var(--text-color);
 }
 
@@ -113,6 +115,7 @@
   color: var(--sub-text-color);
   font-size: 10px;
   font-weight: bold;
+  font-family: "Garet-Book";
   white-space: nowrap;
   z-index: 2;
 }
@@ -169,6 +172,7 @@
   border: none;
   cursor: pointer;
   font-size: 1rem;
+  font-family: "Garet-Book";
   color: var(--sub-text-color);
   padding: 0.3rem 0.6rem;
   border-radius: 10px;

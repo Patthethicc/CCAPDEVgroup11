@@ -8,6 +8,7 @@ nav a {
   text-decoration: none;
   padding: 6px 9px;
   border-radius: 2.5px;
+  font-family: "Garet-Book";
 }
 
 nav a:hover {

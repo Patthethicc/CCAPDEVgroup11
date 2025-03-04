@@ -1,18 +1,18 @@
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSortDown } from "@fortawesome/free-solid-svg-icons";
+import { faSortDown, faFilter } from "@fortawesome/free-solid-svg-icons";
 import "../../App.css";
 
-export default function StsDropdownMenu({ value, onChange }) {
-  return (
+export default function FilterButton({ value, onChange }) {
+	return (
     <Menu as="div" className="text-left relative">
       <div>
         <MenuButton
-          className="menu-button inline-flex bg-[var(--background-color)] min-w-[18%] w-auto
-            text-sm shadow-md rounded-md font-semibold px-3 py-1 gap-x-2
-            hover:bg-[var(--brighter-bg-color)] transition-colors"
+          className="bg-[color:var(--secondary-color)] h-10 w-[97.5%] text-left mr-4 m-2.5 p-[5px] rounded-[20px] border-[#515d59] border-[3px] 
+		 hover:bg-[color:var(--primary-color)] hover:border-[color:var(--secondary-color)] hover:rounded-[20px] hover:border-[3px];"
         >
-          {value || "Status"}
+		<FontAwesomeIcon icon={faFilter} id="filterIcon"/>
+		  {value || " Filter "}
           <FontAwesomeIcon icon={faSortDown} aria-hidden="false" />
         </MenuButton>
       </div>
@@ -25,39 +25,39 @@ export default function StsDropdownMenu({ value, onChange }) {
       >
         <MenuItem>
           <button
-            onClick={() => onChange("Started")}
+            onClick={() => onChange("All")}
             className="px-2 py-1 w-[100%] hover:bg-[var(--brighter-bg-color)] transition-colors
                font-semibold text-sm text-left mt-1 "
           >
-            Started
+            All
           </button>
         </MenuItem>
         <MenuItem>
           <button
-            onClick={() => onChange("In Progress")}
+            onClick={() => onChange("Most Relevant")}
             className="px-2 py-1 w-[100%] hover:bg-[var(--brighter-bg-color)] transition-colors
                font-semibold text-left text-sm"
           >
-            In Progress
+            Most Relevant
           </button>
         </MenuItem>
         <MenuItem>
           <button
-            onClick={() => onChange("Finished")}
+            onClick={() => onChange("Newest")}
             className="px-2 py-1 w-[100%] hover:bg-[var(--brighter-bg-color)] transition-colors
                font-semibold text-left text-sm"
           >
-            Finished
+            Newest
           </button>
         </MenuItem>
 
         <MenuItem>
           <button
-            onClick={() => onChange("Deployed")}
+            onClick={() => onChange("Oldest")}
             className="px-2 py-1 w-[100%] hover:bg-[var(--brighter-bg-color)] transition-colors
                font-semibold text-left text-sm mb-1"
           >
-            Deployed
+            Oldest
           </button>
         </MenuItem>
       </MenuItems>
