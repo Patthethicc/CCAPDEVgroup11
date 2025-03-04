@@ -1,4 +1,4 @@
-import "./styles.css";
+import "./CommentSection.css";
 import Comments from "./Comments";
 
 export default function CommentSection() {

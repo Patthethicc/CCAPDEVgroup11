@@ -1,17 +1,13 @@
-import "./styles.css";
-import ImageContainer from "./ImageContainer";
+import ImageContainer from "./ImageContainer.jsx";
+import CaptionContainer from "./CaptionContainer.jsx";
 
 export default function CaptionImage() {
   return (
     <>
-      <div className="post-caption-paragraph">
-        <p id="post-caption">
-          This is my current progress on my astronomy map! please let me know
-          how it is and what I need to change &lt;3
-        </p>
-      </div>
-      {/* remove after  */}
-
+      <CaptionContainer
+        caption="This is my current progress on my astronomy map! please let me know
+                 it is and what I need to change <3. Updated!"
+      />
       <ImageContainer />
     </>
   );

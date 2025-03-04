@@ -1,0 +1,47 @@
+.post-title-deadline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#title {
+  font-weight: bold;
+  font-size: 20px;
+  width: 300px;
+  color: #f1dfb6;
+}
+
+#status {
+  margin-bottom: 20px;
+}
+
+#deadline {
+  font-size: 11px;
+  margin-left: 15px;
+  margin-right: 5px;
+  background-color: #373d3b;
+  border-radius: 7px;
+  float: right;
+  color: #f1dfb6;
+  padding: 3px;
+}
+
+#triple-dot {
+  margin-right: 5px;
+  font-size: x-large;
+}
+
+#triple-dot :hover {
+  cursor: pointer;
+}
+
+.project-status {
+  background-color: #ef601e;
+  border-radius: 10px;
+  width: 100px;
+  color: #f1dfb6;
+  margin-left: 10px;
+  margin-right: 10px;
+}

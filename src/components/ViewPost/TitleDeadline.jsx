@@ -1,6 +1,5 @@
-import "./styles.css";
-
-export default function ImageTitle() {
+import "./TitleDeadline.css";
+export default function TitleDeadline() {
   return (
     <>
       <div className="post-title-deadline">
