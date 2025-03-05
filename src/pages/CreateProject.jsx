@@ -3,9 +3,13 @@ import StsDropdownMenu from "../components/CreateProject/StsDropdownMenu.jsx";
 import BodyField from "../components/CreateProject/BodyField.jsx";
 import UploadFilesBtn from "../components/CreateProject/UploadFilesBtn.jsx";
 import PostBtn from "../components/CreateProject/PostBtn.jsx";
+import SliderProgress from "../components/CreateProject/SliderProgress.jsx";
+import { useState, useEffect } from "react";
 import "../App.css";
 
 export default function CreateProject() {
+  const [title, setTitle] = useState();
+  const [body, setBody] = useState();
   return (
     <div
       className="create-project flex px-8 py-6 flex-col 
@@ -15,6 +19,7 @@ export default function CreateProject() {
       <h1 className="font-bold text-xl">Create Project</h1>
       <TitleField />
       <StsDropdownMenu />
+      <SliderProgress />
       <BodyField />
       <UploadFilesBtn />
       <PostBtn />
