@@ -1,5 +1,4 @@
 import TitleField from "../components/CreateProject/TitleField.jsx";
-import StsDropdownMenu from "../components/CreateProject/StsDropdownMenu.jsx";
 import BodyField from "../components/CreateProject/BodyField.jsx";
 import UploadFilesBtn from "../components/CreateProject/UploadFilesBtn.jsx";
 import PostBtn from "../components/CreateProject/PostBtn.jsx";
@@ -8,8 +7,31 @@ import { useState, useEffect } from "react";
 import "../App.css";
 
 export default function CreateProject() {
-  const [title, setTitle] = useState();
-  const [body, setBody] = useState();
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
+  const [progress, setProgress] = useState("");
+  const [deadlength, setDeadLength] = useState(0);
+  const [post, setPost] = useState(false);
+
+  useEffect(function () {
+    if (!post) return;
+
+    const post_data = async function () {
+      const data = {
+        title,
+        content: body,
+        deadline: {
+          progress,
+          deadline_length: deadlength,
+        },
+        created_at: Date.now(),
+        upvotes: 0,
+        downvotes: 0,
+        comment_ids: [],
+      };
+    };
+  });
+
   return (
     <div
       className="create-project flex px-8 py-6 flex-col 
@@ -18,7 +40,6 @@ export default function CreateProject() {
     >
       <h1 className="font-bold text-xl">Create Project</h1>
       <TitleField />
-      <StsDropdownMenu />
       <SliderProgress />
       <BodyField />
       <UploadFilesBtn />
