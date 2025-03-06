@@ -1,4 +1,3 @@
-import { useState } from "react";
 import StsDropdownMenu from "./StsDropdownMenu.jsx";
 import { Slider } from "@mui/material";
 
@@ -10,6 +9,10 @@ export default function SliderProgress({
 }) {
   const handleChange = function (event, new_deadlength) {
     setDeadLength(new_deadlength);
+  };
+
+  const value_label = function (value) {
+    return `${value}%`;
   };
 
   return (
@@ -26,6 +29,7 @@ export default function SliderProgress({
           aria-label="Default"
           onChange={handleChange}
           valueLabelDisplay="auto"
+          valueLabelFormat={value_label}
           sx={{
             color: "var(--secondary-color)",
             "& .MuiSlider-thumb": {
