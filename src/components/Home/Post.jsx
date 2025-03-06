@@ -5,9 +5,8 @@ import { Link } from "react-router-dom";
 import "./Post.css";
 
 export default function Post({ post }) {
-  const timestamp = post.created_at
-    ? formatDistanceToNow(new Date(post.created_at))
-    : "Unknown time";
+  const timestamp = formatDistanceToNow(new Date(post.created_at));
+  console.log(post.deadline.progress);
 
   return (
     <div className="post">
@@ -40,7 +39,14 @@ export default function Post({ post }) {
           </div>
         </div>
       </div>
-      <div className="post-tags">{post.deadline.progress}</div>
+      <div className="post-tags">
+        <span
+          data-status={post.deadline.progress}
+          className={`progress-${post.deadline.progress}`}
+        >
+          {post.deadline.progress}
+        </span>
+      </div>
       <Link to="/view-project">
         <div className="post-content ">
           <div className="post-body hover:text-[var(--darker-text-color)] transition-colors">

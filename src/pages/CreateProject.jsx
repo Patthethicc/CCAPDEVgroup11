@@ -63,8 +63,26 @@ export default function CreateProject() {
     [title, body, progress, deadlength, post],
   );
 
+  useEffect(
+    function () {
+      adjustDeadLength(progress);
+    },
+    [progress],
+  );
+
   const handlePost = function () {
     setPost(true);
+  };
+
+  const adjustDeadLength = function (progress) {
+    const map = {
+      Started: 0,
+      "In Progress": 50,
+      Finished: 100,
+      Deployed: 100,
+    };
+
+    setDeadLength(map[progress] || 0);
   };
 
   return (

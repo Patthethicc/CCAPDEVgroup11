@@ -1,5 +1,5 @@
 import Post from "../Home/Post.jsx";
-import "./ProfilePostContent.css";
+import "../Home/Content.css";
 import FormatProfilePosts from "../../hooks/formatProfilePosts.js";
 export default function ProfilePostContent() {
   const { formattedPosts, isLoading } = FormatProfilePosts();

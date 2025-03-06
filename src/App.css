@@ -1,9 +1,9 @@
 :root {
   --primary-color: #515d59;
-  --secondary-color: #697973;
+  --secondary-color: #6c7d77;
   --background-color: #373d3b;
   --brighter-bg-color: #434a46;
-  --tertiary-color: #697973;
+  --tertiary-color: #6c7d77;
   --field-border-color: #d2dee2;
   --text-color: #ffffff;
   --darker-text-color: #d4d4d4;
@@ -43,7 +43,6 @@ body {
   min-height: 100vh;
 }
 
-
 @media (max-width: 1100px) {
   .left-sidebar {
     display: none;
@@ -76,7 +75,6 @@ body {
     display: none;
   }
 }
-
 
 /* width */
 ::-webkit-scrollbar {
