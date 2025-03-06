@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { formatDistanceToNow } from "date-fns";
 import ActionDropdownMenu from "./ActionDropdownMenu.jsx";
 import { Link } from "react-router-dom";
 import "./Post.css";
@@ -7,11 +8,18 @@ export default function Post({ post }) {
   const progress = post.deadline.progress;
   const formattedDeadline = post.deadline.formatted;
 
+  const timestamp = formatDistanceToNow(post.created_at);
+
   return (
     <div className="post">
       <div className="post-meta">
-        <img src={post.profilePicture} alt="Profile Picture" />
-        <a href="#">{post.author}</a> • {post.timestamp}
+        {/* placeholder image */}
+        <img
+          src="https://i.pinimg.com/736x/e4/47/0b/e4470b9552dcbe56ec14483360595e7e.jpg"
+          alt="Profile Picture"
+        />
+        {/* placeholder author and timestamp */}
+        <a href="#">Group 11</a> • {timestamp}
         <div className="ml-auto">
           <ActionDropdownMenu />
         </div>
@@ -77,84 +85,3 @@ export default function Post({ post }) {
     </div>
   );
 }
-
-Post.propTypes = {
-  post: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    author: PropTypes.string.isRequired,
-    profilePicture: PropTypes.string.isRequired,
-    timestamp: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    deadline: PropTypes.shape({
-      progress: PropTypes.number.isRequired,
-      formatted: PropTypes.string.isRequired,
-    }).isRequired,
-    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-    body: PropTypes.string.isRequired,
-    images: PropTypes.arrayOf(PropTypes.string).isRequired,
-    actions: PropTypes.shape({
-      upvotes: PropTypes.number.isRequired,
-      downvotes: PropTypes.number.isRequired,
-      comments: PropTypes.number.isRequired,
-    }).isRequired,
-  }).isRequired,
-};
-
-/* import PropTypes from "prop-types";
-import "./Post.css";
-
-export default function Post({ meta, header, tags, body, actions }) {
-  return (
-    <div className="post">
-      <div className="post-meta">
-        <img src={meta.imgSrc} alt="pfp" />
-        <a href="#">{meta.username}</a> • {meta.time}
-      </div>
-      <div className="post-header">
-        <div className="post-title">{header.title}</div>
-        <div className="deadline-bar-container">
-          <div
-            className="progress w-12"
-            style={{ width: `${header.deadline}%` }}
-          ></div>
-        </div>
-      </div>
-      <div className="post-tags">
-        <span className={tags.className}>{tags.text}</span>
-      </div>
-      <div className="post-body">{body}</div>
-      <div className="post-actions">
-        {actions.map((action, index) => (
-          <button key={index}>
-            {<i className={action.icon}></i>}
-            {action.label}
-          </button>
-        ))}
-        <button>
-          <i className="fa fa-share m-1"></i>
-        </button>
-      </div>
-    </div>
-  );
-}
-
-Post.propTypes = {
-  meta: PropTypes.shape({
-    imgSrc: PropTypes.string.isRequired,
-    username: PropTypes.string.isRequired,
-    time: PropTypes.string.isRequired,
-  }).isRequired,
-  header: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    deadline: PropTypes.number.isRequired,
-  }).isRequired,
-  tags: PropTypes.shape({
-    text: PropTypes.string.isRequired,
-    className: PropTypes.string.isRequired,
-  }).isRequired,
-  body: PropTypes.string.isRequired,
-  actions: PropTypes.arrayOf({
-    label: PropTypes.string.isRequired,
-    icon: PropTypes.string.isRequired,
-  }).isRequired,
-}; */

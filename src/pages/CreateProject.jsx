@@ -3,6 +3,7 @@ import BodyField from "../components/CreateProject/BodyField.jsx";
 import UploadFilesBtn from "../components/CreateProject/UploadFilesBtn.jsx";
 import PostBtn from "../components/CreateProject/PostBtn.jsx";
 import SliderProgress from "../components/CreateProject/SliderProgress.jsx";
+import API from "../url.js";
 import { useState, useEffect } from "react";
 import "../App.css";
 
@@ -12,8 +13,6 @@ export default function CreateProject() {
   const [progress, setProgress] = useState("Status");
   const [deadlength, setDeadLength] = useState(0);
   const [post, setPost] = useState(false);
-
-  const API = import.meta.env.VITE_LOCAL_API;
 
   useEffect(
     function () {
@@ -53,7 +52,7 @@ export default function CreateProject() {
           setProgress("Status");
           setDeadLength(0);
         } catch (err) {
-          console.error("Error posting data: " + err);
+          console.error("Error posting data: " + err.message);
         } finally {
           setPost(false);
         }
@@ -61,7 +60,7 @@ export default function CreateProject() {
 
       postData();
     },
-    [title, body, progress, deadlength, post, API],
+    [title, body, progress, deadlength, post],
   );
 
   const handlePost = function () {

@@ -1,17 +1,35 @@
 import Post from "./Post.jsx";
 import useFormatPost from "../../hooks/useFormatPost.js";
 import "./Content.css";
+import API from "../../url.js";
+import { useState, useEffect } from "react";
 
 export default function Content() {
   const { formattedPosts, isLoading } = useFormatPost();
+  const [posts, setPosts] = useState([]);
 
-    if (isLoading) {
-      return <p className="loading-message">Loading...</p>;
-    }
-  
-    if (!formattedPosts || formattedPosts.length === 0) {
-      return <p className="error-message">No post data available.</p>;
-    }
+  useEffect(function () {
+    const getPosts = async function () {
+      try {
+        const response = await fetch(`${API}/`, {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        });
+
+        if (!response.ok) {
+          throw new Error("Error getting all posts.");
+        }
+
+        const result = await response.json();
+        console.log(result);
+        setPosts(result);
+      } catch (err) {
+        console.error("Error getting data: " + err.message);
+      }
+    };
+
+    getPosts();
+  });
 
   return (
     <div className="content">
