@@ -5,10 +5,9 @@ import { Link } from "react-router-dom";
 import "./Post.css";
 
 export default function Post({ post }) {
-  const progress = post.deadline.progress;
-  const formattedDeadline = post.deadline.formatted;
-
-  const timestamp = formatDistanceToNow(post.created_at);
+  const timestamp = post.created_at
+    ? formatDistanceToNow(new Date(post.created_at))
+    : "Unknown time";
 
   return (
     <div className="post">
@@ -29,26 +28,23 @@ export default function Post({ post }) {
         <div className="deadline-bar-container">
           <div
             className="deadline-text"
-            dangerouslySetInnerHTML={{ __html: formattedDeadline }}
+            dangerouslySetInnerHTML={{ __html: post.deadline.deadline_length }}
           />
           <div className="deadline-bar">
-            <div className="progress" style={{ width: `${progress}%` }}></div>
+            <div
+              className="progress"
+              style={{ width: `${post.deadline.deadline_length}%` }}
+            ></div>
           </div>
         </div>
       </div>
-      <div className="post-tags">
-        {post.tags.map((tag, index) => (
-          <span key={index} className="in-progress-tag">
-            {tag}
-          </span>
-        ))}
-      </div>
+      <div className="post-tags">{post.deadline.progress}</div>
       <Link to="/view-project">
         <div className="post-content ">
           <div className="post-body hover:text-[var(--darker-text-color)] transition-colors">
-            {post.body}
+            {post.content}
           </div>
-          {post.images.length > 0 && (
+          {post.images?.length > 0 && (
             <div className="post-images">
               <img
                 className="main-image"
@@ -70,13 +66,13 @@ export default function Post({ post }) {
       </Link>
       <div className="post-actions">
         <button>
-          <i className="fa fa-arrow-up"></i> {post.actions.upvotes}
+          <i className="fa fa-arrow-up"></i> {post.upvotes}
         </button>
         <button>
-          <i className="fa fa-arrow-down"></i> {post.actions.downvotes}
+          <i className="fa fa-arrow-down"></i> {post.downvotes}
         </button>
         <button>
-          <i className="fa fa-comments"></i> {post.actions.comments}
+          <i className="fa fa-comments"></i> 0
         </button>
         <button>
           <i className="fa fa-share"></i>
@@ -85,3 +81,19 @@ export default function Post({ post }) {
     </div>
   );
 }
+
+Post.propTypes = {
+  post: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+    created_at: PropTypes.string.isRequired,
+    upvotes: PropTypes.number.isRequired,
+    downvotes: PropTypes.number.isRequired,
+    comment_ids: PropTypes.array,
+    deadline: PropTypes.shape({
+      progress: PropTypes.string.isRequired,
+      deadline_length: PropTypes.number.isRequired,
+    }).isRequired,
+    images: PropTypes.array,
+  }).isRequired,
+};

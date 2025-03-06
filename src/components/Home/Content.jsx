@@ -1,11 +1,9 @@
 import Post from "./Post.jsx";
-import useFormatPost from "../../hooks/useFormatPost.js";
 import "./Content.css";
 import API from "../../url.js";
 import { useState, useEffect } from "react";
 
 export default function Content() {
-  const { formattedPosts, isLoading } = useFormatPost();
   const [posts, setPosts] = useState([]);
 
   useEffect(function () {
@@ -29,12 +27,12 @@ export default function Content() {
     };
 
     getPosts();
-  });
+  }, []);
 
   return (
     <div className="content">
-      {formattedPosts.map((post) => (
-        <Post key={post.id} post={post} />
+      {posts.map((post, index) => (
+        <Post key={post.id || index} post={post} />
       ))}
     </div>
   );
