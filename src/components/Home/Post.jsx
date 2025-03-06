@@ -28,7 +28,9 @@ export default function Post({ post }) {
         <div className="deadline-bar-container">
           <div
             className="deadline-text"
-            dangerouslySetInnerHTML={{ __html: post.deadline.deadline_length }}
+            dangerouslySetInnerHTML={{
+              __html: `Progress: ${post.deadline.deadline_length}%`,
+            }}
           />
           <div className="deadline-bar">
             <div
