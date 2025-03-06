@@ -1,4 +1,4 @@
-export default function PostBtn(handlePost) {
+export default function PostBtn({ handlePost }) {
   return (
     <button
       onClick={handlePost}

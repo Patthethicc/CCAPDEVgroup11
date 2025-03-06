@@ -9,11 +9,11 @@ import "../App.css";
 export default function CreateProject() {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-  const [progress, setProgress] = useState("");
+  const [progress, setProgress] = useState("Status");
   const [deadlength, setDeadLength] = useState(0);
   const [post, setPost] = useState(false);
 
-  const API = import.meta.env.VITE_API_URL;
+  const API = import.meta.env.VITE_LOCAL_API;
 
   useEffect(
     function () {
@@ -46,6 +46,12 @@ export default function CreateProject() {
 
           const result = await response.json();
           console.log(result);
+
+          // resets the fields
+          setTitle("");
+          setBody("");
+          setProgress("Status");
+          setDeadLength(0);
         } catch (err) {
           console.error("Error posting data: " + err);
         } finally {
@@ -78,7 +84,7 @@ export default function CreateProject() {
       />
       <BodyField body={body} setBody={setBody} />
       <UploadFilesBtn />
-      <PostBtn handlePost={setPost} />
+      <PostBtn handlePost={handlePost} />
     </div>
   );
 }

@@ -11,7 +11,7 @@ export default function BodyField({ body, setBody }) {
       <textarea
         className="pl-3 pt-2 resize-none max-h-[115px] w-full h-full overflow-y-scroll text-xs outline-none text-base bg-transparent rounded-lg"
         type="text"
-        placeholder="Body"
+        placeholder="Body here"
         value={body}
         onChange={(e) => setBody(e.target.value)}
       />

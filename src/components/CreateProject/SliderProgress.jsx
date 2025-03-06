@@ -2,21 +2,29 @@ import { useState } from "react";
 import StsDropdownMenu from "./StsDropdownMenu.jsx";
 import { Slider } from "@mui/material";
 
-export default function SliderProgress() {
-  const [value, setValue] = useState(0);
-
-  const handleCHange = function (event, newValue) {
-    setValue(newValue);
+export default function SliderProgress({
+  progress,
+  setProgress,
+  deadlength,
+  setDeadLength,
+}) {
+  const handleChange = function (event, new_deadlength) {
+    setDeadLength(new_deadlength);
   };
+
   return (
     <div className="flex items-center justify-start gap-10">
-      <StsDropdownMenu />{" "}
-      <div className="bg-[var(--background-color)] py-2 px-4 w-[45%] rounded-lg shadow-md font-bold">
+      <div className="flex-none">
+        <StsDropdownMenu progress={progress} setProgress={setProgress} />{" "}
+      </div>
+      <div className="flex-grow" />
+      <div className="bg-[var(--background-color)] flex-none mr-[50px] py-2 px-4 w-[45%] rounded-lg shadow-md font-bold">
         Progress Percentage
         <Slider
           defaultValue={0}
+          value={deadlength}
           aria-label="Default"
-          onChange={handleCHange}
+          onChange={handleChange}
           valueLabelDisplay="auto"
           sx={{
             color: "var(--secondary-color)",
