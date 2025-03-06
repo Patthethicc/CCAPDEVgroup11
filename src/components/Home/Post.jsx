@@ -6,7 +6,6 @@ import "./Post.css";
 
 export default function Post({ post }) {
   const timestamp = formatDistanceToNow(new Date(post.created_at));
-  console.log(post.deadline.progress);
 
   return (
     <div className="post">
