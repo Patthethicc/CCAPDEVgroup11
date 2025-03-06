@@ -13,24 +13,54 @@ export default function CreateProject() {
   const [deadlength, setDeadLength] = useState(0);
   const [post, setPost] = useState(false);
 
-  useEffect(function () {
-    if (!post) return;
+  const API = import.meta.env.VITE_API_URL;
 
-    const post_data = async function () {
-      const data = {
-        title,
-        content: body,
-        deadline: {
-          progress,
-          deadline_length: deadlength,
-        },
-        created_at: Date.now(),
-        upvotes: 0,
-        downvotes: 0,
-        comment_ids: [],
+  useEffect(
+    function () {
+      if (!post) return;
+
+      const postData = async function () {
+        const data = {
+          title,
+          content: body,
+          deadline: {
+            progress,
+            deadline_length: deadlength,
+          },
+          created_at: Date.now(),
+          upvotes: 0,
+          downvotes: 0,
+          comment_ids: [],
+        };
+
+        try {
+          const response = await fetch(`${API}/post`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          });
+
+          if (!response.ok) {
+            throw new Error("Error making post.");
+          }
+
+          const result = await response.json();
+          console.log(result);
+        } catch (err) {
+          console.error("Error posting data: " + err);
+        } finally {
+          setPost(false);
+        }
       };
-    };
-  });
+
+      postData();
+    },
+    [title, body, progress, deadlength, post, API],
+  );
+
+  const handlePost = function () {
+    setPost(true);
+  };
 
   return (
     <div
@@ -39,11 +69,16 @@ export default function CreateProject() {
       bg-[var(--primary-color)] box-border rounded-lg gap-4 shadow-md"
     >
       <h1 className="font-bold text-xl">Create Project</h1>
-      <TitleField />
-      <SliderProgress />
-      <BodyField />
+      <TitleField title={title} setTitle={setTitle} />
+      <SliderProgress
+        progress={progress}
+        setProgress={setProgress}
+        deadlength={deadlength}
+        setDeadLength={setDeadLength}
+      />
+      <BodyField body={body} setBody={setBody} />
       <UploadFilesBtn />
-      <PostBtn />
+      <PostBtn handlePost={setPost} />
     </div>
   );
 }
