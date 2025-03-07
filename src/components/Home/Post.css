@@ -1,0 +1,376 @@
+.post {
+  background: var(--secondary-color);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 0.8rem;
+  min-width: 550px;
+  padding: 20px;
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: row;
+  color: var(--sub-text-color);
+  align-items: flex-start;
+}
+
+.post-meta img {
+  border-radius: 100%;
+  width: 1.5em;
+  margin-right: 0.5rem;
+}
+
+.post-meta a {
+  color: var(--sub-text-color);
+  text-decoration: none;
+  justify-content: flex-end;
+  margin-right: 0.4rem;
+}
+
+.post-header {
+  display: flex;
+  margin-top: 0.2rem;
+}
+
+.post-title {
+  font-size: 1.2rem;
+  margin-top: 2vh;
+  margin-bottom: 3vh;
+  font-weight: bold;
+  flex: 2;
+  font-family: "Garet-Book";
+}
+
+.post-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.post-body {
+  flex: 3;
+  font-size: 1rem;
+  font-family: "garet-book", sans-serif;
+  color: var(--text-color);
+}
+
+.post-images {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  cursor: pointer;
+  position: relative;
+  max-width: 120px;
+}
+
+.post-images img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: absolute;
+}
+
+/* Stacked Images */
+.post-images .stacked-image-0 {
+  opacity: 0.6;
+  left: 5px;
+  z-index: 1;
+}
+
+.post-images .stacked-image-1 {
+  opacity: 0.8;
+  z-index: 2;
+}
+
+.post-images .main-image {
+  z-index: 3;
+  left: -5px;
+}
+
+/* Ellipsis */
+.post-images .ellipsis {
+  position: absolute;
+  top: 90px;
+  right: 0;
+  color: var(--text-color);
+  padding: 5px 10px;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deadline-bar-container {
+  position: relative;
+  width: 40%;
+}
+
+.deadline-text {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--sub-text-color);
+  font-size: 10px;
+  font-weight: bold;
+  font-family: "Garet-Book";
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.deadline-bar {
+  position: relative;
+  height: 20px;
+  border-radius: 10px;
+  background: var(--primary-color);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deadline-bar .progress {
+  height: 100%;
+  background: var(--background-color);
+  transition: width 0.3s ease;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.post-tags {
+  padding-right: 0.5rem;
+  border-radius: 10px;
+}
+
+.post-tags span {
+  box-shadow: 0 2px 5px var(--primary-color);
+  text-align: center;
+  font-size: 14px;
+  border-radius: 10px;
+  padding: 0 0.8rem;
+  margin-right: 0.2rem;
+}
+
+.progress-Started {
+  background-color: var(--started-color);
+}
+
+.post-tags span[data-status="In Progress"] {
+  background-color: var(--in-progress-color);
+}
+
+.progress-Finished {
+  background-color: var(--finished-color);
+}
+
+.progress-Deployed {
+  background-color: var(--deployed-color);
+}
+
+.post-body {
+  margin: 1rem 0;
+}
+
+.post-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.post-actions button {
+  background: var(--primary-color);
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: "Garet-Book";
+  color: var(--sub-text-color);
+  padding: 0.3rem 0.6rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.post-actions button i {
+  font-size: 14px;
+}
+
+.post-actions button:hover {
+  color: var(--secondary-color);
+}
+
+.post-actions .votes {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+/* .post {
+  background: var(--secondary-color);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 0.8rem;
+  padding: 20px;
+  max-width: 600px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.post-body {
+  white-space: pre-wrap;
+  margin: 1rem 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: row;
+  color: var(--sub-text-color);
+  align-items: flex-start;
+}
+
+.post-meta img {
+  border-radius: 100%;
+  width: 1.5em;
+  height: 1.5em;
+  object-fit: cover;
+  margin-right: 0.5rem;
+}
+
+.post-meta a {
+  color: var(--sub-text-color);
+  text-decoration: none;
+  justify-content: flex-end;
+  margin-right: 0.4rem;
+}
+
+.post-header {
+  display: flex;
+  margin-top: 0.2rem;
+}
+
+.post-title {
+  font-size: 1.2rem;
+  margin-bottom: 1vh;
+  flex: 2;
+  min-width: 0;
+}
+
+.deadline-bar-container {
+  position: relative;
+  width: 40%;
+}
+
+.deadline-text {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--sub-text-color);
+  font-size: 10px;
+  font-weight: bold;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.deadline-bar {
+  position: relative;
+  height: 20px;
+  border-radius: 10px;
+  background: var(--primary-color);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deadline-bar .progress {
+  height: 100%;
+  background: var(--background-color);
+  transition: width 0.3s ease;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.deadline-bar .progress {
+  height: 100%;
+  width: 50%;
+  background: var(--sub-text-color);
+  border-radius: 5px;
+}
+
+.post-tags {
+  padding-right: 0.5rem;
+  border-radius: 10px;
+}
+
+.post-tags span {
+  box-shadow: 0 2px 5px var(--primary-color);
+  text-align: center;
+  font-size: 14px;
+  border-radius: 10px;
+  padding: 0 0.8rem;
+  margin-right: 0.2rem;
+}
+
+.in-progress-tag {
+  background: var(--in-progress-color);
+}
+
+.started-tag {
+  background: var(--started-color);
+}
+
+.finished-tag {
+  background: var(--finished-color);
+}
+
+.deployed-tag {
+  background: var(--deployed-color);
+  color: black;
+}
+.post-actions {
+  flex: 2;
+  display: flex;
+  flex-wrap: wrap;
+  padding-right: 8em;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+.post-actions button {
+  background: var(--primary-color);
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--sub-text-color);
+  padding: 3px;
+  display: flex;
+  align-items: center;
+}
+
+.post-actions button:hover {
+  color: var(--primary-color);
+}
+
+.post-actions .votes {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.post-actions .votes {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+} */

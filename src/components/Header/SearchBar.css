@@ -1,0 +1,32 @@
+.search-bar {
+  padding: 0.2em;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+  border: solid;
+  color: var(--text-color);
+  border-color: var(--background-color);
+  width: 30%;
+  font-family: "Garet-Book";
+}
+
+.search-bar input[type="text"] {
+  border: none;
+  font-size: 14px;
+  width: 85%;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  float: left;
+  margin-top: 0.3em;
+  margin-left: 0.3em;
+  outline: none;
+}
+
+.search-bar button {
+  color: var(--background-color);
+  text-align: left;
+  font-size: 20px;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  float: right;
+}

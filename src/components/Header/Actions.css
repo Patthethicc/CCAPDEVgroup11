@@ -1,0 +1,364 @@
+header .actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: none;
+}
+
+header .actions button {
+  background: none;
+  border: none;
+  color: var(--sub-text-color);
+  font-size: 17;
+}
+
+header .actions .notification {
+  position: relative;
+}
+
+header .actions .notification .dot {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--sub-text-color);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.notification-panel {
+  display: none;
+  position: absolute;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  padding: 1em;
+  border-radius: 5px;
+  top: 40px;
+  right: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  width: 300px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.notification-panel.show {
+  display: block;
+}
+
+.notification-post {
+  display: flex;
+  align-items: center;
+  background: var(--secondary-color);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.notification-post img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.notification-post .meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.notification-post .meta a {
+  color: var(--sub-text-color);
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.notification-post .meta .details {
+  color: var(--text-color);
+  font-size: 14px;
+}
+.notification-post .meta .timestamp {
+  color: var(--sub-text-color);
+  font-size: 10px;
+}
+
+header .actions .notification button {
+  position: relative;
+}
+
+header .actions .notification button:focus + .notification-panel {
+  display: block;
+}
+
+header .account {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header .account img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+header .account .greeting {
+  color: var(--sub-text-color);
+}
+
+header .account .greeting:hover {
+  color: var(--darker-sub-text-color);
+}
+
+.account-panel {
+  display: none;
+  position: absolute;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  padding: 1em;
+  border-radius: 10px;
+  top: 70px;
+  right: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  width: 250px;
+}
+
+.account-panel.show {
+  display: block;
+}
+
+.account-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.account-info img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.account-info .details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.account-info .nickname {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.account-info .username {
+  font-size: 12px;
+  color: var(--sub-text-color);
+}
+
+.account-options {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.account-options li {
+  margin: 10px 0;
+}
+
+.account-options a {
+  color: var(--text-color);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.account-options a:hover {
+  color: var(--sub-text-color);
+}
+
+hr {
+  border: 1px solid var(--secondary-color);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  background: none;
+}
+
+header .actions button {
+  background: none;
+  border: none;
+  color: var(--sub-text-color);
+  font-size: 17;
+}
+
+header .actions .notification {
+  position: relative;
+}
+
+header .actions .notification .dot {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--sub-text-color);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.notification-panel {
+  display: none;
+  position: absolute;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  padding: 1em;
+  border-radius: 5px;
+  top: 40px;
+  right: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  width: 300px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.notification-panel.show {
+  display: block;
+}
+
+.notification-post {
+  display: flex;
+  align-items: center;
+  background: var(--secondary-color);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.notification-post img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.notification-post .meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.notification-post .meta a {
+  color: var(--sub-text-color);
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.notification-post .meta .details {
+  color: var(--text-color);
+  font-size: 14px;
+}
+.notification-post .meta .timestamp {
+  color: var(--sub-text-color);
+  font-size: 10px;
+}
+
+header .actions .notification button {
+  position: relative;
+}
+
+header .actions .notification button:focus + .notification-panel {
+  display: block;
+}
+
+header .account {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header .account img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+header .account .greeting {
+  color: var(--sub-text-color);
+}
+
+.account-panel {
+  display: none;
+  position: absolute;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  padding: 1em;
+  border-radius: 10px;
+  top: 70px;
+  right: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  width: 250px;
+}
+
+.account-panel.show {
+  display: block;
+}
+
+.account-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.account-info img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.account-info .details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.account-info .nickname {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.account-info .username {
+  font-size: 12px;
+  color: var(--sub-text-color);
+}
+
+.account-options {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.account-options li {
+  margin: 10px 0;
+}
+
+.account-options a {
+  color: var(--text-color);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.account-options a:hover {
+  color: var(--sub-text-color);
+}
+
+hr {
+  border: 1px solid var(--secondary-color);
+}

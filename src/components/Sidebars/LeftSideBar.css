@@ -1,0 +1,39 @@
+.left-sidebar {
+  position: sticky;
+  top: 5rem;
+  background: var(--primary-color);
+  border-radius: 10px;
+  font-size: 20px;
+  height: 35%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 1.5rem 2rem;
+  width: 100%;
+  max-width: 20%;
+  font-weight: bold;
+  font-family: "Garet-Book";
+}
+
+.left-sidebar button {
+  color: var(--sub-text-color);
+  text-align: left;
+  width: 100%;
+  font-size: 20px;
+  background: var(--tertiary-color);
+  padding: 0.5rem;
+  border: none;
+  font-family: "Garet-Book";
+  border-radius: 50px;
+}
+
+.left-sidebar #icon {
+  margin: 0px 10px;
+  font-size: 18px;
+  font-family: "Garet-Book";
+}
+
+.left-sidebar button:hover {
+  transition: background-color 250ms;
+  background: var(--background-color);
+}
