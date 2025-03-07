@@ -21,27 +21,25 @@ export default function LandingContent() {
 
       <h3 className="tagline-landing">bridging the gap</h3>
       <table className="table1 spaceBetweenCells">
+      <tbody>
         <tr>
-          <th>
-            <td>
-              <Link to="login">
-                <button type="button" className="button transition-colors">
-                  Log In
-                </button>
-              </Link>
-            </td>
-          </th>
-          <th>
-            <td>
-              <Link to="signup">
-                <button type="button" className="button transition-colors">
-                  Sign Up
-                </button>
-              </Link>
-            </td>
-          </th>
+          <td>
+            <Link to="login">
+              <button type="button" className="button transition-colors">
+                Log In
+              </button>
+            </Link>
+          </td>
+          <td>
+            <Link to="signup">
+              <button type="button" className="button transition-colors">
+                Sign Up
+              </button>
+            </Link>
+          </td>
         </tr>
-      </table>
+      </tbody>
+    </table>
     </div>
   );
 }
