@@ -9,18 +9,46 @@ import { useParams } from 'react-router-dom';
 import "../App.css";
 
 export default function EditProject() {
-  const _id = useParams();
+  const { id } = useParams();
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [progress, setProgress] = useState("Status");
   const [deadlength, setDeadLength] = useState(0);
   const [post, setPost] = useState(false);
+  console.log("Here is id: ", id);
+
+  useEffect ( function () {
+    if (!id) {
+      console.error("No ID found in URL");
+      return;
+    }
+    const fetchData = async function () {
+      try {
+        const response = await fetch(`${API}/${id}`, {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        });
+        if (!response.ok) {
+          throw new Error("Failed to fetch project data.");
+        }
+        const projectData = await response.json();
+        setTitle(projectData.title);
+        setBody(projectData.content);
+        setProgress(projectData.deadline.progress);
+        setDeadLength(projectData.deadline.deadline_length);
+      } catch (error) {
+        console.error("Error fetching project data: ", error.message);
+      }
+    };
+
+    fetchData();
+  }, [id],);
 
   useEffect(
     function () {
-      if (!post) return;
-
       const editData = async function () {
+        if (!post) return;
+
         const data = {
           title,
           content: body,
@@ -35,7 +63,7 @@ export default function EditProject() {
         };
 
         try {
-          const response = await fetch(`${API}/${_id}`, {
+          const response = await fetch(`${API}/${id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
@@ -57,7 +85,7 @@ export default function EditProject() {
 
       editData();
     },
-    [_id, title, body, progress, deadlength, post],
+    [id, title, body, progress, deadlength, post],
   );
 
   useEffect(
