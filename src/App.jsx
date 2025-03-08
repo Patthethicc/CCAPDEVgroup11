@@ -21,7 +21,7 @@ function App() {
           <Route path="home" element={<Home />} />
           <Route path="create-project" element={<CreateProject />} />
           <Route path="profile" element={<ProfilePage />} />
-          <Route path="edit-project" element={<EditProject />} />
+          <Route path="edit-project/:postId" element={<EditProject />} />
           <Route path="view-project" element={<ViewPost />} />
         </Route>
       </Routes>

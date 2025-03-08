@@ -1,6 +1,6 @@
 import "../../App.css";
 
-export default function TitleField({ value, onChange }) {
+export default function TitleField({ title, setTitle }) {
   return (
     <div
       className="title relative hover:bg-[var(--brighter-bg-color)] transition-colors flex-c 
@@ -12,8 +12,8 @@ export default function TitleField({ value, onChange }) {
         className="pl-3 pt-2 resize-none max-h-7 overflow-y-scroll text-xs outline-none text-base bg-transparent rounded-lg"
         type="text"
         placeholder="Title here"
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
       />
     </div>
   );

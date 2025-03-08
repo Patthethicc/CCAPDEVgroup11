@@ -1,5 +1,6 @@
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import {
   faEllipsis,
   faTrash,
@@ -9,9 +10,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function ActionDropdownMenu() {
+export default function ActionDropdownMenu({id}) {
   return (
-    <Menu as="div" className="relative">
+    <Menu as="div" className="relative" key={id}>
       <div>
         <MenuButton className="relative outline-none">
           <FontAwesomeIcon icon={faEllipsis} aria-hidden="false" />
@@ -25,7 +26,7 @@ export default function ActionDropdownMenu() {
           data-[leave]:ease-in shadow-md absolute top-[22px] left-[-6.5rem] z-[30] min-w-[120px]" // Positioned under the button
       >
         <MenuItem>
-          <Link to="/edit-project">
+          <Link to={`/edit-project/${id}`}>
             <button
               className="px-2 py-1 w-[100%] hover:bg-[var(--primary-color)] transition-colors
                font-semibold text-sm text-left mt-1"
@@ -65,3 +66,8 @@ export default function ActionDropdownMenu() {
     </Menu>
   );
 }
+
+ActionDropdownMenu.propTypes = {
+  id: PropTypes.string.isRequired
+}
+

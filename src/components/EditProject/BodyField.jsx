@@ -1,6 +1,6 @@
 import "../../App.css";
 
-export default function BodyField({ value, onChange }) {
+export default function BodyField({ body, setBody }) {
   return (
     <div
       className="title relative hover:bg-[var(--brighter-bg-color)] transition-colors flex-c 
@@ -11,9 +11,9 @@ export default function BodyField({ value, onChange }) {
       <textarea
         className="pl-3 pt-2 resize-none max-h-[115px] w-full h-full overflow-y-scroll text-xs outline-none text-base bg-transparent rounded-lg"
         type="text"
-        placeholder="Body"
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
+        placeholder="Body here"
+        value={body}
+        onChange={(e) => setBody(e.target.value)}
       />
     </div>
   );
