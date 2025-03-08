@@ -12,6 +12,7 @@ export default function CreateProject() {
   const [body, setBody] = useState("");
   const [progress, setProgress] = useState("Status");
   const [deadlength, setDeadLength] = useState(0);
+  const [file, setFile] = useState(null);
   const [post, setPost] = useState(false);
 
   useEffect(
@@ -19,6 +20,29 @@ export default function CreateProject() {
       if (!post) return;
 
       const postData = async function () {
+        let image_url = null;
+
+        if (file) {
+          const form_data = new FormData();
+          form_data.append("image", file);
+
+          try {
+            const response = await fetch(`${API}/upload`, {
+              method: "POST",
+              body: form_data,
+            });
+
+            if (!response.ok) {
+              throw new Error("Error uploading image");
+            }
+
+            const img = await response.json();
+            image_url = img.image.url;
+          } catch (err) {
+            return console.error("Error uploading image: " + err.message);
+          }
+        }
+
         const data = {
           title,
           content: body,
@@ -30,6 +54,7 @@ export default function CreateProject() {
           upvotes: 0,
           downvotes: 0,
           comment_ids: [],
+          image: image_url,
         };
 
         try {
@@ -51,6 +76,7 @@ export default function CreateProject() {
           setBody("");
           setProgress("Status");
           setDeadLength(0);
+          setFile(null);
         } catch (err) {
           console.error("Error posting data: " + err.message);
         } finally {
@@ -60,7 +86,7 @@ export default function CreateProject() {
 
       postData();
     },
-    [title, body, progress, deadlength, post],
+    [title, body, progress, deadlength, file, post],
   );
 
   useEffect(
@@ -100,7 +126,7 @@ export default function CreateProject() {
         setDeadLength={setDeadLength}
       />
       <BodyField body={body} setBody={setBody} />
-      <UploadFilesBtn />
+      <UploadFilesBtn file={file} setFile={setFile} />
       <PostBtn handlePost={handlePost} />
     </div>
   );
