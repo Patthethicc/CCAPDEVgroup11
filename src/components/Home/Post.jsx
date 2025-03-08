@@ -18,7 +18,7 @@ export default function Post({ post }) {
         {/* placeholder author and timestamp */}
         <a href="#">Group 11</a> • {timestamp}
         <div className="ml-auto">
-          <ActionDropdownMenu />
+          <ActionDropdownMenu key={post._id} id={post._id}/>
         </div>
       </div>
       <div className="post-header">
@@ -88,6 +88,7 @@ export default function Post({ post }) {
 
 Post.propTypes = {
   post: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
     created_at: PropTypes.string.isRequired,
