@@ -25,8 +25,8 @@ export default function Content() {
           const result = await response.json();
           console.log(result);
           setPosts(result.posts);
-          setTotalPages(result.total_pages);
-          setCurrentPage(result.current_page);
+          setTotalPages(Number(result.total_pages));
+          setCurrentPage(Number(result.current_page));
         } catch (err) {
           console.error("Error getting data: " + err.message);
         }
