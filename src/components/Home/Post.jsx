@@ -51,24 +51,21 @@ export default function Post({ post }) {
           <div className="post-body hover:text-[var(--darker-text-color)] transition-colors">
             {post.content}
           </div>
-          {post.images?.length > 0 && (
-            <div className="post-images">
-              <img
-                className="main-image"
-                src={post.images[0]}
-                alt="Post Image"
-              />
-              {post.images.slice(1, 3).map((img, index) => (
+          {/*post.images?.length > 0 && ( */}
+          <div className="post-images">
+            {post.image && (
+              <img className="main-image" src={post.image} alt="Post Image" />
+            )}
+            {/*post.images.slice(1, 3).map((img, index) => (
                 <img
                   key={index}
                   className={`stacked-image-${index}`}
                   src={img}
                   alt="Stacked Image"
                 />
-              ))}
-              {post.images.length > 3 && <div className="ellipsis">...</div>}
-            </div>
-          )}
+              ))
+            post.images.length > 3 && <div className="ellipsis">...</div>*/}
+          </div>
         </div>
       </Link>
       <div className="post-actions">
