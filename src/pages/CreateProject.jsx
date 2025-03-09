@@ -22,6 +22,9 @@ export default function CreateProject() {
       if (!post) return;
 
       const postData = async function () {
+        if ( !title.trim() || !body.trim()) {
+          alert("Title and body cannot be empty.");
+        }
         let image_url = null;
 
         if (file) {
