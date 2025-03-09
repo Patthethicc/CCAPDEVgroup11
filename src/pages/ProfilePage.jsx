@@ -5,54 +5,53 @@ import { useState, useEffect } from "react";
 import API from "../url.js";
 
 export default function ProfilePage() {
-	const { userId } = useParams();
-	const [user_name, setUserName] = useState("");
-	const [user_tag, setTag] = useState("");
-	const [user_bio, setBio] = useState("");
-	const [isLoading, setIsLoading] = useState(true);
+    const { userId } = useParams();
+    const [userData, setUserData] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
 
-	useEffect(() => {
-		if (!userId) {
-		  console.error("No ID found in URL");
-		  setIsLoading(false);
-		  return;
-		}
-	
-		const getUser = async () => {
-		  try {
-			const response = await fetch(`${API}/users/${userId}`, {
-			  method: "GET",
-			  headers: { "Content-Type": "application/json" },
-			});
+    useEffect(() => {
+        if (!userId) {
+            console.error("No ID found in URL");
+            setIsLoading(false);
+            return;
+        }
 
-			console.log("User ID from URL:", userId);
-	
-			if (!response.ok) {
-			  throw new Error("Failed to fetch user data.");
-			}
-	
-			const userData = await response.json();
-			setUserName(userData.user_name);
-			setTag(userData.user_tag);
-			setBio(userData.user_bio);
-		  } catch (error) {
-			console.error("Error fetching project data: ", error.message);
-		  } finally {
-			isLoading(false);
-		}
-		};
-	
-		getUser();
-	  }, [userId]);
-	
-	return (
-	  <div className="profilePage">
-		<ProfileHeader
-			user_name={user_name}
-			user_tag={user_tag}
-			user_bio={user_bio}
-			/>
-		<ProfileContent></ProfileContent>
-	  </div>
-	);
-  }
+        const getUser = async () => {
+            try {
+                const response = await fetch(`${API}/users/${userId}`);
+                if (!response.ok) {
+                    throw new Error("Failed to fetch user data.");
+                }
+
+                const data = await response.json();
+                console.log("Fetched User Data:", data); // Debug API response
+                setUserData(data);
+            } catch (error) {
+                console.error("Error fetching user data:", error.message);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        getUser();
+    }, [userId]);
+
+    if (isLoading) {
+        return <p>Loading...</p>;
+    }
+
+    if (!userData) {
+        return <p>User not found.</p>;
+    }
+
+    return (
+        <div className="profilePage">
+            <ProfileHeader
+                user_name={String(userData.user_name || "Unknown")}
+                user_tag={String(userData.user_tag || "@unknown")}
+                user_bio={String(userData.user_bio || "No bio available.")}
+            />
+        <ProfileContent />
+        </div>
+    );
+}
