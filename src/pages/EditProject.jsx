@@ -15,6 +15,7 @@ export default function EditProject() {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [progress, setProgress] = useState("Status");
+  const [file, setFile] = useState(null);
   const [deadlength, setDeadLength] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -41,6 +42,7 @@ export default function EditProject() {
         setBody(projectData.content);
         setProgress(projectData.deadline.progress);
         setDeadLength(projectData.deadline.deadline_length);
+        setFile(projectData.image || null);
       } catch (error) {
         console.error("Error fetching project data: ", error.message);
       } finally {
@@ -51,12 +53,41 @@ export default function EditProject() {
     fetchData();
   }, [postId]);
 
+  const postData = async function () {
+    let image_url = null;
+
+    if (file) {
+      const form_data = new FormData();
+      form_data.append("image", file);
+
+      try {
+        const response = await fetch(`${API}/upload`, {
+          method: "POST",
+          body: form_data,
+        });
+
+        if (!response.ok) {
+          throw new Error("Error uploading image");
+        }
+
+        const img = await response.json();
+        image_url = img.image.url;
+      } catch (err) {
+        return console.error("Error uploading image: " + err.message);
+      }
+    }
+
+    return image_url;
+  };
+
   // Handle editing the post
   const handleEditPost = async () => {
     if (!postId || !title.trim() || !body.trim()) {
       alert("Title and body cannot be empty.");
       return;
     }
+
+    const image_url = await postData();
 
     const updatedPost = {
       title,
@@ -69,6 +100,7 @@ export default function EditProject() {
       upvotes: 0,
       downvotes: 0,
       comment_ids: [],
+      image: image_url,
     };
 
     try {
@@ -120,7 +152,7 @@ export default function EditProject() {
         setDeadLength={setDeadLength}
       />
       <BodyField body={body} setBody={setBody} />
-      <UploadFilesBtn />
+      <UploadFilesBtn file={file} setFile={setFile} />
       <PostBtn handlePost={handleEditPost} value="Save" />
     </div>
   );
