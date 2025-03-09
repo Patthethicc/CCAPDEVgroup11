@@ -1,7 +1,7 @@
 import Post from "./Post.jsx";
 import "./Content.css";
 import API from "../../url.js";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import PageBtn from "./PageBtn.jsx";
 
 export default function Content() {
@@ -9,32 +9,30 @@ export default function Content() {
   const [current_page, setCurrentPage] = useState(0);
   const [total_pages, setTotalPages] = useState(1);
 
-  useEffect(
-    function () {
-      const getPosts = async function () {
-        try {
-          const response = await fetch(`${API}/?p=${current_page}`, {
-            method: "GET",
-            headers: { "Content-Type": "application/json" },
-          });
+  const getPosts = useCallback(async function () {
+    try {
+      const response = await fetch(`${API}/?p=${current_page}`, {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      });
 
-          if (!response.ok) {
-            throw new Error("Error getting all posts.");
-          }
+      if (!response.ok) {
+        throw new Error("Error getting all posts.");
+      }
 
-          const result = await response.json();
-          console.log(result);
-          setPosts(result.posts);
-          setTotalPages(Number(result.total_pages));
-          setCurrentPage(Number(result.current_page));
-        } catch (err) {
-          console.error("Error getting data: " + err.message);
-        }
-      };
+      const result = await response.json();
+      console.log(result);
+      setPosts(result.posts);
+      setTotalPages(Number(result.total_pages));
+      setCurrentPage(Number(result.current_page));
+    } catch (err) {
+      console.error("Error getting data: " + err.message);
+    }
+    },[current_page]);
+
+  useEffect(function () {
       getPosts();
-    },
-    [current_page],
-  );
+    },[getPosts],);
 
   const prevPage = function (page) {
     return page - 1;
@@ -47,7 +45,7 @@ export default function Content() {
   return (
     <div className="content">
       {posts.map((post, index) => (
-        <Post key={post.id || index} post={post} />
+        <Post key={post.id || index} post={post} onDelete={getPosts}/>
       ))}
       <div className="flex items-center w-full">
         <div className="flex-1 justify-start">

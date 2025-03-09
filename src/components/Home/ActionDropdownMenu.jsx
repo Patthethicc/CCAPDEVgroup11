@@ -1,6 +1,7 @@
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import API from "../../url.js";
 import {
   faEllipsis,
   faTrash,
@@ -10,7 +11,31 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function ActionDropdownMenu({id}) {
+export default function ActionDropdownMenu({id, onDelete}) {
+
+  const deletePost = async function name(id) {
+    //kayo bahala kung gagawa ng custom confirmation of deletion
+    const confirmDelete = window.confirm("Are you sure you want to delete this post?");
+    if (!confirmDelete) return;
+    //i wouldnt remove this if i were you, unless you guys have an idea on how to make it better - pat
+    try{
+      const response = await fetch(`${API}/${id}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to delete Post");
+      }
+
+      console.log("deleted sucessfully")
+    }
+    catch (err) {
+      //if nag error uh succesfully deleted apparently?
+      onDelete();
+      console.error("Error deleting: " + err.message);
+    }
+  };
+
   return (
     <Menu as="div" className="relative" key={id}>
       <div>
@@ -39,6 +64,7 @@ export default function ActionDropdownMenu({id}) {
           <button
             className="px-2 py-1 w-[100%] hover:bg-[var(--primary-color)] transition-colors
                font-semibold text-sm text-left mt-1"
+            onClick={() => deletePost(id)}
           >
             <FontAwesomeIcon icon={faTrash} className="ml-1 mr-2" /> Delete
           </button>
@@ -68,6 +94,7 @@ export default function ActionDropdownMenu({id}) {
 }
 
 ActionDropdownMenu.propTypes = {
-  id: PropTypes.string.isRequired
+  id: PropTypes.string.isRequired,
+  onDelete: PropTypes.func.isRequired,
 }
 

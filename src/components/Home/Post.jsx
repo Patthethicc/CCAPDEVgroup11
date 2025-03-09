@@ -4,7 +4,7 @@ import ActionDropdownMenu from "./ActionDropdownMenu.jsx";
 import { Link } from "react-router-dom";
 import "./Post.css";
 
-export default function Post({ post }) {
+export default function Post({ post, onDelete }) {
   const timestamp = formatDistanceToNow(new Date(post.created_at));
 
   return (
@@ -18,7 +18,7 @@ export default function Post({ post }) {
         {/* placeholder author and timestamp */}
         <a href="#">Group 11</a> • {timestamp}
         <div className="ml-auto">
-          <ActionDropdownMenu key={post._id} id={post._id}/>
+          <ActionDropdownMenu key={post._id} id={post._id} onDelete={onDelete}/>
         </div>
       </div>
       <div className="post-header">
@@ -101,4 +101,5 @@ Post.propTypes = {
     }).isRequired,
     images: PropTypes.array,
   }).isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
