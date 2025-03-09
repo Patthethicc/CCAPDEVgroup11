@@ -76,6 +76,7 @@ form {
 .log {
     color: #697973;
     font-size: 20px;
+    margin: 15px;
 }
 
 .main2 {
@@ -90,10 +91,7 @@ form {
 }
 
 .outerpad {
-    padding-top: 145px;
-    padding-bottom: 145px;
-    padding-left: 12.5px;
-    padding-right: 12.5px;
+    padding: 160px 12.5px ;
     background-color: #b2a891;
     block-size: 10px;
     display: flex;
@@ -103,10 +101,7 @@ form {
 }
 
 .innerpad {
-    padding-top: 135px;
-    padding-bottom: 135px;
-    padding-left: 60px;
-    padding-right: 60px;
+    padding: 150px 60px;
     background-color: #f1dfb6;
     block-size: 10px;
     display: flex;
