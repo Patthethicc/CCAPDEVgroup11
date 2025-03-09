@@ -127,7 +127,7 @@ export default function CreateProject() {
       />
       <BodyField body={body} setBody={setBody} />
       <UploadFilesBtn file={file} setFile={setFile} />
-      <PostBtn handlePost={handlePost} />
+      <PostBtn handlePost={handlePost} value="Post" />
     </div>
   );
 }
