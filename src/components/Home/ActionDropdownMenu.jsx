@@ -17,7 +17,7 @@ export default function ActionDropdownMenu({id, onDelete}) {
     //kayo bahala kung gagawa ng custom confirmation of deletion
     const confirmDelete = window.confirm("Are you sure you want to delete this post?");
     if (!confirmDelete) return;
-    //i wouldnt remove this if i were you, unless you guys have an idea on how to make it better - pat
+
     try{
       const response = await fetch(`${API}/${id}`, {
         method: "DELETE",
@@ -28,10 +28,9 @@ export default function ActionDropdownMenu({id, onDelete}) {
       }
 
       console.log("deleted sucessfully")
+      onDelete();
     }
     catch (err) {
-      //if nag error uh succesfully deleted apparently?
-      onDelete();
       console.error("Error deleting: " + err.message);
     }
   };
