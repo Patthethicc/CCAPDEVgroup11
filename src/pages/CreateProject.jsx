@@ -4,10 +4,12 @@ import UploadFilesBtn from "../components/CreateProject/UploadFilesBtn.jsx";
 import PostBtn from "../components/CreateProject/PostBtn.jsx";
 import SliderProgress from "../components/CreateProject/SliderProgress.jsx";
 import API from "../url.js";
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "../App.css";
 
 export default function CreateProject() {
+  const nav = useNavigate();
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [progress, setProgress] = useState("Status");
@@ -77,6 +79,8 @@ export default function CreateProject() {
           setProgress("Status");
           setDeadLength(0);
           setFile(null);
+
+          nav("/home");
         } catch (err) {
           console.error("Error posting data: " + err.message);
         } finally {
@@ -86,7 +90,7 @@ export default function CreateProject() {
 
       postData();
     },
-    [title, body, progress, deadlength, file, post],
+    [title, body, progress, deadlength, file, post, nav],
   );
 
   useEffect(
