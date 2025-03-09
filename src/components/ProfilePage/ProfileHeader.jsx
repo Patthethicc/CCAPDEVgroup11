@@ -1,7 +1,7 @@
 import "./ProfileHeader.css";
 import HeaderOptions from "./HeaderOptions";
 
-export default function ProfileHeader() {
+export default function ProfileHeader(user_name, user_tag, user_bio) {
   const headerOptions = HeaderOptions(false);
 
   return (
@@ -13,12 +13,9 @@ export default function ProfileHeader() {
           className="profilePic"
         ></img>
         <div className="user-info">
-          <div className="userHandle">HansPerez</div>
-          <div className="userName">@hans_perez</div>
-          <div className="bio">
-            2nd Year BSCS-ST at DLSU <br />
-            dm for Math Tutoring
-          </div>
+          <div className="userTag">{user_name}</div>
+          <div className="userName">{user_tag}</div>
+          <div className="bio">{user_bio}</div>
         </div>
         <div className="headerOptions">{headerOptions}</div>
       </div>
