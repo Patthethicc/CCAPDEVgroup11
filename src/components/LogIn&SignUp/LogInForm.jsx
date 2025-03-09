@@ -36,7 +36,7 @@ export default function LogInForm() {
 
       navigate("/home");
     } catch (error) {
-      alert(error.message); // Show error as an alert
+      alert(error.message); // testing
       setError(error.message);
     }
   };
