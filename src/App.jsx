@@ -22,7 +22,7 @@ function App() {
           <Route path="create-project" element={<CreateProject />} />
           <Route path="users/:userId" element={<ProfilePage />} />
           <Route path="edit-project/:postId" element={<EditProject />} />
-          <Route path="view-project" element={<ViewPost />} />
+          <Route path="view-project/:postId" element={<ViewPost />} />
         </Route>
       </Routes>
     </Router>

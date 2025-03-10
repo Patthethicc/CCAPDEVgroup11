@@ -10,8 +10,10 @@ import {
   faBookmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router-dom";
 
 export default function ActionDropdownMenu({id, onDelete}) {
+  const nav = useNavigate();
 
   const deletePost = async function name(id) {
     //kayo bahala kung gagawa ng custom confirmation of deletion
@@ -29,6 +31,7 @@ export default function ActionDropdownMenu({id, onDelete}) {
 
       console.log("deleted sucessfully")
       onDelete();
+      nav("/home");
     }
     catch (err) {
       console.error("Error deleting: " + err.message);

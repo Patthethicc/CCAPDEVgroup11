@@ -46,7 +46,7 @@ export default function LogInForm() {
       <input
         className="input mt-3 p-2 text-md"
         type="text"
-        placeholder="Username or Email"
+        placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />

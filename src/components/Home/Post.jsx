@@ -6,7 +6,6 @@ import "./Post.css";
 
 export default function Post({ post, onDelete }) {
   const timestamp = formatDistanceToNow(new Date(post.created_at));
-
   return (
     <div className="post">
       <div className="post-meta">
@@ -46,7 +45,7 @@ export default function Post({ post, onDelete }) {
           {post.deadline.progress}
         </span>
       </div>
-      <Link to="/view-project">
+      <Link key={post._id} to={`/view-project/${post._id}`}>
         <div className="post-content ">
           <div className="post-body hover:text-[var(--darker-text-color)] transition-colors">
             {post.content}
