@@ -91,7 +91,7 @@ form {
 }
 
 .outerpad {
-    padding: 160px 12.5px ;
+    padding: 180px 12.5px ;
     background-color: #b2a891;
     block-size: 10px;
     display: flex;
@@ -101,7 +101,7 @@ form {
 }
 
 .innerpad {
-    padding: 150px 60px;
+    padding: 170px 60px;
     background-color: #f1dfb6;
     block-size: 10px;
     display: flex;

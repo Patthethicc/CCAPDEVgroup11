@@ -14,6 +14,12 @@ export default function LogInForm() {
     e.preventDefault();
     setError(null);
 
+    if (!email.trim() || !password.trim()) {
+      setError("Please enter both email and pasword");
+      return;
+    }
+
+
     const details = {
       email: email,
       password: password,
@@ -36,8 +42,7 @@ export default function LogInForm() {
 
       navigate("/home");
     } catch (error) {
-      alert(error.message); // testing
-      setError(error.message);
+      console.log(error.message);
     }
   };
 
@@ -65,6 +70,14 @@ export default function LogInForm() {
       <button type="submit" className="button-logsign transition">
         Log In
       </button>
+
+      <div
+        className={`mt-2 w-full text-center transition-all duration-300 ease-in-out ${error ? "max-h-20 opacity-100" : "max-h-0 opacity-0"
+          } overflow-hidden`}
+      >
+        {error && <p className="text-red-500 text-xs font-bold">{error}</p>}
+      </div>
+
 
       <Link to="/signup" className="links">
         Don&apos;t have an account yet? Click to create one!
