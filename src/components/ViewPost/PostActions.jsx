@@ -8,6 +8,9 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function PostAction() {
+  const addParentComment = async (e) => {
+    e.preventDefault();
+  };
   return (
     <>
       <div className="post-actions-buttons">
@@ -26,8 +29,16 @@ export default function PostAction() {
           <FontAwesomeIcon icon={faShare} />
         </button>
       </div>
+      <form>
+        {/* onSubmit={handleAddComment} */}
+        <input
+          className="post-add-comment"
+          type="text"
+          placeholder="Add a comment..."
+        />
+      </form>
 
-      <div className="post-add-comment">Add a comment</div>
+      {/* <div className="post-add-comment">Add a comment</div> */}
     </>
   );
 }

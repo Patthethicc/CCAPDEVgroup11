@@ -13,7 +13,9 @@ export default function Comments(props) {
         <span id="post-user-hours">{props.userName_time}</span>
       </div>
       <div>
-        <span id="commenter-comment-container">{props.comment}</span>
+        <span id="commenter-comment-container">
+          {props.comment + " id: " + props.commentId}
+        </span>
       </div>
 
       <CommentActions />

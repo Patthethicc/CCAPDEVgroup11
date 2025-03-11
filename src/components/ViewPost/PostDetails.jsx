@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import PropTypes from "prop-types";
 
-export default function PostDetails({onDelete}) {
+export default function PostDetails({ onDelete }) {
   const { postId } = useParams();
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
@@ -58,14 +58,21 @@ export default function PostDetails({onDelete}) {
   }, [postId]);
   return (
     <div className="post-details-container">
-      <TitleDeadline key={postId} title={title} progress={progress} deadlength={deadlength} onDelete={onDelete} id={postId}/>
-      <CaptionImage body={body} file={file}/>
+      <TitleDeadline
+        key={postId}
+        title={title}
+        progress={progress}
+        deadlength={deadlength}
+        onDelete={onDelete}
+        id={postId}
+      />
+      <CaptionImage body={body} file={file} />
       <PostAction />
-      <CommentSection />
+      <CommentSection projectId={postId} />
     </div>
   );
 }
 
 PostDetails.propTypes = {
   onDelete: PropTypes.func.isRequired,
-}
+};

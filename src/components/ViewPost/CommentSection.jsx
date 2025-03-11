@@ -8,7 +8,10 @@ export default function CommentSection(props) {
         <Comments
           profile_url="https://i.pinimg.com/736x/dc/9f/f6/dc9ff6bfce06bd402d16edb127cfbc6f.jpg"
           userName_time="tom_n00k  •   18 hours ago"
-          comment="You did so good! Keep it up!"
+          comment={
+            "You did so good! Keep it up! to test post: " + props.projectId
+          }
+          commentId={props.commentId}
         />
 
         {/*

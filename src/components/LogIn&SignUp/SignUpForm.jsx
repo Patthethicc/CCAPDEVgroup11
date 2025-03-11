@@ -16,13 +16,13 @@ export default function SignUpForm() {
     setError(null);
 
     const details = {
-      username: username,
-      email: email,
-      password: password,
+      user_name: username,
+      user_email: email,
+      user_password: password,
     };
 
     try {
-      const response = await fetch(`${API}/auth/signup`, {
+      const response = await fetch(`${API}/user/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(details),
