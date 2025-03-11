@@ -39,6 +39,15 @@ export default function LogInForm() {
 
       console.log("Login successful:", data);
 
+      // Save userId in local storage after successful login
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          userId: data.user._id, // Store _id as userId
+          username: data.user.user_name,
+        })
+      );
+
       navigate("/home");
     } catch (error) {
       setError(error.message);

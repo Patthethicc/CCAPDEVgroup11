@@ -15,6 +15,15 @@ export default function CommentSection(props) {
         />
 
         {/*
+
+      */}
+      </div>
+    </>
+  );
+}
+
+/*
+
         <Comments
           profile_url="https://i.pinimg.com/736x/c6/8c/e6/c68ce664ae649625c13190e68aa954ac.jpg"
           userName_time="isabelle_smiles •   8 hours ago"
@@ -38,8 +47,4 @@ export default function CommentSection(props) {
           userName_time="tom_n00k  •   5 hours ago"
           comment="Always rooting for you works!"
         />
-      */}
-      </div>
-    </>
-  );
-}
+*/
