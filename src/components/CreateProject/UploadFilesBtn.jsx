@@ -2,6 +2,15 @@ import { faPaperclip } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function UploadFilesBtn({ file, setFile }) {
+  const fileName = function (file) {
+    if (typeof file === "string") {
+      return file.split("/").pop();
+    } else if (file instanceof File) {
+      return file.name;
+    }
+    return null;
+  };
+
   const handleFileChange = (event) => {
     const uploaded_file = event.target.files[0];
     if (uploaded_file) {
@@ -27,7 +36,7 @@ export default function UploadFilesBtn({ file, setFile }) {
         onChange={handleFileChange}
       />
 
-      {file && <p className="text-sm ml-5 underline ">{file.name}</p>}
+      {file && <p className="text-sm ml-5 underline ">{fileName(file)}</p>}
     </div>
   );
 }

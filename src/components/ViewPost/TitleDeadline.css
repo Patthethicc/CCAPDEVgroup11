@@ -13,28 +13,32 @@
   color: #f1dfb6;
 }
 
-#status {
-  margin-bottom: 20px;
+.deadline-bar-container {
+  position: relative;
+  width: 40%;
 }
 
-#deadline {
-  font-size: 11px;
-  margin-left: 15px;
-  margin-right: 5px;
-  background-color: #373d3b;
-  border-radius: 7px;
-  float: right;
-  color: #f1dfb6;
-  padding: 3px;
+.deadline-text {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--sub-text-color);
+  font-size: 10px;
+  font-weight: bold;
+  white-space: nowrap;
+  z-index: 2;
 }
 
-#triple-dot {
-  margin-right: 5px;
-  font-size: x-large;
-}
-
-#triple-dot :hover {
-  cursor: pointer;
+.deadline-bar {
+  position: relative;
+  height: 20px;
+  border-radius: 10px;
+  background: var(--primary-color);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .project-status {
@@ -44,4 +48,8 @@
   color: #f1dfb6;
   margin-left: 10px;
   margin-right: 10px;
+}
+
+#status {
+  margin-bottom: 20px;
 }

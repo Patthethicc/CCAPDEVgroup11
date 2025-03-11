@@ -1,4 +1,4 @@
-export default function PostBtn({ handlePost }) {
+export default function PostBtn({ handlePost, value }) {
   return (
     <button
       onClick={handlePost}
@@ -6,7 +6,7 @@ export default function PostBtn({ handlePost }) {
         focus-within:border-[var(--field-border-color)] hover:bg-[var(--brighter-bg-color)] transition-colors
         border-solid border-2 border-transparent font-bold ml-[350px] text-[var(--sub-text-color)] "
     >
-      Post
+      {value}
     </button>
   );
 }

@@ -1,18 +1,21 @@
-import TitleField from "../components/EditProject/TitleField.jsx";
-import BodyField from "../components/EditProject/BodyField.jsx";
-import UploadFilesBtn from "../components/EditProject/UploadFilesBtn.jsx";
-import EditBtn from "../components/EditProject/EditBtn.jsx";
-import SliderProgress from "../components/EditProject/SliderProgress.jsx";
+import TitleField from "../components/CreateProject/TitleField.jsx";
+import BodyField from "../components/CreateProject/BodyField.jsx";
+import UploadFilesBtn from "../components/CreateProject/UploadFilesBtn.jsx";
+import PostBtn from "../components/CreateProject/PostBtn.jsx";
+import SliderProgress from "../components/CreateProject/SliderProgress.jsx";
+import { useNavigate } from "react-router-dom";
 import API from "../url.js";
 import { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import "../App.css";
 
 export default function EditProject() {
+  const nav = useNavigate();
   const { postId } = useParams();
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [progress, setProgress] = useState("Status");
+  const [file, setFile] = useState(null);
   const [deadlength, setDeadLength] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -39,6 +42,7 @@ export default function EditProject() {
         setBody(projectData.content);
         setProgress(projectData.deadline.progress);
         setDeadLength(projectData.deadline.deadline_length);
+        setFile(projectData.image || null);
       } catch (error) {
         console.error("Error fetching project data: ", error.message);
       } finally {
@@ -49,12 +53,41 @@ export default function EditProject() {
     fetchData();
   }, [postId]);
 
+  const postData = async function () {
+    let image_url = null;
+
+    if (file) {
+      const form_data = new FormData();
+      form_data.append("image", file);
+
+      try {
+        const response = await fetch(`${API}/upload`, {
+          method: "POST",
+          body: form_data,
+        });
+
+        if (!response.ok) {
+          throw new Error("Error uploading image");
+        }
+
+        const img = await response.json();
+        image_url = img.image.url;
+      } catch (err) {
+        return console.error("Error uploading image: " + err.message);
+      }
+    }
+
+    return image_url;
+  };
+
   // Handle editing the post
   const handleEditPost = async () => {
     if (!postId || !title.trim() || !body.trim()) {
       alert("Title and body cannot be empty.");
       return;
     }
+
+    const image_url = await postData();
 
     const updatedPost = {
       title,
@@ -67,6 +100,7 @@ export default function EditProject() {
       upvotes: 0,
       downvotes: 0,
       comment_ids: [],
+      image: image_url,
     };
 
     try {
@@ -82,12 +116,13 @@ export default function EditProject() {
 
       const result = await response.json();
       console.log("Post updated successfully:", result);
+
+      nav("/home");
     } catch (err) {
       console.error("Error updating data: " + err.message);
     }
   };
 
-  // Adjust deadline length based on progress
   const adjustDeadLength = (progress) => {
     const progressMap = {
       Started: 0,
@@ -98,7 +133,6 @@ export default function EditProject() {
     setDeadLength(progressMap[progress] || 0);
   };
 
-  // Update deadlength when progress changes
   useEffect(() => {
     adjustDeadLength(progress);
   }, [progress]);
@@ -118,8 +152,8 @@ export default function EditProject() {
         setDeadLength={setDeadLength}
       />
       <BodyField body={body} setBody={setBody} />
-      <UploadFilesBtn />
-      <EditBtn handlePost={handleEditPost} />
+      <UploadFilesBtn file={file} setFile={setFile} />
+      <PostBtn handlePost={handleEditPost} value="Save" />
     </div>
   );
 }
