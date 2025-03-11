@@ -2,7 +2,8 @@
 import "./ImageContainer.css";
 import Image from "./Image";
 
-export default function ImageContainer({file}) {
+export default function ImageContainer({ file }) {
+  const image_src = file;
   //future use for multibple images
   //const [index, setIndex] = useState(0);
 
@@ -33,9 +34,8 @@ export default function ImageContainer({file}) {
       </div>*/}
 
       <div className="image-container">
-        <Image className="image" image_url={file} />
+        <img className="image" src={image_src} alt="project-image" />
       </div>
-
       {/*<div className="next-button">
         <span className="image-button" onClick={handleNextButton}>
           &gt;
