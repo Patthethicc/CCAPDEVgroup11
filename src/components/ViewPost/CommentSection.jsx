@@ -1,6 +1,7 @@
 import "./CommentSection.css";
 import Comments from "./Comments";
 import { useState, useEffect } from "react";
+import API from "../../url.js";
 
 export default function CommentSection({ projectId }) {
   const [comments, setComments] = useState([]);
@@ -10,7 +11,7 @@ export default function CommentSection({ projectId }) {
 
       try {
         const response = await fetch(
-          `http://localhost:3000/comments/post/${projectId}`
+          `${API}/comments/post/${projectId}`
         );
         if (!response.ok) throw new Error("Failed to fetch comments");
         const data = await response.json();
