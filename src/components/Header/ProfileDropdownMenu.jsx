@@ -4,7 +4,7 @@ import { faUser, faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import "../../App.css";
 
-export default function ProfileDropdownMenu({ value, onChange }) {
+export default function ProfileDropdownMenu({ value, onChange, userId }) {
   return (
     <Menu as="div" className="text-left relative">
       <div>
@@ -27,7 +27,7 @@ export default function ProfileDropdownMenu({ value, onChange }) {
           data-[leave]:duration-75 data-[leave]:ease-in shadow-md"
       >
         <MenuItem>
-          <Link to="profile">
+          <Link to={`/users/${userId}`}>
             <button
               onClick={() => onChange("Started")}
               className="px-2 py-1 w-[100%] hover:bg-[var(--brighter-bg-color)] transition-colors

@@ -21,7 +21,7 @@ export default function Content() {
       }
 
       const result = await response.json();
-      console.log(result);
+      
       setPosts(result.posts);
       setTotalPages(Number(result.total_pages));
       setCurrentPage(Number(result.current_page));

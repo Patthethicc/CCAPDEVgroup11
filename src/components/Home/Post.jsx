@@ -1,11 +1,38 @@
 import PropTypes from "prop-types";
 import { formatDistanceToNow } from "date-fns";
 import ActionDropdownMenu from "./ActionDropdownMenu.jsx";
+import { useState, useEffect} from "react";
+import API from "../../url.js";
 import { Link } from "react-router-dom";
 import "./Post.css";
 
 export default function Post({ post, onDelete }) {
   const timestamp = formatDistanceToNow(new Date(post.created_at));
+  const [commentNum, setCommentNum] = useState(0);
+
+  const getCommentNum = async function () {
+    try {
+        const response = await fetch(`${API}/comment-num/${post._id}`, {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        });
+
+        if (!response.ok) {
+          throw new Error("Error getting comments.");
+        }
+
+        const result = await response.json();
+
+        setCommentNum(result);
+      } catch (err) {
+        console.error("Error getting data: " + err.message);
+      }
+  }
+
+  useEffect(function () {
+    getCommentNum();
+  });
+
   return (
     <div className="post">
       <div className="post-meta">
@@ -74,9 +101,11 @@ export default function Post({ post, onDelete }) {
         <button>
           <i className="fa fa-arrow-down"></i> {post.downvotes}
         </button>
-        <button>
-          <i className="fa fa-comments"></i> 0
-        </button>
+        <Link key={post._id} to={`/view-project/${post._id}`}>
+          <button>
+            <i className="fa fa-comments"></i> {commentNum}
+          </button>
+        </Link>
         <button>
           <i className="fa fa-share"></i>
         </button>
