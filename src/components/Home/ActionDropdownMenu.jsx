@@ -12,15 +12,17 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 
-export default function ActionDropdownMenu({id, onDelete}) {
+export default function ActionDropdownMenu({ id, onDelete }) {
   const nav = useNavigate();
 
   const deletePost = async function name(id) {
     //kayo bahala kung gagawa ng custom confirmation of deletion
-    const confirmDelete = window.confirm("Are you sure you want to delete this post?");
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this post?"
+    );
     if (!confirmDelete) return;
 
-    try{
+    try {
       const response = await fetch(`${API}/${id}`, {
         method: "DELETE",
       });
@@ -29,11 +31,10 @@ export default function ActionDropdownMenu({id, onDelete}) {
         throw new Error("Failed to delete Post");
       }
 
-      console.log("deleted sucessfully")
+      console.log("deleted sucessfully");
       onDelete();
       nav("/home");
-    }
-    catch (err) {
+    } catch (err) {
       console.error("Error deleting: " + err.message);
     }
   };
@@ -98,5 +99,4 @@ export default function ActionDropdownMenu({id, onDelete}) {
 ActionDropdownMenu.propTypes = {
   id: PropTypes.string.isRequired,
   onDelete: PropTypes.func.isRequired,
-}
-
+};

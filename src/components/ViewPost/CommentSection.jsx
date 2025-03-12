@@ -33,12 +33,6 @@ export default function CommentSection({ projectId }) {
 
   return (
     <div className="post-comment-section">
-      <Comments
-        profile_url="https://i.pinimg.com/736x/c6/8c/e6/c68ce664ae649625c13190e68aa954ac.jpg"
-        userName_time="isabelle_smiles •   8 hours ago"
-        comment="Can't wait to see your finished product!"
-      />
-
       {comments
         .filter((comment) => comment.user_id)
         .map((comment) => (
@@ -49,9 +43,10 @@ export default function CommentSection({ projectId }) {
               comment.user_id?.user_name || "Unknown User"
             } • ${new Date(comment.createdAt).toLocaleString()}`}
             comment={comment.content}
-            commentId={comment._id}
             upvotes={comment.upvotes}
             downvotes={comment.downvotes}
+            commentId={comment._id}
+            userId={comment.user_id}
           />
         ))}
     </div>

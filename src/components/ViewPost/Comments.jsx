@@ -1,5 +1,6 @@
 import "./Comments.css";
 import CommentActions from "./CommentActions.jsx";
+import CommentDropDown from "./CommentDropDown";
 
 export default function Comments(props) {
   return (
@@ -10,14 +11,20 @@ export default function Comments(props) {
           src={props.profile_url}
           alt="profile picture"
         />
-        <span id="post-user-hours">{props.userName_time}</span>
+        <div style={{ flexGrow: 1, marginLeft: "10px" }}>
+          <span id="post-user-hours">{props.userName_time}</span>
+        </div>
+        <CommentDropDown
+          commentId={props.commentId}
+          style={{ position: "static" }}
+          userId={props.userId}
+        />
       </div>
       <div>
         <span id="commenter-comment-container">
           {props.comment + " comment id: " + props.commentId}
         </span>
       </div>
-      {/* add comment id to props after debugging */}
       <CommentActions
         upvotes={props.upvotes}
         downvotes={props.downvotes}
