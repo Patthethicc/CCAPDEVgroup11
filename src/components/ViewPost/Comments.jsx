@@ -17,7 +17,12 @@ export default function Comments(props) {
           {props.comment + " comment id: " + props.commentId}
         </span>
       </div>
-      <CommentActions /> {/* pass downvotes and upvotes here */}
+      {/* add comment id to props after debugging */}
+      <CommentActions
+        upvotes={props.upvotes}
+        downvotes={props.downvotes}
+        commentId={props.commentId}
+      />
     </>
   );
 }

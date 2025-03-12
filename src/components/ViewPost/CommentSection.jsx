@@ -15,13 +15,14 @@ export default function CommentSection({ projectId }) {
         if (!response.ok) throw new Error("Failed to fetch comments");
         const data = await response.json();
         setComments(data);
+
+        console.log(data); // remove this after debugging
       } catch (error) {
         console.error("Error fetching comments:", error);
       }
     };
 
     fetchComments();
-
     // refresh comment section
     const interval = setInterval(() => {
       fetchComments();
@@ -44,11 +45,13 @@ export default function CommentSection({ projectId }) {
           <Comments
             key={comment._id}
             profile_url="https://i.pinimg.com/736x/c6/8c/e6/c68ce664ae649625c13190e68aa954ac.jpg"
-            userName_time={`${comment.user_id.user_name} • ${new Date(
-              comment.createdAt
-            ).toLocaleString()}`}
+            userName_time={`${
+              comment.user_id?.user_name || "Unknown User"
+            } • ${new Date(comment.createdAt).toLocaleString()}`}
             comment={comment.content}
             commentId={comment._id}
+            upvotes={comment.upvotes}
+            downvotes={comment.downvotes}
           />
         ))}
     </div>
