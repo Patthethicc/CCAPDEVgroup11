@@ -4,6 +4,10 @@ import "./Actions.css";
 import { Link } from "react-router-dom";
 
 export default function Actions() {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const userId = user?.userId;
+  const username = user?.username;
+
   return (
     <div className="actions">
       <NotifDropdownMenu />
@@ -12,7 +16,9 @@ export default function Actions() {
       </button>
       <div className="account">
         <Link to="/profile">
-          <span className="greeting transition-colors">Hello, Marshal</span>
+          <span className="greeting transition-colors">
+            Hello, {username ?? userId}
+          </span>
         </Link>
         <ProfileDropdownMenu />
         <div className="account-panel">

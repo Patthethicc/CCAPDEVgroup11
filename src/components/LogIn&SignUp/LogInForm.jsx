@@ -44,7 +44,7 @@ export default function LogInForm() {
         "user",
         JSON.stringify({
           userId: data.user._id, // Store _id as userId
-          username: data.user.user_name,
+          username: data.user.username,
         })
       );
 

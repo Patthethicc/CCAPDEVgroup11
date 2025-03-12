@@ -12,6 +12,7 @@ export default function CommentSection(props) {
             "You did so good! Keep it up! to test post: " + props.projectId
           }
           commentId={props.commentId}
+          key={props.commentId}
         />
 
         {/*
