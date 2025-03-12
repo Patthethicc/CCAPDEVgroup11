@@ -1,7 +1,7 @@
 import "./ProfileHeader.css";
 import HeaderOptions from "./HeaderOptions";
 
-export default function ProfileHeader(user_name, user_tag, user_bio) {
+export default function ProfileHeader({user_name, user_tag, user_bio}) {
   const headerOptions = HeaderOptions(false);
 
   return (

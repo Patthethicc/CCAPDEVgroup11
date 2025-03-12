@@ -15,7 +15,7 @@ export default function Actions() {
         <i className="fa fa-question-circle" aria-hidden="true"></i>
       </button>
       <div className="account">
-        <Link to="/profile">
+        <Link to="/users/67cd4e4462e8ed0a19682fd2">
           <span className="greeting transition-colors">
             Hello, {username || "Marshall"}
           </span>
