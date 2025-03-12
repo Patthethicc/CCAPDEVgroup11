@@ -67,7 +67,7 @@ export default function PostDetails({ onDelete }) {
         id={postId}
       />
       <CaptionImage body={body} file={file} />
-      <PostAction projectId={postId}/>
+      <PostAction projectId={postId} />
       <CommentSection projectId={postId} />
     </div>
   );

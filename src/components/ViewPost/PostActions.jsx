@@ -13,7 +13,6 @@ export default function PostAction(props) {
 
   const user = JSON.parse(localStorage.getItem("user"));
   const userId = user?.userId;
-  const username = user?.username;
 
   const handleAddComment = async (e) => {
     e.preventDefault();
@@ -27,8 +26,8 @@ export default function PostAction(props) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          user_id: userId, // Replace with actual user ID
-          post_id: props.postId, // Replace with actual post ID
+          user_id: userId,
+          post_id: props.projectId,
           content: comment,
         }),
       });
@@ -70,7 +69,7 @@ export default function PostAction(props) {
           className="post-add-comment"
           type="text"
           placeholder="Add a comment..."
-          value={comment} // ✅ Keep input state consistent
+          value={comment}
           onChange={(e) => setComment(e.target.value)}
         />
       </form>

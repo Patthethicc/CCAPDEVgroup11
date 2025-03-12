@@ -17,7 +17,7 @@ export default function Actions() {
       <div className="account">
         <Link to="/profile">
           <span className="greeting transition-colors">
-            Hello, {username ?? userId}
+            Hello, {username || "Marshall"}
           </span>
         </Link>
         <ProfileDropdownMenu />
