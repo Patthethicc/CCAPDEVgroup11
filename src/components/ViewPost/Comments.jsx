@@ -14,11 +14,10 @@ export default function Comments(props) {
       </div>
       <div>
         <span id="commenter-comment-container">
-          {props.comment + "comment id: " + props.commentId}
+          {props.comment + " comment id: " + props.commentId}
         </span>
       </div>
-
-      <CommentActions />
+      <CommentActions /> {/* pass downvotes and upvotes here */}
     </>
   );
 }

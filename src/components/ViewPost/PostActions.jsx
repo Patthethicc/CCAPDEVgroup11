@@ -36,8 +36,7 @@ export default function PostAction(props) {
 
       if (response.ok) {
         console.log("Comment added:", data);
-        setComment(""); // Clear the input
-        // Optionally trigger a re-fetch of comments here
+        setComment("");
       } else {
         console.error("Failed to add comment:", data.message);
       }

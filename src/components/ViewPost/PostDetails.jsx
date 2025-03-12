@@ -56,6 +56,12 @@ export default function PostDetails({ onDelete }) {
 
     fetchData();
   }, [postId]);
+
+  // render new comments
+  const handleNewComment = (newComment) => {
+    setComments((prevComments) => [...prevComments, newComment]);
+  };
+
   return (
     <div className="post-details-container">
       <TitleDeadline
