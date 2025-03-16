@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
 import { formatDistanceToNow } from "date-fns";
+import { useState } from "react";
 import ActionDropdownMenu from "./ActionDropdownMenu.jsx";
 import { Link } from "react-router-dom";
 import "./Post.css";
 
-export default function Post({ post, onDelete }) {
+export default function Post({ post, onDelete, handleVote }) {
   const timestamp = formatDistanceToNow(new Date(post.created_at));
   return (
     <div className="post">
@@ -17,7 +18,11 @@ export default function Post({ post, onDelete }) {
         {/* placeholder author and timestamp */}
         <a href="#">Group 11</a> • {timestamp}
         <div className="ml-auto">
-          <ActionDropdownMenu key={post._id} id={post._id} onDelete={onDelete}/>
+          <ActionDropdownMenu
+            key={post._id}
+            id={post._id}
+            onDelete={onDelete}
+          />
         </div>
       </div>
       <div className="post-header">
@@ -68,10 +73,18 @@ export default function Post({ post, onDelete }) {
         </div>
       </Link>
       <div className="post-actions">
-        <button>
+        <button
+          onClick={function () {
+            handleVote(post._id, "upvote");
+          }}
+        >
           <i className="fa fa-arrow-up"></i> {post.upvotes}
         </button>
-        <button>
+        <button
+          onClick={function () {
+            handleVote(post._id, "downvote");
+          }}
+        >
           <i className="fa fa-arrow-down"></i> {post.downvotes}
         </button>
         <button>
