@@ -7,6 +7,7 @@ import {
   faShare,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import API from "../../url.js";
 
 export default function CommentActions(props) {
   const [upvotes, setUpvotes] = useState(props.upvotes || 0);
@@ -15,7 +16,7 @@ export default function CommentActions(props) {
   const handleUpvote = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/upvote/${props.commentId}`,
+        `${API}/upvote/${props.commentId}`,
         {
           method: "PATCH",
           headers: {
@@ -38,7 +39,7 @@ export default function CommentActions(props) {
   const handleDownvote = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/downvote/${props.commentId}`,
+        `${API}/downvote/${props.commentId}`,
         {
           method: "PATCH", // Use PATCH instead of POST
           headers: {

@@ -1,8 +1,10 @@
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/react";
 import { faEllipsis, faTrash, faPen } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import API from "../../url.js";
 
 export default function CommentDropdown(props) {
+  
   const handleEdit = () => {
     console.log("Edit function triggered");
     // Implement edit logic
@@ -19,18 +21,14 @@ export default function CommentDropdown(props) {
     }
 
     try {
-      //  `http://localhost:3000/delete/${props.commentId}?user_id=${props.userId._id}`,
-      const response = await fetch(
-        `http://localhost:3000/comment/delete/${props.commentId}`,
-        {
-          method: "DELETE",
-        }
-      );
+      const response = await fetch(`${API}/comment/delete/${props.commentId}`, {
+        method: "DELETE",
+      });
 
       if (!response.ok) {
         throw new Error("Failed to delete comment");
       }
-
+      
       console.log("Comment deleted successfully");
     } catch (error) {
       console.error("Error deleting comment:", error);
