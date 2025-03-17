@@ -75,14 +75,14 @@ export default function Post({ post, onDelete, handleVote }) {
       <div className="post-actions">
         <button
           onClick={function () {
-            handleVote(post._id, "upvote");
+            handleVote(post._id, "up");
           }}
         >
           <i className="fa fa-arrow-up"></i> {post.upvotes}
         </button>
         <button
           onClick={function () {
-            handleVote(post._id, "downvote");
+            handleVote(post._id, "down");
           }}
         >
           <i className="fa fa-arrow-down"></i> {post.downvotes}
