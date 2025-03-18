@@ -9,6 +9,27 @@ import "./Post.css";
 export default function Post({ post, onDelete, handleVote }) {
   const timestamp = formatDistanceToNow(new Date(post.created_at));
   const [commentNum, setCommentNum] = useState(0);
+  const [user, setUser] = useState();
+  const user_id = post.created_by;
+  
+  const getUser = async function () {
+    try {
+      const response = await fetch(`${API}/user/${user_id}`, {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      });
+
+      if (!response.ok) {
+        throw new Error("Error getting user.");
+      }
+
+      const result = await response.json();
+
+      setUser(result);
+    } catch (err) {
+      console.error("Error getting data: " + err.message);
+    }
+  }
 
   const getCommentNum = async function () {
     try {
@@ -29,10 +50,20 @@ export default function Post({ post, onDelete, handleVote }) {
     }
   };
 
-  useEffect(function () {
+  useEffect(() => {
     getCommentNum();
-  });
+    getUser();
+  
+    // Fetch data every 5 minutes (300,000 ms)
+    const interval = setInterval(() => {
+      getCommentNum();
+      getUser();
+    }, 300000);
+  
+    return () => clearInterval(interval);
+  }, [post._id]);
 
+  console.log(user?.user_name || "Unknown User" )
   return (
     <div className="post">
       <div className="post-meta">
@@ -41,8 +72,7 @@ export default function Post({ post, onDelete, handleVote }) {
           src="https://i.pinimg.com/736x/e4/47/0b/e4470b9552dcbe56ec14483360595e7e.jpg"
           alt="Profile Picture"
         />
-        {/* placeholder author and timestamp */}
-        <a href="#">Group 11</a> • {timestamp}
+        <Link to={`/user/${user_id}`}>{user?.user_name || "Unknown User"}</Link> • {timestamp}
         <div className="ml-auto">
           <ActionDropdownMenu
             key={post._id}
@@ -132,6 +162,7 @@ Post.propTypes = {
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
     created_at: PropTypes.string.isRequired,
+    created_by: PropTypes.string.isRequired,
     upvotes: PropTypes.number.isRequired,
     downvotes: PropTypes.number.isRequired,
     comment_ids: PropTypes.array,
