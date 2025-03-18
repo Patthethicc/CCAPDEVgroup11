@@ -1,7 +1,7 @@
 import Comments from "../ViewPost/Comments";
 import './ProfileComments.css'
 import { useState, useEffect } from "react";
-import API from "../url.js";
+import API from "../../url.js";
 
 export default function ProfileComments({ userId }) {
   const [comments, setComments] = useState([]);
