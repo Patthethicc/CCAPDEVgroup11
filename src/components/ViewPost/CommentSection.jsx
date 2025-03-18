@@ -10,9 +10,7 @@ export default function CommentSection({ projectId }) {
       if (!projectId) return;
 
       try {
-        const response = await fetch(
-          `${API}/comments/post/${projectId}`
-        );
+        const response = await fetch(`${API}/comments/post/${projectId}`);
         if (!response.ok) throw new Error("Failed to fetch comments");
         const data = await response.json();
         setComments(data);

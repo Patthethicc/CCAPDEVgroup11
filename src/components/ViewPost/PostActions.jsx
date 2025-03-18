@@ -19,27 +19,27 @@ export default function PostAction(props) {
 
   const getCommentNum = async function () {
     try {
-        const response = await fetch(`${API}/comment-num/${props.projectId}`, {
-          method: "GET",
-          headers: { "Content-Type": "application/json" },
-        });
+      const response = await fetch(`${API}/comment-num/${props.projectId}`, {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      });
 
-        if (!response.ok) {
-          throw new Error("Error getting comments.");
-        }
-
-        const result = await response.json();
-
-        setCommentNum(result);
-      } catch (err) {
-        console.error("Error getting data: " + err.message);
+      if (!response.ok) {
+        throw new Error("Error getting comments.");
       }
-  }
+
+      const result = await response.json();
+
+      setCommentNum(result);
+    } catch (err) {
+      console.error("Error getting data: " + err.message);
+    }
+  };
 
   useEffect(function () {
     getCommentNum();
   });
-  
+
   const handleAddComment = async (e) => {
     e.preventDefault();
 

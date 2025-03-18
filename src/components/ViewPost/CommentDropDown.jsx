@@ -4,10 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import API from "../../url.js";
 
 export default function CommentDropdown(props) {
-  
   const handleEdit = () => {
     console.log("Edit function triggered");
-    // Implement edit logic
   };
 
   const handleDelete = async () => {
@@ -28,7 +26,7 @@ export default function CommentDropdown(props) {
       if (!response.ok) {
         throw new Error("Failed to delete comment");
       }
-      
+
       console.log("Comment deleted successfully");
     } catch (error) {
       console.error("Error deleting comment:", error);

@@ -1,5 +1,5 @@
 import Comments from "../ViewPost/Comments";
-import './ProfileComments.css'
+import "./ProfileComments.css";
 import { useState, useEffect } from "react";
 import API from "../../url.js";
 
@@ -9,6 +9,7 @@ export default function ProfileComments({ userData }) {
   const [error, setError] = useState(null);
   const userId = userData._id;
   useEffect(() => {
+
       const fetchComments = async () => {
           try {
               // Construct the API URL with the userId
@@ -59,3 +60,4 @@ export default function ProfileComments({ userData }) {
 		</div>
 	);
   }
+
