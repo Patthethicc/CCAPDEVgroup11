@@ -1,5 +1,4 @@
 import "./TitleDeadline.css";
-import "../../App.css";
 import  ActionDropdownMenu from "../Home/ActionDropdownMenu.jsx"
 
 export default function TitleDeadline({ title, progress, deadlength, id, onDelete }) {
@@ -7,7 +6,6 @@ export default function TitleDeadline({ title, progress, deadlength, id, onDelet
     <>
       <div className="post-title-deadline">
         <span id="title">{title}</span>
-        <span>
           <div className="deadline-bar-container">
             <div
               className="deadline-text"
@@ -22,7 +20,6 @@ export default function TitleDeadline({ title, progress, deadlength, id, onDelet
               ></div>
             </div>
           </div>
-        </span>
         <span>
           <div className="ml-auto">
             <ActionDropdownMenu key={id} id={id} onDelete={onDelete}/>
@@ -30,8 +27,13 @@ export default function TitleDeadline({ title, progress, deadlength, id, onDelet
         </span>
       </div>
 
-      <div className="project-status">
-        <p id="status">{progress}</p>
+      <div className="post-tags">
+        <span
+          data-status={progress}
+          className={`progress-${progress}`}
+        >
+          {progress}
+        </span>
       </div>
     </>
   );

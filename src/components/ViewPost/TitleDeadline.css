@@ -7,9 +7,12 @@
 }
 
 #title {
+  font-size: 1.2rem;
+  margin-top: .25vh;
+  margin-bottom: 1.5vh;
   font-weight: bold;
-  font-size: 20px;
-  width: 300px;
+  flex: 2;
+  font-family: "Garet-Book";
   color: #f1dfb6;
 }
 
@@ -26,6 +29,7 @@
   color: var(--sub-text-color);
   font-size: 10px;
   font-weight: bold;
+  font-family: "Garet-Book";
   white-space: nowrap;
   z-index: 2;
 }
@@ -41,6 +45,15 @@
   justify-content: center;
 }
 
+.deadline-bar .progress {
+  height: 100%;
+  background: var(--background-color);
+  transition: width 0.3s ease;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
 .project-status {
   background-color: #ef601e;
   border-radius: 10px;
@@ -50,6 +63,32 @@
   margin-right: 10px;
 }
 
-#status {
-  margin-bottom: 20px;
+.post-tags {
+  padding-right: 0.5rem;
+  border-radius: 10px;
+}
+
+.post-tags span {
+  box-shadow: 0 2px 5px var(--primary-color);
+  text-align: center;
+  font-size: 14px;
+  border-radius: 10px;
+  padding: 0 0.8rem;
+  margin-right: 0.2rem;
+}
+
+.progress-Started {
+  background-color: var(--started-color);
+}
+
+.post-tags span[data-status="In Progress"] {
+  background-color: var(--in-progress-color);
+}
+
+.progress-Finished {
+  background-color: var(--finished-color);
+}
+
+.progress-Deployed {
+  background-color: var(--deployed-color);
 }
