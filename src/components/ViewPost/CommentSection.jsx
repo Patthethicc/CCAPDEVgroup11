@@ -15,8 +15,6 @@ export default function CommentSection({ projectId }) {
         if (!response.ok) throw new Error("Failed to fetch comments");
         const data = await response.json();
         setComments(data);
-
-        console.log(data); // remove this after debugging
       } catch (error) {
         console.error("Error fetching comments:", error);
       }
