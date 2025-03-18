@@ -4,7 +4,7 @@ import ProfilePostContent from "./ProfilePostContent";
 import ProfileComments from "./ProfileComments";
 import FilterButton from "./FilterButton";
 
-export default function ProfileContent({userId}) {
+export default function ProfileContent({userData}) {
 
 	const [activeBtn, setActiveBtn] = useState(0);
 
@@ -46,7 +46,7 @@ export default function ProfileContent({userId}) {
 		</div> 
 		<FilterButton></FilterButton>
 		<div className="project-list">
-		  {activeBtn === 1 ? <ProfileComments userId={userId}/> : <ProfilePostContent/>}
+		  {activeBtn === 1 ? <ProfileComments userData={userData}/> : <ProfilePostContent/>}
 			</div>
 		
 		</div>

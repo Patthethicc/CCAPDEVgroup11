@@ -5,6 +5,7 @@ import API from "../../url.js";
 
 export default function CommentSection({ projectId }) {
   const [comments, setComments] = useState([]);
+
   useEffect(() => {
     const fetchComments = async () => {
       if (!projectId) return;
@@ -30,6 +31,16 @@ export default function CommentSection({ projectId }) {
     return () => clearInterval(interval);
   }, [projectId]);
 
+  const handleCommentUpdate = (commentId, newContent) => {
+    setComments((prevComments) =>
+      prevComments.map((comment) =>
+        comment._id === commentId
+          ? { ...comment, content: newContent }
+          : comment
+      )
+    );
+  };
+
   return (
     <div className="post-comment-section">
       {comments
@@ -46,6 +57,7 @@ export default function CommentSection({ projectId }) {
             downvotes={comment.downvotes}
             commentId={comment._id}
             userId={comment.user_id}
+            onUpdate={handleCommentUpdate}
           />
         ))}
     </div>

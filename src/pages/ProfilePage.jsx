@@ -51,7 +51,7 @@ export default function ProfilePage() {
                 user_tag={String(userData.user_tag || "@unknown")}
                 user_bio={String(userData.user_bio || "No bio available.")}
             />
-        <ProfileContent userId={userId}/>
+        <ProfileContent userData={userData}/>
         </div>
     );
 }
