@@ -63,7 +63,6 @@ export default function Post({ post, onDelete, handleVote }) {
     return () => clearInterval(interval);
   }, [post._id]);
 
-  console.log(user?.user_name || "Unknown User" )
   return (
     <div className="post">
       <div className="post-meta">
