@@ -5,7 +5,8 @@ import API from "../../url.js";
 
 export default function CommentDropdown(props) {
   const handleEdit = () => {
-    console.log("Edit function triggered");
+    console.log("Edit button clicked");
+    props.onEdit(); // Trigger the edit state in the parent component
   };
 
   const handleDelete = async () => {
