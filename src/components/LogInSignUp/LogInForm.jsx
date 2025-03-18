@@ -24,6 +24,8 @@ export default function LogInForm() {
       user_password: password,
     };
 
+    console.log(API);
+
     try {
       const response = await fetch(`${API}/user/login`, {
         method: "POST",
@@ -45,7 +47,7 @@ export default function LogInForm() {
         JSON.stringify({
           userId: data.user._id, // Store _id as userId
           username: data.user.username,
-        })
+        }),
       );
 
       navigate("/home");
