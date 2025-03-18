@@ -12,6 +12,8 @@ import API from "../../url.js";
 export default function PostAction(props) {
   const [comment, setComment] = useState("");
 
+  console.log(props);
+
   const user = JSON.parse(localStorage.getItem("user"));
   const userId = user?.userId;
 
@@ -71,17 +73,22 @@ export default function PostAction(props) {
     }
   };
 
-  useEffect(function () {});
-
   return (
     <>
       <div className="post-actions-buttons">
-        <button className="post-upvote-button">
+        <button
+          className="post-upvote-button"
+          onClick={() => props.handleVote("up")}
+        >
           <FontAwesomeIcon icon={faArrowUp} />
-          &nbsp;2.5k
+          &nbsp;{props.upvote}
         </button>
-        <button className="post-downvote-button">
+        <button
+          className="post-downvote-button"
+          onClick={() => props.handleVote("down")}
+        >
           <FontAwesomeIcon icon={faArrowDown} />
+          &nbsp;{props.downvote}
         </button>
         <button className="post-comment-button">
           <FontAwesomeIcon icon={faComments} />
