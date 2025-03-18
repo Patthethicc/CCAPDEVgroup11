@@ -6,7 +6,6 @@ import API from "../../url.js";
 export default function CommentDropdown(props) {
   const handleEdit = () => {
     console.log("Edit function triggered");
-    // Implement edit logic
   };
 
   const handleDelete = async () => {
