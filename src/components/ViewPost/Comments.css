@@ -18,3 +18,11 @@
   margin-left: 42px;
   font-size: small;
 }
+
+#edit-comment-input {
+  background-color: #373d3b;
+  height: 30px;
+  width: 450px;
+  border-radius: 15px;
+  margin-left: 35px;
+}
