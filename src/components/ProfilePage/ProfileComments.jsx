@@ -1,12 +1,13 @@
 import Comments from "../ViewPost/Comments";
 import './ProfileComments.css'
 import { useState, useEffect } from "react";
+import API from "../url.js";
 
 export default function ProfileComments({ userId }) {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
-      fetch(`/api/comments/${userId}`)
+      fetch(`${API}/user/${userId}/comments`)
           .then((response) => response.json())
           .then((data) => setComments(data))
           .catch((error) => console.error("Error fetching comments:", error));
