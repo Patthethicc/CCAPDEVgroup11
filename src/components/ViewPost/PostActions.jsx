@@ -71,6 +71,8 @@ export default function PostAction(props) {
     }
   };
 
+  useEffect(function () {});
+
   return (
     <>
       <div className="post-actions-buttons">
