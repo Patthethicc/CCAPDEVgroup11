@@ -27,7 +27,7 @@ export default function ProfileDropdownMenu({ value, onChange, userId }) {
           data-[leave]:duration-75 data-[leave]:ease-in shadow-md"
       >
         <MenuItem>
-          <Link to={`/users/${userId}`}>
+          <Link to={`/user/${userId}`}>
             <button
               onClick={() => onChange("Started")}
               className="px-2 py-1 w-[100%] hover:bg-[var(--brighter-bg-color)] transition-colors

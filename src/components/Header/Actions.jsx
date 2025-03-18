@@ -15,12 +15,12 @@ export default function Actions() {
         <i className="fa fa-question-circle" aria-hidden="true"></i>
       </button>
       <div className="account">
-        <Link to={`/users/${userId}`}>
+        <Link to={`/user/${userId}`}>
           <span className="greeting transition-colors">
             Hello, {username || "Marshall"}
           </span>
         </Link>
-        <ProfileDropdownMenu />
+        <ProfileDropdownMenu userId={userId}/>
         <div className="account-panel">
           <div className="account-info">
             <img
