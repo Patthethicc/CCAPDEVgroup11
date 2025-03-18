@@ -76,7 +76,7 @@ export default function Comments(props) {
           />
         ) : (
           <span id="commenter-comment-container">
-            {props.comment + " [comment_id: " + props.commentId + "]"}
+            {props.comment /*+ " [comment_id: " + props.commentId + "]"*/}
           </span>
         )}
       </div>
