@@ -18,7 +18,7 @@ export default function ProfilePage() {
 
         const getUser = async () => {
             try {
-                const response = await fetch(`${API}/users/${userId}`);
+                const response = await fetch(`${API}/user/${userId}`);
                 if (!response.ok) {
                     throw new Error("Failed to fetch user data.");
                 }
@@ -51,7 +51,7 @@ export default function ProfilePage() {
                 user_tag={String(userData.user_tag || "@unknown")}
                 user_bio={String(userData.user_bio || "No bio available.")}
             />
-        <ProfileContent />
+        <ProfileContent userId={userId}/>
         </div>
     );
 }

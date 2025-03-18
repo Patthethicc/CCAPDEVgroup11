@@ -20,7 +20,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route path="home" element={<Home />} />
           <Route path="create-project" element={<CreateProject />} />
-          <Route path="users/:userId" element={<ProfilePage />} />
+          <Route path="user/:userId" element={<ProfilePage />} />
           <Route path="edit-project/:postId" element={<EditProject />} />
           <Route path="view-project/:postId" element={<ViewPost />} />
         </Route>
