@@ -18,7 +18,7 @@ export default function ProfilePage() {
 
         const getUser = async () => {
             try {
-                const response = await fetch(`${API}/users/${userId}`);
+                const response = await fetch(`${API}/user/${userId}`);
                 if (!response.ok) {
                     throw new Error("Failed to fetch user data.");
                 }

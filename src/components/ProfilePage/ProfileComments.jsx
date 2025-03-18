@@ -1,7 +1,20 @@
 import Comments from "../ViewPost/Comments";
 import './ProfileComments.css'
-export default function ProfileComments() {
-	return (
+import { useState, useEffect } from "react";
+
+export default function ProfileComments({ userId }) {
+  const [comments, setComments] = useState([]);
+
+  useEffect(() => {
+      fetch(`/api/comments/${userId}`)
+          .then((response) => response.json())
+          .then((data) => setComments(data))
+          .catch((error) => console.error("Error fetching comments:", error));
+  }, [userId]);
+  
+  
+  
+  return (
 		<div className="profile-comments">
 			<Comments
 			profile_url="https://i.pinimg.com/736x/fb/d6/d2/fbd6d2545b2dbd0328d7c50581519da1.jpg"
