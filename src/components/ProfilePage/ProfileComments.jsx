@@ -20,7 +20,7 @@ export default function ProfileComments({ userData }) {
 
         // Check if the response is not ok
         if (!response.ok) {
-          throw new Error(`Error: ${response.status} ${response.statusText}`);
+          throw (`No Comments Found`);
         }
 
         const data = await response.json();
