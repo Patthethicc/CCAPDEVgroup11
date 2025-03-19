@@ -42,7 +42,8 @@ export default function Post({ post, onDelete, handleVote }) {
           alt="Profile Picture"
         />
         {/* placeholder author and timestamp */}
-        <a href="#">Group 11</a> • {timestamp}
+        <a href="#">{post.author_id?.user_name || "Guest User"}</a> •{" "}
+        {timestamp}
         <div className="ml-auto">
           <ActionDropdownMenu
             key={post._id}
