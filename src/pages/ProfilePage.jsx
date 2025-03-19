@@ -8,7 +8,7 @@ export default function ProfilePage() {
     const { userId } = useParams();
     const [userData, setUserData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
-    const userTagWithAt = `@${String(userData.user_tag)}`;
+    let userTagWithAt
 
     useEffect(() => {
         if (!userId) {
@@ -37,6 +37,8 @@ export default function ProfilePage() {
         getUser();
     }, [userId]);
 
+    userTagWithAt =  userData ? ` @${String(userData.user_tag)}` : "@unknownuser";
+
     if (isLoading) {
         return <p>Loading...</p>;
     }
@@ -49,7 +51,7 @@ export default function ProfilePage() {
         <div className="profilePage">
             <ProfileHeader
                 user_name={String(userData.user_name || "Unknown")}
-                user_tag={String(userTagWithAt || "@unknown")}
+                user_tag={String(userTagWithAt)}
                 user_bio={String(userData.user_bio || "No bio available.")}
             />
         <ProfileContent userData={userData}/>

@@ -10,8 +10,8 @@ export default function Post({ post, onDelete, handleVote }) {
   const timestamp = formatDistanceToNow(new Date(post.created_at));
   const [commentNum, setCommentNum] = useState(0);
   const [user, setUser] = useState();
-  const user_id = post.created_by;
-  const userTagWithAt = `@${String(user.user_tag)}`;
+  const user_id = post.author_id;
+  let userTagWithAt
   
   const getUser = async function () {
     try {
@@ -27,6 +27,7 @@ export default function Post({ post, onDelete, handleVote }) {
       const result = await response.json();
 
       setUser(result);
+      userTagWithAt =  user ? ` ${String(result.user_name)} | @${String(result.user_tag)}` : "@unknownuser";
     } catch (err) {
       console.error("Error getting data: " + err.message);
     }
@@ -72,7 +73,7 @@ export default function Post({ post, onDelete, handleVote }) {
           src="https://i.pinimg.com/736x/e4/47/0b/e4470b9552dcbe56ec14483360595e7e.jpg"
           alt="Profile Picture"
         />
-        <Link to={`/user/${user_id}`}>{userTagWithAt|| "@unknownuser"}</Link> • {timestamp}
+        <Link to={`/user/${user_id}`}>{userTagWithAt}</Link> • {timestamp}
 
         <div className="ml-auto">
           <ActionDropdownMenu

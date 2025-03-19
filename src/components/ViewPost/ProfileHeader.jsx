@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function ProfileHeader({created_by}) {
   const [user, setUser] = useState();
-  const userTagWithAt = `@${String(user.user_tag)}`;
+  let userTagWithAt
 
   const getUser = async function () {
     try {
@@ -21,6 +21,7 @@ export default function ProfileHeader({created_by}) {
       const result = await response.json();
 
       setUser(result);
+      userTagWithAt =  user ? ` ${String(result.user_name)} | @${String(result.user_tag)}` : "@unknownuser";
     } catch (err) {
       console.error("Error getting data: " + err.message);
     }
