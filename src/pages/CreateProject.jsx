@@ -24,7 +24,9 @@ export default function CreateProject() {
       if (!post) return;
 
       const postData = async function () {
-        if ( !title.trim() || !body.trim()) {
+        const user_id = JSON.parse(localStorage.getItem("user"));
+
+        if (!title.trim() || !body.trim()) {
           alert("Title and body cannot be empty.");
         }
         let image_url = null;
@@ -50,7 +52,10 @@ export default function CreateProject() {
           }
         }
 
+        console.log(user_id);
+
         const data = {
+          user_id,
           title,
           content: body,
           deadline: {

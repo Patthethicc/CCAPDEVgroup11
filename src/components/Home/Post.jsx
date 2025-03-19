@@ -11,8 +11,13 @@ export default function Post({ post, onDelete, handleVote }) {
   const [commentNum, setCommentNum] = useState(0);
   const [user, setUser] = useState();
   const user_id = post.author_id;
+<<<<<<< HEAD
   let userTagWithAt
   
+=======
+  let userTagWithAt;
+
+>>>>>>> caffda14a9ffdae907accf4536d3169edcf01041
   const getUser = async function () {
     try {
       const response = await fetch(`${API}/user/${user_id}`, {
@@ -27,11 +32,15 @@ export default function Post({ post, onDelete, handleVote }) {
       const result = await response.json();
 
       setUser(result);
+<<<<<<< HEAD
       userTagWithAt =  user ? ` ${String(result.user_name)} | @${String(result.user_tag)}` : "@unknownuser";
+=======
+      userTagWithAt = `@${String(user.user_tag)}`;
+>>>>>>> caffda14a9ffdae907accf4536d3169edcf01041
     } catch (err) {
       console.error("Error getting data: " + err.message);
     }
-  }
+  };
 
   const getCommentNum = async function () {
     try {
@@ -55,15 +64,15 @@ export default function Post({ post, onDelete, handleVote }) {
   useEffect(() => {
     getCommentNum();
     getUser();
-  
+
     // Fetch data every 5 minutes (300,000 ms)
     const interval = setInterval(() => {
       getCommentNum();
       getUser();
     }, 300000);
-  
+
     return () => clearInterval(interval);
-  }, [post._id]);
+  }, [post._id, getCommentNum, getUser]);
 
   return (
     <div className="post">
@@ -73,8 +82,13 @@ export default function Post({ post, onDelete, handleVote }) {
           src="https://i.pinimg.com/736x/e4/47/0b/e4470b9552dcbe56ec14483360595e7e.jpg"
           alt="Profile Picture"
         />
+<<<<<<< HEAD
         <Link to={`/user/${user_id}`}>{userTagWithAt}</Link> • {timestamp}
 
+=======
+        <Link to={`/user/${user_id}`}>{userTagWithAt || "@unknownuser"}</Link> •{" "}
+        {timestamp}
+>>>>>>> caffda14a9ffdae907accf4536d3169edcf01041
         <div className="ml-auto">
           <ActionDropdownMenu
             key={post._id}
@@ -164,7 +178,6 @@ Post.propTypes = {
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
     created_at: PropTypes.string.isRequired,
-    created_by: PropTypes.string.isRequired,
     upvotes: PropTypes.number.isRequired,
     downvotes: PropTypes.number.isRequired,
     comment_ids: PropTypes.array,
