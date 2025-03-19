@@ -7,7 +7,7 @@ export default function ProfilePostContent({ userData }) {
   const [posts, setPosts] = useState([]);
   const [current_page, setCurrentPage] = useState(0);
   const [total_pages, setTotalPages] = useState(1);
-  const userId = userData._id;
+  const userId = userData.user_id;
 
   const getPostsByUser = useCallback(async function () {
     try {
