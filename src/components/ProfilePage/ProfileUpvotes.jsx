@@ -28,6 +28,7 @@ export default function ProfileUpvotes({ userData }) {
     getUpvotedPosts();
   }, [getUpvotedPosts]);
 
+  console.log(posts);
 
   return (
     <div className="content">

@@ -10,10 +10,10 @@ export default function Post({ post, onDelete, handleVote }) {
   const timestamp = formatDistanceToNow(new Date(post.created_at));
   const [commentNum, setCommentNum] = useState(0);
   const [user, setUser] = useState();
-  const user_id = post.author_id;
+  const user_id = post.author_id._id;
   const current_user = JSON.parse(localStorage.getItem("user"));
 
-  console.log(current_user);
+  console.log(user_id);
 
   const getUser = useCallback(async () => {
     try {
@@ -27,6 +27,7 @@ export default function Post({ post, onDelete, handleVote }) {
       }
 
       const result = await response.json();
+
       setUser(result);
     } catch (err) {
       console.error("Error getting data: " + err.message);

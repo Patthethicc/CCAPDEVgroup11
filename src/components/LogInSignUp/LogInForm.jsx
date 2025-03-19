@@ -24,8 +24,6 @@ export default function LogInForm() {
       user_password: password,
     };
 
-    console.log(API);
-
     try {
       const response = await fetch(`${API}/user/login`, {
         method: "POST",
