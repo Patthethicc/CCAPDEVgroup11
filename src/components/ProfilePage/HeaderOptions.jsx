@@ -1,21 +1,18 @@
 import "./HeaderOptions.css";
+import EditUser from "../../pages/EditUser"; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faEllipsisH,
 	faCommenting,
 	faPlus,
 	faCheck,
-	faPencil
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-
 
 export default function HeaderOptions(user_id) {
 	const current_user = JSON.parse(localStorage.getItem("user"));
 	let ownProfile = false
 
-	console.log(current_user.userId)
-    console.log(user_id.user_id)
 	if(user_id.user_id == current_user.userId){
 		ownProfile = true
 		console.log(ownProfile)
@@ -41,7 +38,7 @@ export default function HeaderOptions(user_id) {
 	else{
 		return(
 			<div className="headerOptions-edit">
-				<button className="editProfileBtn"><FontAwesomeIcon icon={faPencil} id="pencilIcon"></FontAwesomeIcon> Edit Profile</button>
+				<EditUser user_id={user_id.user_id}/>
 			</div>
 		);
 	}
