@@ -87,7 +87,11 @@ export default function EditProject() {
       return;
     }
 
-    const image_url = await postData();
+    let image_url;
+
+    if (file && typeof file != "string") {
+      image_url = await postData();
+    }
 
     const updatedPost = {
       title,

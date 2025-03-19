@@ -44,8 +44,8 @@ export default function PostDetails({ onDelete }) {
         setProgress(projectData.deadline.progress);
         setDeadLength(projectData.deadline.deadline_length);
         setFile(projectData.image || null);
-        setUpvote(projectData.upvote);
-        setDownvote(projectData.downvote);
+        setUpvote(projectData.upvotes);
+        setDownvote(projectData.downvotes);
         setComments(projectData.comments || null);
       } catch (error) {
         console.error("Error fetching project data: ", error.message);
@@ -62,6 +62,26 @@ export default function PostDetails({ onDelete }) {
     setComments((prevComments) => [...prevComments, newComment]);
   };
 
+  const handleVote = async (type) => {
+    try {
+      const response = await fetch(`${API}/vote/${postId}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Error handling upvotes/downvotes.");
+      }
+
+      const result = await response.json();
+      setUpvote(result.upvotes);
+      setDownvote(result.downvotes);
+    } catch (err) {
+      console.error("Error handling upvoting/downvoting: " + err.message);
+    }
+  };
+
   return (
     <div className="post-details-container">
       <TitleDeadline
@@ -73,7 +93,12 @@ export default function PostDetails({ onDelete }) {
         id={postId}
       />
       <CaptionImage body={body} file={file} />
-      <PostAction projectId={postId} />
+      <PostAction
+        projectId={postId}
+        upvote={upvote}
+        downvote={downvote}
+        handleVote={handleVote}
+      />
       <CommentSection projectId={postId} />
     </div>
   );

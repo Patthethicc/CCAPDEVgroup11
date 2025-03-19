@@ -10,7 +10,7 @@ export default function Content() {
   const [total_pages, setTotalPages] = useState(1);
 
   const getPosts = useCallback(
-    async function() {
+    async function () {
       try {
         const response = await fetch(`${API}/?p=${current_page}`, {
           method: "GET",
@@ -34,21 +34,21 @@ export default function Content() {
   );
 
   useEffect(
-    function() {
+    function () {
       getPosts();
     },
     [getPosts],
   );
 
-  const prevPage = function(page) {
+  const prevPage = function (page) {
     return page - 1;
   };
 
-  const nextPage = function(page) {
+  const nextPage = function (page) {
     return page + 1;
   };
 
-  const handleVote = async function(id, type) {
+  const handleVote = async function (id, type) {
     try {
       const response = await fetch(`${API}/vote/${id}`, {
         method: "POST",
@@ -84,7 +84,7 @@ export default function Content() {
         <div className="flex-1 justify-start">
           {current_page > 0 && (
             <PageBtn
-              onClick={function() {
+              onClick={function () {
                 setCurrentPage(prevPage(current_page));
               }}
               className="py-[0.4em] px-[1.5em]"
@@ -103,7 +103,7 @@ export default function Content() {
         <div className="flex-1 flex justify-end">
           {current_page < total_pages - 1 && (
             <PageBtn
-              onClick={function() {
+              onClick={function () {
                 setCurrentPage(nextPage(current_page));
               }}
               className="py-[0.4em] px-[1.5em]"
