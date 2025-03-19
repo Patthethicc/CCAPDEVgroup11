@@ -63,7 +63,7 @@ export default function ViewPost() {
   return (
     <>
       <div className="viewpost-page">
-        <ProfileHeader key={post?.created_by || null} created_by={post?.created_by || null}/>
+        <ProfileHeader key={post?.author_id || null} author_id={post?.author_id || null}/>
         <PostDetails key={postId} postId={postId} onDelete={getPosts} />
       </div>
     </>

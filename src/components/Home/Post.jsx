@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { formatDistanceToNow } from "date-fns";
 import ActionDropdownMenu from "./ActionDropdownMenu.jsx";
-import { useState, useEffect } from "react";
+import { useCallback, useState, useEffect } from "react";
 import API from "../../url.js";
 import { Link } from "react-router-dom";
 import "./Post.css";
@@ -12,11 +12,10 @@ export default function Post({ post, onDelete, handleVote }) {
   const [user, setUser] = useState();
   const user_id = post.author_id;
   const current_user = JSON.parse(localStorage.getItem("user"));
-  let userTagWithAt;
 
   console.log(current_user);
 
-  const getUser = async function () {
+  const getUser = useCallback(async () => {
     try {
       const response = await fetch(`${API}/user/${user_id}`, {
         method: "GET",
@@ -28,15 +27,14 @@ export default function Post({ post, onDelete, handleVote }) {
       }
 
       const result = await response.json();
-
       setUser(result);
-      userTagWithAt = `@${String(user.user_tag)}`;
     } catch (err) {
       console.error("Error getting data: " + err.message);
     }
-  };
+  }, [user_id]); // Dependency array includes user_id
 
-  const getCommentNum = async function () {
+  // Memoized getCommentNum function
+  const getCommentNum = useCallback(async () => {
     try {
       const response = await fetch(`${API}/comment-num/${post._id}`, {
         method: "GET",
@@ -48,12 +46,11 @@ export default function Post({ post, onDelete, handleVote }) {
       }
 
       const result = await response.json();
-
       setCommentNum(result);
     } catch (err) {
       console.error("Error getting data: " + err.message);
     }
-  };
+  }, [post._id]); // Dependency array includes post._id
 
   useEffect(() => {
     getCommentNum();
@@ -66,7 +63,12 @@ export default function Post({ post, onDelete, handleVote }) {
     }, 300000);
 
     return () => clearInterval(interval);
-  }, [post._id, getCommentNum, getUser]);
+  }, [getCommentNum, getUser]); // Now the dependencies are stable
+
+  // Compute userTagWithAt inside render
+  const userTagWithAt = user
+    ? ` ${String(user.user_name)} | @${String(user.user_tag)}`
+    : "@unknownuser";
 
   return (
     <div className="post">
@@ -76,8 +78,7 @@ export default function Post({ post, onDelete, handleVote }) {
           src="https://i.pinimg.com/736x/e4/47/0b/e4470b9552dcbe56ec14483360595e7e.jpg"
           alt="Profile Picture"
         />
-        <Link to={`/user/${user_id}`}>{userTagWithAt || "@unknownuser"}</Link> •{" "}
-        {timestamp}
+        <Link to={`/user/${user_id}`}>{userTagWithAt}</Link> • {timestamp}
         <div className="ml-auto">
           <ActionDropdownMenu
             key={post._id}
