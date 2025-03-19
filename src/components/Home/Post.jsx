@@ -25,6 +25,7 @@ export default function Post({ post, onDelete, handleVote }) {
       }
 
       const result = await response.json();
+
       setUser(result);
     } catch (err) {
       console.error("Error getting data: " + err.message);
@@ -59,7 +60,7 @@ export default function Post({ post, onDelete, handleVote }) {
     }, 300000);
 
     return () => clearInterval(interval);
-  }, [getCommentNum, getUser]); 
+  }, [getCommentNum, getUser]);
 
   const userTagWithAt = user
     ? ` ${String(user.user_name)} | @${String(user.user_tag)}`
