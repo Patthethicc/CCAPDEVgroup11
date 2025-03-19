@@ -50,6 +50,7 @@ export default function ProfilePage() {
     return (
         <div className="profilePage">
             <ProfileHeader
+                user_id={userId}
                 user_name={String(userData.user_name || "Unknown")}
                 user_tag={String(userTagWithAt)}
                 user_bio={String(userData.user_bio || "No bio available.")}
