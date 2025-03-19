@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { formatDistanceToNow } from "date-fns";
 import ActionDropdownMenu from "./ActionDropdownMenu.jsx";
-import { useState, useEffect } from "react";
+import { useCallback, useState, useEffect } from "react";
 import API from "../../url.js";
 import { Link } from "react-router-dom";
 import "./Post.css";
@@ -10,69 +10,60 @@ export default function Post({ post, onDelete, handleVote }) {
   const timestamp = formatDistanceToNow(new Date(post.created_at));
   const [commentNum, setCommentNum] = useState(0);
   const [user, setUser] = useState();
-  const user_id = post.author_id;
-<<<<<<< HEAD
-  let userTagWithAt
+  const user_id = post.author_id._id;
   
-=======
-  let userTagWithAt;
-
->>>>>>> caffda14a9ffdae907accf4536d3169edcf01041
-  const getUser = async function () {
+  const getUser = useCallback(async () => {
     try {
       const response = await fetch(`${API}/user/${user_id}`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });
-
+  
       if (!response.ok) {
         throw new Error("Error getting user.");
       }
-
+  
       const result = await response.json();
-
       setUser(result);
-<<<<<<< HEAD
-      userTagWithAt =  user ? ` ${String(result.user_name)} | @${String(result.user_tag)}` : "@unknownuser";
-=======
-      userTagWithAt = `@${String(user.user_tag)}`;
->>>>>>> caffda14a9ffdae907accf4536d3169edcf01041
     } catch (err) {
       console.error("Error getting data: " + err.message);
     }
-  };
-
-  const getCommentNum = async function () {
+  }, [user_id]); // Dependency array includes user_id
+  
+  // Memoized getCommentNum function
+  const getCommentNum = useCallback(async () => {
     try {
       const response = await fetch(`${API}/comment-num/${post._id}`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });
-
+  
       if (!response.ok) {
         throw new Error("Error getting comments.");
       }
-
+  
       const result = await response.json();
-
       setCommentNum(result);
     } catch (err) {
       console.error("Error getting data: " + err.message);
     }
-  };
-
+  }, [post._id]); // Dependency array includes post._id
+  
   useEffect(() => {
     getCommentNum();
     getUser();
-
+  
     // Fetch data every 5 minutes (300,000 ms)
     const interval = setInterval(() => {
       getCommentNum();
       getUser();
     }, 300000);
-
+  
     return () => clearInterval(interval);
-  }, [post._id, getCommentNum, getUser]);
+  }, [getCommentNum, getUser]); // Now the dependencies are stable
+  
+  // Compute userTagWithAt inside render
+  const userTagWithAt = user ? ` ${String(user.user_name)} | @${String(user.user_tag)}` : "@unknownuser";
 
   return (
     <div className="post">
@@ -82,13 +73,8 @@ export default function Post({ post, onDelete, handleVote }) {
           src="https://i.pinimg.com/736x/e4/47/0b/e4470b9552dcbe56ec14483360595e7e.jpg"
           alt="Profile Picture"
         />
-<<<<<<< HEAD
         <Link to={`/user/${user_id}`}>{userTagWithAt}</Link> • {timestamp}
 
-=======
-        <Link to={`/user/${user_id}`}>{userTagWithAt || "@unknownuser"}</Link> •{" "}
-        {timestamp}
->>>>>>> caffda14a9ffdae907accf4536d3169edcf01041
         <div className="ml-auto">
           <ActionDropdownMenu
             key={post._id}

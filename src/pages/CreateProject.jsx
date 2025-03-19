@@ -63,7 +63,6 @@ export default function CreateProject() {
             deadline_length: deadlength,
           },
           created_at: Date.now(),
-          created_by: userId,
           upvotes: 0,
           downvotes: 0,
           comment_ids: [],
