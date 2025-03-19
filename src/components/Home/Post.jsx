@@ -9,6 +9,29 @@ import "./Post.css";
 export default function Post({ post, onDelete, handleVote }) {
   const timestamp = formatDistanceToNow(new Date(post.created_at));
   const [commentNum, setCommentNum] = useState(0);
+  const [user, setUser] = useState();
+  const user_id = post.author_id;
+  let userTagWithAt;
+
+  const getUser = async function () {
+    try {
+      const response = await fetch(`${API}/user/${user_id}`, {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      });
+
+      if (!response.ok) {
+        throw new Error("Error getting user.");
+      }
+
+      const result = await response.json();
+
+      setUser(result);
+      userTagWithAt = `@${String(user.user_tag)}`;
+    } catch (err) {
+      console.error("Error getting data: " + err.message);
+    }
+  };
 
   const getCommentNum = async function () {
     try {
@@ -29,9 +52,18 @@ export default function Post({ post, onDelete, handleVote }) {
     }
   };
 
-  useEffect(function () {
+  useEffect(() => {
     getCommentNum();
-  });
+    getUser();
+
+    // Fetch data every 5 minutes (300,000 ms)
+    const interval = setInterval(() => {
+      getCommentNum();
+      getUser();
+    }, 300000);
+
+    return () => clearInterval(interval);
+  }, [post._id, getCommentNum, getUser]);
 
   return (
     <div className="post">
@@ -41,8 +73,7 @@ export default function Post({ post, onDelete, handleVote }) {
           src="https://i.pinimg.com/736x/e4/47/0b/e4470b9552dcbe56ec14483360595e7e.jpg"
           alt="Profile Picture"
         />
-        {/* placeholder author and timestamp */}
-        <a href="#">{post.author_id?.user_name || "Guest User"}</a> •{" "}
+        <Link to={`/user/${user_id}`}>{userTagWithAt || "@unknownuser"}</Link> •{" "}
         {timestamp}
         <div className="ml-auto">
           <ActionDropdownMenu

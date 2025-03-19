@@ -12,8 +12,6 @@ import API from "../../url.js";
 export default function PostAction(props) {
   const [comment, setComment] = useState("");
 
-  console.log(props);
-
   const user = JSON.parse(localStorage.getItem("user"));
   const userId = user?.userId;
 

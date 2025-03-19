@@ -21,8 +21,17 @@
 
 #edit-comment-input {
   background-color: #373d3b;
-  height: 30px;
-  width: 450px;
-  border-radius: 15px;
-  margin-left: 35px;
+  color: #ffffff;
+  border: 1px solid #555;
+  padding: 8px;
+  border-radius: 5px;
+  outline: none;
+}
+
+#edit-comment-input::placeholder {
+  color: #bdbdbd;
+}
+
+#edit-comment-input:focus {
+  border-color: #f1dfb6;
 }

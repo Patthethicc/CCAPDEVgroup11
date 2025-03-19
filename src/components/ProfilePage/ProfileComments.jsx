@@ -7,7 +7,9 @@ export default function ProfileComments({ userData }) {
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const userId = userData._id;
+  const userId = userData.user_id;
+
+  console.log(userId)
   useEffect(() => {
 
       const fetchComments = async () => {
@@ -48,7 +50,7 @@ export default function ProfileComments({ userData }) {
             key={comment._id}
             profile_url="https://i.pinimg.com/736x/c6/8c/e6/c68ce664ae649625c13190e68aa954ac.jpg"
             userName_time={`${
-              userData.user_name || "Unknown User"
+              userData?.user_name || "Unknown User"
             } • ${new Date(comment.createdAt).toLocaleString()}`}
             comment={comment.content}
             upvotes={comment.upvotes}

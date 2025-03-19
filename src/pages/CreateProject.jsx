@@ -16,6 +16,8 @@ export default function CreateProject() {
   const [deadlength, setDeadLength] = useState(0);
   const [file, setFile] = useState(null);
   const [post, setPost] = useState(false);
+  const user = JSON.parse(localStorage.getItem("user"));
+  const userId = user?.userId;
 
   useEffect(
     function () {
@@ -61,6 +63,7 @@ export default function CreateProject() {
             deadline_length: deadlength,
           },
           created_at: Date.now(),
+          created_by: userId,
           upvotes: 0,
           downvotes: 0,
           comment_ids: [],
@@ -98,7 +101,7 @@ export default function CreateProject() {
 
       postData();
     },
-    [title, body, progress, deadlength, file, post, nav],
+    [title, body, progress, deadlength, file, post, nav, userId],
   );
 
   useEffect(
