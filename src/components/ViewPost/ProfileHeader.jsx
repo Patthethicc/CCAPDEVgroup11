@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function ProfileHeader({created_by}) {
   const [user, setUser] = useState();
+  const userTagWithAt = `@${String(user.user_tag)}`;
 
   const getUser = async function () {
     try {
@@ -47,7 +48,7 @@ export default function ProfileHeader({created_by}) {
           />
         </Link>
          <Link to={`/user/${created_by}`}>
-          <span id="post-user-hours">{user?.user_name || "Unknown User"}</span>
+          <span id="post-user-hours">{userTagWithAt || "Unknown User"}</span>
          </Link>
       </div>
     </>

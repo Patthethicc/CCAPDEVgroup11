@@ -11,6 +11,7 @@ export default function Post({ post, onDelete, handleVote }) {
   const [commentNum, setCommentNum] = useState(0);
   const [user, setUser] = useState();
   const user_id = post.created_by;
+  const userTagWithAt = `@${String(user.user_tag)}`;
   
   const getUser = async function () {
     try {
@@ -71,7 +72,7 @@ export default function Post({ post, onDelete, handleVote }) {
           src="https://i.pinimg.com/736x/e4/47/0b/e4470b9552dcbe56ec14483360595e7e.jpg"
           alt="Profile Picture"
         />
-        <Link to={`/user/${user_id}`}>{user?.user_name || "Unknown User"}</Link> • {timestamp}
+        <Link to={`/user/${user_id}`}>{userTagWithAt|| "@unknownuser"}</Link> • {timestamp}
 
         <div className="ml-auto">
           <ActionDropdownMenu
