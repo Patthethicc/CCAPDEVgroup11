@@ -3,6 +3,8 @@ import { useState } from "react";
 import ProfilePostContent from "./ProfilePostContent";
 import ProfileComments from "./ProfileComments";
 import FilterButton from "./FilterButton";
+import ProfileUpvotes from "./ProfileUpvotes";
+import ProfileDownvotes from "./ProfileDownvotes";
 
 export default function ProfileContent({userData}) {
 
@@ -46,8 +48,16 @@ export default function ProfileContent({userData}) {
 		</div> 
 		<FilterButton></FilterButton>
 		<div className="project-list">
-		  {activeBtn === 1 ? <ProfileComments userData={userData}/> : <ProfilePostContent userData={userData} />}
-			</div>
+		{activeBtn === 0 ? (
+    		<ProfilePostContent userData={userData} />
+  		) : activeBtn === 1 ? (
+    		<ProfileComments userData={userData} />
+  		) : activeBtn === 2 ? (
+    		<ProfileUpvotes userData={userData} />
+  		) : activeBtn === 3 ? (
+    		<ProfileDownvotes userData={userData} />
+  		) : null}
+		</div>
 		
 		</div>
 		</div>
