@@ -11,7 +11,10 @@ export default function Post({ post, onDelete, handleVote }) {
   const [commentNum, setCommentNum] = useState(0);
   const [user, setUser] = useState();
   const user_id = post.author_id;
+  const current_user = JSON.parse(localStorage.getItem("user"));
   let userTagWithAt;
+
+  console.log(current_user);
 
   const getUser = async function () {
     try {
@@ -133,14 +136,14 @@ export default function Post({ post, onDelete, handleVote }) {
       <div className="post-actions">
         <button
           onClick={function () {
-            handleVote(post._id, "up");
+            handleVote(post._id, current_user.userId, "up");
           }}
         >
           <i className="fa fa-arrow-up"></i> {post.upvotes}
         </button>
         <button
           onClick={function () {
-            handleVote(post._id, "down");
+            handleVote(post._id, current_user.userId, "down");
           }}
         >
           <i className="fa fa-arrow-down"></i> {post.downvotes}

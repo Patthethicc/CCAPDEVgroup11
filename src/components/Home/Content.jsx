@@ -48,12 +48,12 @@ export default function Content() {
     return page + 1;
   };
 
-  const handleVote = async function (id, type) {
+  const handleVote = async function (id, user_id, type) {
     try {
       const response = await fetch(`${API}/vote/${id}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ type: type }),
+        body: JSON.stringify({ user_id: user_id, type: type }),
       });
 
       if (!response.ok) {
