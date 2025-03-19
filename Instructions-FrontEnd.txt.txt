@@ -5,3 +5,5 @@
 	VITE_API_URL=http://pro-ject.api.app.dlsu-lscs.org/
 	VITE_LOCAL_API=http://localhost:3000
 5. type npm run dev on the terminal to start the front end.
+
+Optional: If there is an error about reactjs-popup, open terminal and enter npm install reactjs-popup
