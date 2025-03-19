@@ -10,10 +10,8 @@ export default function Post({ post, onDelete, handleVote }) {
   const timestamp = formatDistanceToNow(new Date(post.created_at));
   const [commentNum, setCommentNum] = useState(0);
   const [user, setUser] = useState();
-  const user_id = post.author_id;
+  const user_id = post.author_id._id;
   const current_user = JSON.parse(localStorage.getItem("user"));
-
-  console.log(current_user);
 
   const getUser = useCallback(async () => {
     try {
@@ -31,9 +29,8 @@ export default function Post({ post, onDelete, handleVote }) {
     } catch (err) {
       console.error("Error getting data: " + err.message);
     }
-  }, [user_id]); // Dependency array includes user_id
+  }, [user_id]);
 
-  // Memoized getCommentNum function
   const getCommentNum = useCallback(async () => {
     try {
       const response = await fetch(`${API}/comment-num/${post._id}`, {
@@ -50,22 +47,20 @@ export default function Post({ post, onDelete, handleVote }) {
     } catch (err) {
       console.error("Error getting data: " + err.message);
     }
-  }, [post._id]); // Dependency array includes post._id
+  }, [post._id]);
 
   useEffect(() => {
     getCommentNum();
     getUser();
 
-    // Fetch data every 5 minutes (300,000 ms)
     const interval = setInterval(() => {
       getCommentNum();
       getUser();
     }, 300000);
 
     return () => clearInterval(interval);
-  }, [getCommentNum, getUser]); // Now the dependencies are stable
+  }, [getCommentNum, getUser]); 
 
-  // Compute userTagWithAt inside render
   const userTagWithAt = user
     ? ` ${String(user.user_name)} | @${String(user.user_tag)}`
     : "@unknownuser";
