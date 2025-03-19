@@ -14,17 +14,15 @@ export default function ProfileComments({ userData }) {
       try {
         // Construct the API URL with the userId
         const url = `${API}/user/${userId}/comments`;
-        console.log("Fetching comments from:", url);
 
         const response = await fetch(url);
 
         // Check if the response is not ok
         if (!response.ok) {
-          throw new Error(`Error: ${response.status} ${response.statusText}`);
+          throw (`No Comments Found`);
         }
 
         const data = await response.json();
-        console.log("Fetched comments:", data);
         setComments(data);
       } catch (err) {
         console.error("Error fetching comments:", err.message);

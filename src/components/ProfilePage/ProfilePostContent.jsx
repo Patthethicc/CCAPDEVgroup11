@@ -9,28 +9,30 @@ export default function ProfilePostContent({ userData }) {
   const [total_pages, setTotalPages] = useState(1);
   const userId = userData.user_id;
 
-  const getPostsByUser = useCallback(async function () {
-    try {
-      const response = await fetch(
-        `${API}/user/${userId}/posts/?p=${current_page}`,
-        {
-          method: "GET",
-          headers: { "Content-Type": "application/json" },
+  const getPostsByUser = useCallback(
+    async function () {
+      try {
+        const response = await fetch(
+          `${API}/user/${userId}/posts/?p=${current_page}`,
+          {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+          },
+        );
+
+        if (!response.ok) {
+          throw new Error("Error getting all posts.");
         }
-      );
 
-      if (!response.ok) {
-        throw new Error("Error getting all posts.");
+        const result = await response.json();
+        setPosts(result.posts);
+        setTotalPages(Number(result.total_pages));
+      } catch (err) {
+        console.error("Error getting data: " + err.message);
       }
-
-      const result = await response.json();
-      console.log(result);
-      setPosts(result.posts);
-      setTotalPages(Number(result.total_pages));
-    } catch (err) {
-      console.error("Error getting data: " + err.message);
-    }
-  }, [userId, current_page]);
+    },
+    [userId, current_page],
+  );
 
   useEffect(() => {
     getPostsByUser();
@@ -54,7 +56,7 @@ export default function ProfilePostContent({ userData }) {
       const result = await response.json();
 
       setPosts((prev_posts) =>
-        prev_posts.map((post) => (post._id === id ? result : post))
+        prev_posts.map((post) => (post._id === id ? result : post)),
       );
     } catch (err) {
       console.error("Error handling upvoting/downvoting: " + err.message);
