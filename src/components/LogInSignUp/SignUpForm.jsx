@@ -6,6 +6,7 @@ import API from "../../url.js";
 
 export default function SignUpForm() {
   const [username, setUsername] = useState("");
+  const [usertag, setTag] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -17,6 +18,7 @@ export default function SignUpForm() {
 
     const details = {
       user_name: username,
+      user_tag: usertag,
       user_email: email,
       user_password: password,
     };
@@ -52,6 +54,14 @@ export default function SignUpForm() {
         size="30px"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
+      />
+      <input
+        className="input"
+        type="text"
+        placeholder="@usertag"
+        size="30px"
+        value={usertag}
+        onChange={(e) => setTag(e.target.value)}
       />
       <input
         className="input"
