@@ -72,6 +72,7 @@ export default function Post({ post, onDelete, handleVote }) {
           alt="Profile Picture"
         />
         <Link to={`/user/${user_id}`}>{user?.user_name || "Unknown User"}</Link> • {timestamp}
+
         <div className="ml-auto">
           <ActionDropdownMenu
             key={post._id}

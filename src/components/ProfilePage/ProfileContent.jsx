@@ -46,7 +46,7 @@ export default function ProfileContent({userData}) {
 		</div> 
 		<FilterButton></FilterButton>
 		<div className="project-list">
-		  {activeBtn === 1 ? <ProfileComments userData={userData}/> : <ProfilePostContent/>}
+		  {activeBtn === 1 ? <ProfileComments userData={userData}/> : <ProfilePostContent userData={userData} />}
 			</div>
 		
 		</div>
