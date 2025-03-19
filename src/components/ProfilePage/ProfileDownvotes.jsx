@@ -4,7 +4,7 @@ import Post from "../Home/Post.jsx";
 
 export default function ProfileDownvotes({ userData }) {
   const [posts, setPosts] = useState([]);
-  const userId = userData._id;
+  const userId = userData.user_id;
 
   const getDownvotedPosts = useCallback(async () => {
     try {
