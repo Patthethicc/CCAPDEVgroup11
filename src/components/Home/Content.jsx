@@ -30,14 +30,14 @@ export default function Content() {
         console.error("Error getting data: " + err.message);
       }
     },
-    [current_page],
+    [current_page]
   );
 
   useEffect(
     function () {
       getPosts();
     },
-    [getPosts],
+    [getPosts]
   );
 
   const prevPage = function (page) {
@@ -63,7 +63,7 @@ export default function Content() {
       const result = await response.json();
 
       setPosts((prev_posts) =>
-        prev_posts.map((post) => (post._id == id ? result : post)),
+        prev_posts.map((post) => (post._id == id ? result : post))
       );
     } catch (err) {
       console.error("Error handling upvoting/downvoting: " + err.message);
