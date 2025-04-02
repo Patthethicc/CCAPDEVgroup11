@@ -11,6 +11,7 @@ import SignUpPage from "./pages/SignUpPage.jsx";
 import ViewPost from "./pages/ViewPost.jsx";
 
 function App() {
+  
   return (
     <Router>
       <Routes>
