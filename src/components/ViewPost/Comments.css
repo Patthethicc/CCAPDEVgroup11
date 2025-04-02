@@ -86,3 +86,8 @@
 .view-replies-btn:hover {
   text-decoration: underline;
 }
+
+.reply {
+  margin-top: 10px;
+  margin-left: 50px;
+}
