@@ -39,6 +39,20 @@ export default function CommentSection({ projectId }) {
     );
   };
 
+  const handleDeleteReply = (parentCommentId) => {
+    setUpdatedComments((prevComments) => 
+      prevComments.map((comment) => {
+        if (comment._id === parentCommentId) {
+          return {
+            ...comment,
+            replyCount: comment.replyCount ? comment.replyCount - 1 : 0,
+          };
+        }
+        return comment;
+      })
+    );
+  };
+
   const formatTimeAgo = (timestamp) => {
     const seconds = Math.floor((new Date() - new Date(timestamp)) / 1000);
 
@@ -71,6 +85,7 @@ export default function CommentSection({ projectId }) {
             comment={comment.content}
             isReply={false} // Parent comments
             replyCount={comment.replies_count}
+            onDeleteReply={handleDeleteReply} // Pass the delete function down
             upvotes={comment.upvotes}
             downvotes={comment.downvotes}
             commentId={comment._id}

@@ -149,13 +149,6 @@ export default function Comments(props) {
       {/* Only show Reply Form when Comment-Comment button is clicked */}
       {isReplying && <ReplyForm parentCommentId={props.commentId} postId={props.postId} onReplySubmit={handleReplySubmit} />}
 
-      {/* "View Replies" button should only be shown if replies exist */}
-      {props.replyCount > 0 && (
-        <button className="view-replies-btn" onClick={() => setShowReplies(!showReplies)}>
-          {showReplies ? "Hide Replies" : `View Replies (${props.replyCount})`}
-        </button>
-      )}
-
       {/* {isReplying && (
         <ReplyForm 
           parentCommentId={props.commentId} 
@@ -171,7 +164,7 @@ export default function Comments(props) {
             commentId={reply._id}
             comment={reply.content}
             profile_url={reply.user_id?.profile_url || "https://i.pinimg.com/736x/c6/8c/e6/c68ce664ae649625c13190e68aa954ac.jpg"}
-            userName_time={`${reply.user_id?.user_name || "Unknown User"} • ${formatTimeAgo(reply.createdAt)}`}
+            userName_time={`${reply.user_id?.user_name || "relle"} • ${formatTimeAgo(reply.createdAt)}`}
             isReply={true}
             replyCount={reply.replies_count}
             upvotes={reply.upvotes}
@@ -181,6 +174,13 @@ export default function Comments(props) {
             onUpdate={props.onUpdate} 
           />
         ))}
+
+      {/* "View Replies" button should only be shown if replies exist */}
+      {props.replyCount > 0 && (
+        <button className="view-replies-btn" onClick={() => setShowReplies(!showReplies)}>
+          {showReplies ? "Hide Replies" : `View Replies (${props.replyCount})`}
+        </button>
+      )}
     </div>
   );
 }
