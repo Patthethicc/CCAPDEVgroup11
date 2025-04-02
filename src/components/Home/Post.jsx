@@ -29,6 +29,8 @@ export default function Post({ post, onDelete, handleVote }) {
 
       const result = await response.json();
 
+      console.log(result); // delete after testing
+
       setUser(result);
     } catch (err) {
       console.error("Error getting data: " + err.message);
