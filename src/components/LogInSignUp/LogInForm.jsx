@@ -29,6 +29,7 @@ export default function LogInForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(details),
+        credentials: "include", // Important: allows cookies to be sent
       });
 
       const data = await response.json();
@@ -39,13 +40,15 @@ export default function LogInForm() {
 
       console.log("Login successful:", data);
 
+      // IMPORTANT
+      // remove after using sessions
       // Save userId in local storage after successful login
       localStorage.setItem(
         "user",
         JSON.stringify({
           userId: data.user._id, // Store _id as userId
           username: data.user.username,
-        }),
+        })
       );
 
       navigate("/home");
