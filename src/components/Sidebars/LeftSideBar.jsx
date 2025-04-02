@@ -1,7 +1,7 @@
 import "./LeftSideBar.css";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faScroll } from "@fortawesome/free-solid-svg-icons";
+import { faBarsProgress, faCheck } from "@fortawesome/free-solid-svg-icons";
 
 
 export default function LeftSideBar({category, setCategory}) {
@@ -10,7 +10,9 @@ export default function LeftSideBar({category, setCategory}) {
     <>
       <div className="left-sidebar">
         <Link to="/home">
-          <button>
+          <button
+          onClick={() => setCategory("Home")}
+          className={category === "Home" ? "active" : ""}>
             <i className="fa fa-home mx-[0.6em]" />
             Home
           </button>
@@ -21,16 +23,16 @@ export default function LeftSideBar({category, setCategory}) {
           <i className="fa fa-fire mx-[0.6em]" /> Popular
         </button>
         <button
-        onClick={() => setCategory("Urgent")}
-        className={category === "Urgent" ? "active" : ""}
+        onClick={() => setCategory("InProgress")}
+        className={category === "In Progress" ? "active" : ""}
         >
-          <i className="fa fa-exclamation-triangle mx-[0.6em]" /> Urgent
+          <FontAwesomeIcon icon={faBarsProgress} className="mx-[0.7em]"/> In Progress
         </button>
         <button
-        onClick={() => setCategory("All")}
-        className={category === "All" ? "active" : ""}>
-          <FontAwesomeIcon icon={faScroll} className="mx-[0.7em]" />
-          All
+        onClick={() => setCategory("Finished")}
+        className={category === "Finished" ? "active" : ""}>
+          <FontAwesomeIcon icon={faCheck} className="mx-[0.7em]" />
+          Finished
         </button>
       </div>
     </>

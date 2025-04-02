@@ -4,15 +4,29 @@ import API from "../../url.js";
 import { useState, useEffect, useCallback } from "react";
 import PageBtn from "./PageBtn.jsx";
 
-export default function Content() {
+export default function Content({category}) {
   const [posts, setPosts] = useState([]);
   const [current_page, setCurrentPage] = useState(0);
   const [total_pages, setTotalPages] = useState(1);
 
+
   const getPosts = useCallback(
     async function () {
+      let url = `${API}/?p=${current_page}`
+      
+      if (category === "Popular") {
+        url += "&sort=popular";
+      }
+      if (category === "InProgress") {
+        url += "&sort=inProgress";
+      }
+      if (category === "Finished") {
+        url += "&sort=finished";
+      }
+
+
       try {
-        const response = await fetch(`${API}/?p=${current_page}`, {
+        const response = await fetch(url, {
           method: "GET",
           headers: { "Content-Type": "application/json" },
         });
@@ -30,7 +44,7 @@ export default function Content() {
         console.error("Error getting data: " + err.message);
       }
     },
-    [current_page]
+    [current_page, category]
   );
 
   useEffect(
