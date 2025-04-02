@@ -10,9 +10,12 @@ export default function Post({ post, onDelete, handleVote }) {
   const timestamp = formatDistanceToNow(new Date(post.created_at));
   const [commentNum, setCommentNum] = useState(0);
   const [user, setUser] = useState();
-  const user_id = post.author_id?._id || post.author_id; 
+  const user_id = post.author_id?._id || post.author_id;
+
+  // change to session
   const current_user = JSON.parse(localStorage.getItem("user"));
-  console.log(user_id)
+  console.log(user_id);
+
   const getUser = useCallback(async () => {
     try {
       const response = await fetch(`${API}/user/${user_id}`, {
@@ -25,6 +28,9 @@ export default function Post({ post, onDelete, handleVote }) {
       }
 
       const result = await response.json();
+
+      // delete after testing
+      console.log("result" + result); // IMPORTANT: remove after testing
 
       setUser(result);
     } catch (err) {

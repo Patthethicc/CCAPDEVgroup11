@@ -4,15 +4,29 @@ import API from "../../url.js";
 import { useState, useEffect, useCallback } from "react";
 import PageBtn from "./PageBtn.jsx";
 
-export default function Content() {
+export default function Content({ search, setSearch, category }) {
   const [posts, setPosts] = useState([]);
   const [current_page, setCurrentPage] = useState(0);
   const [total_pages, setTotalPages] = useState(1);
 
+
   const getPosts = useCallback(
     async function () {
+      let url = `${API}/?p=${current_page}`
+      
+      if (category === "Popular") {
+        url += "&sort=popular";
+      }
+      if (category === "InProgress") {
+        url += "&sort=inProgress";
+      }
+      if (category === "Finished") {
+        url += "&sort=finished";
+      }
+
+
       try {
-        const response = await fetch(`${API}/?p=${current_page}`, {
+        const response = await fetch(url, {
           method: "GET",
           headers: { "Content-Type": "application/json" },
         });
@@ -30,14 +44,50 @@ export default function Content() {
         console.error("Error getting data: " + err.message);
       }
     },
-    [current_page],
+    [current_page, category]
+  );
+
+  const getPostsBySearch = useCallback(
+    async function () {
+      const encoded_search = encodeURIComponent(search);
+      try {
+        const response = await fetch(
+          `${API}/search?q=${encoded_search}&p=${current_page}`,
+          {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+          },
+        );
+
+        if (!response.ok) {
+          throw new Error("Error getting all posts.");
+        }
+
+        const result = await response.json();
+        console.log(result);
+        setPosts(result.posts);
+        setTotalPages(Number(result.total_pages));
+        setCurrentPage(Number(result.current_page));
+      } catch (err) {
+        console.error("Search error details:", {
+          error: err.message,
+          searchTerm: search,
+          currentPage: current_page,
+        });
+      }
+    },
+    [search, current_page],
   );
 
   useEffect(
     function () {
-      getPosts();
+      if (search == "") {
+        getPosts();
+      } else {
+        getPostsBySearch();
+      }
     },
-    [getPosts],
+    [getPosts, search, getPostsBySearch],
   );
 
   const prevPage = function (page) {
