@@ -35,3 +35,54 @@
 #edit-comment-input:focus {
   border-color: #f1dfb6;
 }
+
+.reply-container {
+  margin-left: 20px;
+  padding-left: 10px;
+  border-left: 2px solid #777; /* Connect replies to parent */
+}
+
+.reply-comment {
+  margin-left: 20px;
+  padding-left: 10px;
+  border-left: 2px solid #555; /* Connect replies to parent */
+}
+
+.reply-form {
+  display: flex;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+.reply-input {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #373d3b;
+  color: white;
+}
+
+.send-reply-btn {
+  padding: 5px 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.send-reply-btn:hover {
+  background-color: #218838;
+}
+
+.view-replies-btn {
+  background: none;
+  border: none;
+  color: #f1dfb6;
+  cursor: pointer;
+}
+
+.view-replies-btn:hover {
+  text-decoration: underline;
+}

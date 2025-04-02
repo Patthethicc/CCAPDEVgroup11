@@ -8,10 +8,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import API from "../../url.js";
+import ReplyForm from "./ReplyForm";
 
 export default function CommentActions(props) {
   const [upvotes, setUpvotes] = useState(props.upvotes || 0);
   const [downvotes, setDownvotes] = useState(props.downvotes || 0);
+  const [showReplyForm, setShowReplyForm] = useState(false);
 
   const handleUpvote = async () => {
     try {
@@ -58,6 +60,10 @@ export default function CommentActions(props) {
     }
   };
 
+  const toggleReplyForm = () => {
+    setShowReplyForm(!showReplyForm); // Toggle the visibility of the ReplyForm
+  };
+
   return (
     <>
       <div id="commenter-action-buttons" className="actions-buttons">
@@ -75,7 +81,11 @@ export default function CommentActions(props) {
         >
           <FontAwesomeIcon icon={faArrowDown} /> {downvotes}
         </button>
-        <button className="comment-comment-button" aria-label="Comment">
+        <button
+          onClick={toggleReplyForm} // Toggle reply form visibility
+          className="comment-comment-button"
+          aria-label="Comment"
+        >
           <FontAwesomeIcon icon={faComments} />
           &nbsp;0
         </button>
@@ -83,6 +93,11 @@ export default function CommentActions(props) {
           <FontAwesomeIcon icon={faShare} />
         </button>
       </div>
+
+      {/* Render the ReplyForm if showReplyForm is true */}
+      {showReplyForm && (
+        <ReplyForm parentCommentId={props.commentId} postId={props.postId} />
+      )}
     </>
   );
 }

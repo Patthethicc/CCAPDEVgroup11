@@ -69,10 +69,13 @@ export default function CommentSection({ projectId }) {
               comment.user_id?.user_name || "Unknown User"
             } • ${formatTimeAgo(new Date(comment.createdAt))}`} // ${formatTimeAgo(new Date(comment.createdAt))}
             comment={comment.content}
+            isReply={false} // Parent comments
+            replyCount={comment.replies_count}
             upvotes={comment.upvotes}
             downvotes={comment.downvotes}
             commentId={comment._id}
             userId={comment.user_id}
+            postId={comment.post_id}
             onUpdate={handleCommentUpdate}
           />
         ))}
