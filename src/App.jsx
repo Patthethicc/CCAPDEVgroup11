@@ -8,19 +8,34 @@ import ProfilePage from "./pages/ProfilePage.jsx";
 import LandingPage from "./pages/LandingPage.jsx";
 import LogInPage from "./pages/LogInPage.jsx";
 import SignUpPage from "./pages/SignUpPage.jsx";
+import ViewPost from "./pages/ViewPost.jsx";
+import { useState, useEffect } from "react";
 
 function App() {
+  const [search, setSearch] = useState("");
+
+  const handleSearch = function (title) {
+    setSearch(title);
+  };
+
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
+        <Route index element={<LandingPage />} />
+        <Route path="login" element={<LogInPage />} />
+        <Route path="signup" element={<SignUpPage />} />
+        <Route
+          path="/"
+          element={<Layout handleSearch={handleSearch} search={search} />}
+        >
+          <Route
+            path="home"
+            element={<Home search={search} setSearch={setSearch} />}
+          />
           <Route path="create-project" element={<CreateProject />} />
-          <Route path="profile-page" element={<ProfilePage />} />
-          <Route path="edit-project" element={<EditProject />} />
-          <Route path="login-page" element={<LogInPage />}/>
-          <Route path="signup-page" element={<SignUpPage />}/>
-          <Route path="edit-project" element={<EditProject />} />
+          <Route path="user/:userId" element={<ProfilePage />} />
+          <Route path="edit-project/:postId" element={<EditProject />} />
+          <Route path="view-project/:postId" element={<ViewPost />} />
         </Route>
       </Routes>
     </Router>

@@ -1,15 +1,42 @@
 import { faPaperclip } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function UploadFilesBtn() {
+export default function UploadFilesBtn({ file, setFile }) {
+  const fileName = function (file) {
+    if (typeof file === "string") {
+      return file.split("/").pop();
+    } else if (file instanceof File) {
+      return file.name;
+    }
+    return null;
+  };
+
+  const handleFileChange = (event) => {
+    const uploaded_file = event.target.files[0];
+    if (uploaded_file) {
+      setFile(uploaded_file);
+    }
+  };
+
   return (
-    <button
-      className="bg-[var(--background-color)] rounded-lg py-[0.2rem] mt-3 text-xs w-[20%] shadow-md
+    <div className="flex items-center">
+      <label
+        htmlFor="file-upload"
+        className="cursor-pointer bg-[var(--background-color)] rounded-lg py-2 px-4 text-xs w-[20%] h-8 shadow-md
         focus-within:border-[var(--field-border-color)] hover:bg-[var(--brighter-bg-color)] transition-colors
-        border-solid border-2 border-transparent font-bold"
-    >
-      <FontAwesomeIcon icon={faPaperclip} className="mx-1 " />
-      Upload
-    </button>
+        border-solid border-2 border-transparent font-bold flex items-center justify-center"
+      >
+        <FontAwesomeIcon icon={faPaperclip} className="mr-2" />
+        Upload
+      </label>
+      <input
+        id="file-upload"
+        type="file"
+        className="hidden"
+        onChange={handleFileChange}
+      />
+
+      {file && <p className="text-sm ml-5 underline ">{fileName(file)}</p>}
+    </div>
   );
 }

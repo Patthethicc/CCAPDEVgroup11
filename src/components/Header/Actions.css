@@ -107,6 +107,10 @@ header .account .greeting {
   color: var(--sub-text-color);
 }
 
+header .account .greeting:hover {
+  color: var(--darker-sub-text-color);
+}
+
 .account-panel {
   display: none;
   position: absolute;

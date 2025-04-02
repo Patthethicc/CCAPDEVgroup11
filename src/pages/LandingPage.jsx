@@ -1,12 +1,14 @@
-import LandingContent from "../components/Landing/LandingContent"
-import LandingHeader from "../components/Landing/LandingHeader"
-import "../components/Landing/page.css"
+import LandingContent from "../components/Landing/LandingContent";
+import LandingHeader from "../components/Landing/LandingHeader";
+import "../components/Landing/landingpage.css"
 
 export default function LandingPage() {
     return (
-        <body>
+        <div className="body-landing">
             <LandingHeader />
-            <LandingContent />
-        </body>
+            <div className="main-landing">
+                <LandingContent />
+            </div>
+        </div>
     );
 }

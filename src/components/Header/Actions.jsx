@@ -1,7 +1,13 @@
 import NotifDropdownMenu from "./NotifDropdownMenu.jsx";
+import ProfileDropdownMenu from "./ProfileDropdownMenu.jsx";
 import "./Actions.css";
+import { Link } from "react-router-dom";
 
 export default function Actions() {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const userId = user?.userId;
+  const username = user?.username;
+
   return (
     <div className="actions">
       <NotifDropdownMenu />
@@ -9,11 +15,12 @@ export default function Actions() {
         <i className="fa fa-question-circle" aria-hidden="true"></i>
       </button>
       <div className="account">
-        <span className="greeting">Hello, Marshal</span>
-        <img
-          src="https://i.pinimg.com/736x/63/d4/2b/63d42bcfc3ce97414d78f14ae76f61c8.jpg"
-          alt="Profile Picture"
-        />
+        <Link to={`/user/${userId}`}>
+          <span className="greeting transition-colors">
+            Hello, {username || "Marshall"}
+          </span>
+        </Link>
+        <ProfileDropdownMenu userId={userId}/>
         <div className="account-panel">
           <div className="account-info">
             <img

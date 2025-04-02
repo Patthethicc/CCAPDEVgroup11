@@ -1,76 +1,59 @@
-.profileHeader{
-	gap: 5px;
+.profileHeader {
+  gap: 5px;
+  background-color: var(--background-color);
 }
 
-.coverPhoto{
-	height: 125px;
-	width: 500px;
-	background-color: var(--secondary-color);
-	margin-bottom: -40px;
-	border-radius: 25px;
-	width: 100%;
+.coverPhoto {
+  height: 125px;
+  width: 500px;
+  background-color: var(--secondary-color);
+  margin-bottom: -40px;
+  border-radius: 25px;
+  width: 100%;
 }
 
-.profilePic{
-    border-radius: 50%;
-    width: 125px;
-    height: 125px;
-	margin-left: 10px;
-	border-width: thick;
-	border-color: var(--background-color);
+.profileContent {
+  background-color: var(--background-color);
+}
+
+.profilePic {
+  border-radius: 50%;
+  width: 125px;
+  height: 125px;
+  margin-left: 10px;
+  border-width: thick;
+  border-color: var(--background-color);
 }
 
 .info-container {
-	display: flex;
+  display: flex;
 }
 
-
-.user-info .userHandle{
-	font-size: 30px;
-	font: bold;
+.user-info .userHandle {
+  font-size: 30px;
+  font: bold;
+  font-family: "Garet-Book";
 }
 
 .user-info .userName {
-	color: var(--primary-color);
-	margin-bottom: 5px;
+  color: var(--primary-color);
+  margin-bottom: 5px;
 }
 
-.user-info .bio{
-	color: var(--sub-text-color);
-	font-size: 15px;
+.user-info .bio {
+  color: var(--sub-text-color);
+  font-size: 15px;
+  font-family: "Garet-Book";
+}
+
+.user-info {
+  flex-direction: column;
+  margin-top: 40px;
+  margin-right: 100px;
+  margin-bottom: 20px;
+  position: relative;
 }
 
 
-.user-info{
-	flex-direction: column;
-	margin-top: 40px;
-	margin-right: 100px;
-	margin-bottom: 20px;
-	position: relative;
-}
 
-.headerOptions{
-	margin-top: 50px;
-	margin-right: auto;
-	margin-left: auto;
-	size: 5px;
-	display: flex;
-	align-items: right;
-	gap: 3px;
-	padding-left: 5px;
-}
 
-.headerOptions button{
-	margin: 0px 3px;
-	padding: 0px 7.5px;
-	height: 25px;
-	background-color: var(--primary-color);
-	border-radius: 15px;
-	border-spacing: .5px;	
-	
-}
-.headerOptions button:hover{
-	transition: background-color 250ms;
-	background: var(--secondary-color);
-	
-}

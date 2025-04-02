@@ -1,4 +1,6 @@
-const imgSrc = [
+/*
+ COMMENTING OUT HARDCODES
+ const imgSrc = [
   "https://i.pinimg.com/736x/e4/47/0b/e4470b9552dcbe56ec14483360595e7e.jpg",
   "https://i.pinimg.com/736x/1f/42/a4/1f42a478b7d4e85360622d74f181d37a.jpg",
   "https://i.pinimg.com/736x/25/62/c5/2562c50d5906c92f066038d4d5d3cdf2.jpg",
@@ -11,7 +13,7 @@ const imgSrc = [
 const getRandImg = function () {
   const index = Math.floor(Math.random() * imgSrc.length);
   return imgSrc[index];
-};
+}; */
 
 const actionIcons = [
   "fa fa-arrow-up mx-1",
