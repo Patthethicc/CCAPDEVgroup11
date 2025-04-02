@@ -29,7 +29,7 @@ export default function LogInForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(details),
-        // credentials: "include", // Important: allows cookies to be sent
+        credentials: "include", // Important: allows cookies to be sent
       });
 
       const data = await response.json();
