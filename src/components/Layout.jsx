@@ -5,10 +5,10 @@ import RightSideBar from "./Sidebars/RightSideBar.jsx";
 import Footer from "./Footer.jsx";
 import "./Layout.css";
 
-export default function Layout() {
+export default function Layout({ handleSearch, search }) {
   return (
     <div className="layout bg-[url('../assets/images/bg.png')]">
-      <Header />
+      <Header handleSearch={handleSearch} search={search} />
       <main>
         <LeftSideBar />
         <Outlet />

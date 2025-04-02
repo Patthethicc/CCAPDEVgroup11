@@ -4,7 +4,7 @@ import API from "../../url.js";
 import { useState, useEffect, useCallback } from "react";
 import PageBtn from "./PageBtn.jsx";
 
-export default function Content() {
+export default function Content({ search, setSearch }) {
   const [posts, setPosts] = useState([]);
   const [current_page, setCurrentPage] = useState(0);
   const [total_pages, setTotalPages] = useState(1);
@@ -30,14 +30,50 @@ export default function Content() {
         console.error("Error getting data: " + err.message);
       }
     },
-    [current_page]
+    [current_page],
+  );
+
+  const getPostsBySearch = useCallback(
+    async function () {
+      const encoded_search = encodeURIComponent(search);
+      try {
+        const response = await fetch(
+          `${API}/search?q=${encoded_search}&p=${current_page}`,
+          {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+          },
+        );
+
+        if (!response.ok) {
+          throw new Error("Error getting all posts.");
+        }
+
+        const result = await response.json();
+        console.log(result);
+        setPosts(result.posts);
+        setTotalPages(Number(result.total_pages));
+        setCurrentPage(Number(result.current_page));
+      } catch (err) {
+        console.error("Search error details:", {
+          error: err.message,
+          searchTerm: search,
+          currentPage: current_page,
+        });
+      }
+    },
+    [search, current_page],
   );
 
   useEffect(
     function () {
-      getPosts();
+      if (search == "") {
+        getPosts();
+      } else {
+        getPostsBySearch();
+      }
     },
-    [getPosts]
+    [getPosts, search, getPostsBySearch],
   );
 
   const prevPage = function (page) {
@@ -63,7 +99,7 @@ export default function Content() {
       const result = await response.json();
 
       setPosts((prev_posts) =>
-        prev_posts.map((post) => (post._id == id ? result : post))
+        prev_posts.map((post) => (post._id == id ? result : post)),
       );
     } catch (err) {
       console.error("Error handling upvoting/downvoting: " + err.message);
