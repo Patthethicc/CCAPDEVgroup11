@@ -3,6 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { useState } from "react";
 import API from "../../url.js";
+import bcrypt from 'bcryptjs'
+
+const salt = bcrypt.genSaltSync(10);
 
 export default function SignUpForm() {
   const [username, setUsername] = useState("");
@@ -22,6 +25,8 @@ export default function SignUpForm() {
       user_email: email,
       user_password: password,
     };
+
+    details.user_password = bcrypt.hashSync(details.user_password, salt);
 
     try {
       const response = await fetch(`${API}/user/signup`, {
