@@ -29,7 +29,8 @@ export default function Post({ post, onDelete, handleVote }) {
 
       const result = await response.json();
 
-      console.log(result); // delete after testing
+      // delete after testing
+      console.log("result" + result); // IMPORTANT: remove after testing
 
       setUser(result);
     } catch (err) {
