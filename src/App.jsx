@@ -1,6 +1,7 @@
 import Layout from "./components/Layout.jsx";
 import Home from "./pages/Home.jsx";
 import CreateProject from "./pages/CreateProject.jsx";
+import About from "./pages/About.jsx";
 import EditProject from "./pages/EditProject.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
@@ -36,6 +37,7 @@ function App() {
           <Route path="user/:userId" element={<ProfilePage />} />
           <Route path="edit-project/:postId" element={<EditProject />} />
           <Route path="view-project/:postId" element={<ViewPost />} />
+          <Route path="about" element={<About />} />
         </Route>
       </Routes>
     </Router>

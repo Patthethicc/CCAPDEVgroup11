@@ -4,8 +4,7 @@ import "./Nav.css";
 export default function Nav() {
   return (
     <nav>
-      <Link to="/">About</Link>
-      <Link to="/">Contact Us</Link>
+      <Link to="/about">About Us</Link>
     </nav>
   );
 }
