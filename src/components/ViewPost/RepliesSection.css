@@ -1,48 +1,48 @@
 .replies-section {
-  margin-left: 20px;
-  padding-left: 10px;
-  border-left: 2px solid #ccc; /* Indentation line */
-}
-
+    margin-left: 20px;
+    padding-left: 10px;
+    border-left: 2px solid #ccc; /* Indentation line */
+  }
+  
 .reply-container {
-  position: relative;
-  padding-left: 20px; /* Add padding for indentation */
-  margin-top: 10px;
+position: relative;
+padding-left: 15px; /* Add padding for indentation */
+margin-top: 10px;
 }
 
 .reply-line {
-  position: absolute;
-  left: -10px; /* Adjust to make sure it connects properly */
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background-color: #ccc;
+position: absolute;
+left: -10px; /* Adjust to make sure it connects properly */
+top: 0;
+bottom: 0;
+width: 2px;
+background-color: #ccc;
 }
 
 .reply {
-  margin-top: 10px;
-  margin-left: 30px;
-  padding-left: 200px;
-  background-color: #f9f9f9;
+margin-top: 10px;
+margin-left: 30px;
+padding-left: 200px;
+background-color: #f9f9f9;
 }
 
 .reply-content {
-  padding: 10px;
-  border-radius: 5px;
-  background-color: #f9f9f9;
+padding: 10px;
+border-radius: 5px;
+background-color: #f9f9f9;
 }
 
 .reply-author {
-  font-weight: bold;
+font-weight: bold;
 }
 
 .reply-text {
-  margin: 5px 0;
+margin: 5px 0;
 }
 
 .reply-button {
-  background: none;
-  border: none;
-  color: blue;
-  cursor: pointer;
+background: none;
+border: none;
+color: blue;
+cursor: pointer;
 }

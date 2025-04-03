@@ -10,75 +10,27 @@ export default function CommentDropdown(props) {
   };
 
   const handleDelete = async () => {
+    // remove after testing
+    console.log("comment id: " + props.commentId);
+    console.log("user id: " + props.userId._id);
+
     if (!props.commentId) {
       console.error("Comment ID is missing");
       return;
     }
 
-    // Check if the comment is a reply
-    if (props.parentCommentId) {
-      try {
-        // Step 1: Delete the reply
-        const response = await fetch(`${API}/comment/delete/${props.commentId}`, {
-          method: "DELETE",
-        });
+    try {
+      const response = await fetch(`${API}/comment/delete/${props.commentId}`, {
+        method: "DELETE",
+      });
 
-        if (!response.ok) {
-          throw new Error("Failed to delete reply");
-        }
-
-        console.log("Reply deleted successfully");
-
-        // Step 2: Update the parent comment's replyCount
-        const updateParentResponse = await fetch(`${API}/comment/${props.parentCommentId}`, {
-          method: "GET",
-        });
-
-        if (!updateParentResponse.ok) {
-          throw new Error("Failed to fetch parent comment");
-        }
-
-        const parentComment = await updateParentResponse.json();
-
-        // Decrement replyCount of the parent comment
-        const updatedParentComment = {
-          ...parentComment,
-          replyCount: parentComment.replyCount - 1,
-        };
-
-        // Step 3: Update the parent comment's replyCount on the backend
-        const updateParentCountResponse = await fetch(`${API}/comment/update/${props.parentCommentId}`, {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(updatedParentComment),
-        });
-
-        if (!updateParentCountResponse.ok) {
-          throw new Error("Failed to update parent comment's replyCount");
-        }
-
-        console.log("Parent comment's replyCount updated successfully");
-
-      } catch (error) {
-        console.error("Error deleting reply or updating parent comment:", error);
+      if (!response.ok) {
+        throw new Error("Failed to delete comment");
       }
-    } else {
-      // If it's not a reply, just delete the comment normally
-      try {
-        const response = await fetch(`${API}/comment/delete/${props.commentId}`, {
-          method: "DELETE",
-        });
 
-        if (!response.ok) {
-          throw new Error("Failed to delete comment");
-        }
-
-        console.log("Comment deleted successfully");
-      } catch (error) {
-        console.error("Error deleting comment:", error);
-      }
+      console.log("Comment deleted successfully");
+    } catch (error) {
+      console.error("Error deleting comment:", error);
     }
   };
 
